@@ -5,32 +5,50 @@
 	<dict>
 		<key>title</key>
 		<string>New York</string>
-		<key>description</key>
-		<string>Welcome to New York City!</string>
+		<key>song</key>
+		<string></string>
 		<key>latitude</key>
 		<real>40.7128</real>
 		<key>longitude</key>
 		<real>-74.0059</real>
+		<key>radius</key>
+		<string>100</string>
 	</dict>
 	<dict>
 		<key>title</key>
 		<string>San Francisco</string>
-		<key>description</key>
-		<string>Welcome to San Francisco!</string>
+		<key>song</key>
+		<string></string>
 		<key>latitude</key>
 		<real>37.7749</real>
 		<key>longitude</key>
 		<real>-122.4194</real>
+		<key>radius</key>
+		<integer>100</integer>
 	</dict>
 	<dict>
 		<key>title</key>
 		<string>Los Angeles</string>
-		<key>description</key>
-		<string>Welcome to Los Angeles!</string>
+		<key>song</key>
+		<string></string>
 		<key>latitude</key>
-		<real>34.0522</real>
+		<real>37.25</real>
 		<key>longitude</key>
 		<real>-118.2437</real>
+		<key>radius</key>
+		<integer>100</integer>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Berkeley</string>
+		<key>song</key>
+		<string></string>
+		<key>latitude</key>
+		<real>37.8716</real>
+		<key>longitude</key>
+		<real>-122.2727</real>
+		<key>radius</key>
+		<integer>500</integer>
 	</dict>
 </array>
 </plist>

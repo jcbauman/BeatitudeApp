@@ -2,21 +2,22 @@
 //  Places.swift
 //  MapKit Starter
 //
-//  Created by Pranjal Satija on 10/25/16.
-//  Copyright © 2016 Pranjal Satija. All rights reserved.
-//
+
 
 import MapKit
+extension Place: MKAnnotation {}
 
-@objc class Place: NSObject, MKAnnotation {
+@objc class Place: NSObject {
     var title: String?
     var subtitle: String?
+    var radius: Double?
     var coordinate: CLLocationCoordinate2D
     
-    init(title: String?, subtitle: String?, coordinate: CLLocationCoordinate2D) {
+    init(title: String?, subtitle: String?, coordinate: CLLocationCoordinate2D, radius: Double) {
         self.title = title
         self.subtitle = subtitle
         self.coordinate = coordinate
+        self.radius = radius
     }
     
     static func getPlaces() -> [Place] {
@@ -27,10 +28,11 @@ import MapKit
         for item in array {
             let dictionary = item as? [String : Any]
             let title = dictionary?["title"] as? String
-            let subtitle = dictionary?["description"] as? String
+            let subtitle = dictionary?["song"] as? String
             let latitude = dictionary?["latitude"] as? Double ?? 0, longitude = dictionary?["longitude"] as? Double ?? 0
+            let radius = dictionary?["radius"] as? Double ?? 0
             
-            let place = Place(title: title, subtitle: subtitle, coordinate: CLLocationCoordinate2DMake(latitude, longitude))
+            let place = Place(title: title, subtitle: subtitle, coordinate: CLLocationCoordinate2DMake(latitude, longitude), radius: radius)
             places.append(place)
         }
         

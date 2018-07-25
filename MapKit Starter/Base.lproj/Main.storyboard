@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,14 +21,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="u6n-lR-HdB"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u6n-lR-HdB">
+                                <rect key="frame" x="0.0" y="61" width="375" height="393"/>
+                            </mapView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="sGd-ja-Map">
+                                <rect key="frame" x="15" y="479" width="345" height="124"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ZONE SELECTOR RADIUS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9s-Kz-7Es">
+                                        <rect key="frame" x="112.5" y="0.0" width="120.5" height="13"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="EY0-FH-iBw">
+                                        <rect key="frame" x="-2" y="25" width="349" height="31"/>
+                                        <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD/UPDATE SONG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sP1-Cp-nw6">
+                                        <rect key="frame" x="0.0" y="67" width="345" height="22.5"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.96008315970000002" blue="0.95930977579999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DELETE ZONE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6x-QB-V9e">
+                                        <rect key="frame" x="0.0" y="101.5" width="345" height="22.5"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.96008315970000002" blue="0.95930977579999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="u6n-lR-HdB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="BtC-J0-OK0"/>
-                            <constraint firstItem="u6n-lR-HdB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Dsq-60-A5n"/>
-                            <constraint firstAttribute="trailing" secondItem="u6n-lR-HdB" secondAttribute="trailing" id="KCI-83-PQ8"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="u6n-lR-HdB" secondAttribute="bottom" id="S9T-m5-wsA"/>
+                            <constraint firstItem="sGd-ja-Map" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="EEk-an-bdR"/>
+                            <constraint firstAttribute="trailing" secondItem="EY0-FH-iBw" secondAttribute="trailing" constant="15" id="Fex-nD-9nI"/>
+                            <constraint firstItem="p6x-QB-V9e" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="HfI-4r-79b"/>
+                            <constraint firstItem="u6n-lR-HdB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="41" id="MPn-pg-dUi"/>
+                            <constraint firstItem="EY0-FH-iBw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="PoK-xs-nov"/>
+                            <constraint firstAttribute="trailing" secondItem="sP1-Cp-nw6" secondAttribute="trailing" constant="15" id="RCj-YV-dgs"/>
+                            <constraint firstItem="sGd-ja-Map" firstAttribute="top" secondItem="u6n-lR-HdB" secondAttribute="bottom" constant="25" id="VV4-OG-LGl"/>
+                            <constraint firstAttribute="trailing" secondItem="sGd-ja-Map" secondAttribute="trailing" constant="15" id="iwP-jV-Hj1"/>
+                            <constraint firstItem="u6n-lR-HdB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mvE-RZ-rq1"/>
+                            <constraint firstItem="sGd-ja-Map" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="r1B-IS-zSL"/>
+                            <constraint firstItem="u6n-lR-HdB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="t4w-CZ-WhY"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="u6n-lR-HdB" secondAttribute="bottom" constant="213" id="wti-46-gbq"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -35,6 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="29.23538230884558"/>
         </scene>
     </scenes>
 </document>

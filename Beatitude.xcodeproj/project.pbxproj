@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D06A406210685B500A3797E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8BE99A1DBF9B4C004A4C0A /* MapKit.framework */; };
+		3D06A40F2107E42E00A3797E /* ModelKitStarter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D06A40D2107E42E00A3797E /* ModelKitStarter.xcdatamodeld */; };
 		AF8BE9861DBF9A4B004A4C0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8BE9851DBF9A4B004A4C0A /* AppDelegate.swift */; };
 		AF8BE9881DBF9A4B004A4C0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8BE9871DBF9A4B004A4C0A /* ViewController.swift */; };
 		AF8BE98B1DBF9A4B004A4C0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF8BE9891DBF9A4B004A4C0A /* Main.storyboard */; };
@@ -17,7 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AF8BE9821DBF9A4B004A4C0A /* MapKit Starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MapKit Starter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D06A40E2107E42E00A3797E /* ModelKitStarter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModelKitStarter.xcdatamodel; sourceTree = "<group>"; };
+		AF8BE9821DBF9A4B004A4C0A /* Beatitude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beatitude.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF8BE9851DBF9A4B004A4C0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF8BE9871DBF9A4B004A4C0A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "MapKit Starter/ViewController.swift"; sourceTree = "<group>"; };
 		AF8BE98A1DBF9A4B004A4C0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -34,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D06A406210685B500A3797E /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,7 +60,7 @@
 		AF8BE9831DBF9A4B004A4C0A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AF8BE9821DBF9A4B004A4C0A /* MapKit Starter.app */,
+				AF8BE9821DBF9A4B004A4C0A /* Beatitude.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,6 +72,7 @@
 				AF8BE98C1DBF9A4B004A4C0A /* Assets.xcassets */,
 				AF8BE98E1DBF9A4B004A4C0A /* LaunchScreen.storyboard */,
 				AF8BE9911DBF9A4B004A4C0A /* Info.plist */,
+				3D06A40D2107E42E00A3797E /* ModelKitStarter.xcdatamodeld */,
 			);
 			path = "MapKit Starter";
 			sourceTree = "<group>";
@@ -83,9 +88,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AF8BE9811DBF9A4B004A4C0A /* MapKit Starter */ = {
+		AF8BE9811DBF9A4B004A4C0A /* Beatitude */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AF8BE9941DBF9A4B004A4C0A /* Build configuration list for PBXNativeTarget "MapKit Starter" */;
+			buildConfigurationList = AF8BE9941DBF9A4B004A4C0A /* Build configuration list for PBXNativeTarget "Beatitude" */;
 			buildPhases = (
 				AF8BE97E1DBF9A4B004A4C0A /* Sources */,
 				AF8BE97F1DBF9A4B004A4C0A /* Frameworks */,
@@ -95,9 +100,9 @@
 			);
 			dependencies = (
 			);
-			name = "MapKit Starter";
+			name = Beatitude;
 			productName = "MapKit Starter";
-			productReference = AF8BE9821DBF9A4B004A4C0A /* MapKit Starter.app */;
+			productReference = AF8BE9821DBF9A4B004A4C0A /* Beatitude.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -114,10 +119,15 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = X872NB7KGG;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
-			buildConfigurationList = AF8BE97D1DBF9A4B004A4C0A /* Build configuration list for PBXProject "MapKit Starter" */;
+			buildConfigurationList = AF8BE97D1DBF9A4B004A4C0A /* Build configuration list for PBXProject "Beatitude" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -130,7 +140,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AF8BE9811DBF9A4B004A4C0A /* MapKit Starter */,
+				AF8BE9811DBF9A4B004A4C0A /* Beatitude */,
 			);
 		};
 /* End PBXProject section */
@@ -156,6 +166,7 @@
 			files = (
 				AF8BE9881DBF9A4B004A4C0A /* ViewController.swift in Sources */,
 				AF8BE9861DBF9A4B004A4C0A /* AppDelegate.swift in Sources */,
+				3D06A40F2107E42E00A3797E /* ModelKitStarter.xcdatamodeld in Sources */,
 				AFC772561DBFA22C0062D617 /* Places.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,7 +314,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AF8BE97D1DBF9A4B004A4C0A /* Build configuration list for PBXProject "MapKit Starter" */ = {
+		AF8BE97D1DBF9A4B004A4C0A /* Build configuration list for PBXProject "Beatitude" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AF8BE9921DBF9A4B004A4C0A /* Debug */,
@@ -312,7 +323,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AF8BE9941DBF9A4B004A4C0A /* Build configuration list for PBXNativeTarget "MapKit Starter" */ = {
+		AF8BE9941DBF9A4B004A4C0A /* Build configuration list for PBXNativeTarget "Beatitude" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AF8BE9951DBF9A4B004A4C0A /* Debug */,
@@ -322,6 +333,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3D06A40D2107E42E00A3797E /* ModelKitStarter.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3D06A40E2107E42E00A3797E /* ModelKitStarter.xcdatamodel */,
+			);
+			currentVersion = 3D06A40E2107E42E00A3797E /* ModelKitStarter.xcdatamodel */;
+			path = ModelKitStarter.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AF8BE97A1DBF9A4B004A4C0A /* Project object */;
 }

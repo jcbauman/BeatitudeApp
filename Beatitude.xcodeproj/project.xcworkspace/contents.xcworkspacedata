@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:MapKit Starter.xcodeproj">
+      location = "self:/Users/Rocko/Desktop/Beatitude App/MapKitDemo 2/Beatitude.xcodeproj">
    </FileRef>
 </Workspace>
