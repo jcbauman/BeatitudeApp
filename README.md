@@ -2,7 +2,7 @@
 An app to link Spotify playback with MapKit and allow users to create and experience location-based playlists.
 ​
 ## Audience
-The app will target people with premium Spotify accounts, which includes 70 million people globally.  The app will interest people with a new take on music experience, and allow them to create and share mood and experiences 
+The app will target people with premium Spotify accounts, which includes 70 million people globally.  The app will interest people with a new take on music experience, and allow them to create and share moods and experiences 
 ​
 ## Experience
 The app has a quick onboarding message of how it works then asks them to sign into Spotify one time.  The user will see a table-view of their created playlists with the option to create a new experience.  When the user creates a new experience, they are taken to a MapView where they are able to drop, edit, and delete pins and their corresponding radiuses to create zones.  As they set the zones, they are able to do a Spotify search for a song and set the link with Spotify URI.  In the experience list, users are able to play a playlist, which will run in the background updating users’ current location. As they enter a new tagged zone, the corresponding song will start playing in a Spotify player.
