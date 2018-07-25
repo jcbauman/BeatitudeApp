@@ -8,6 +8,8 @@ import MapKit
 
 class ViewController: UIViewController {
     @IBOutlet var mapView: MKMapView?
+    @IBOutlet weak var addSong: UIButton!
+    @IBOutlet weak var deleteZone: UIButton!
     
     let locationManager = CLLocationManager()
     
@@ -17,6 +19,12 @@ class ViewController: UIViewController {
         requestLocationAccess()
         addAnnotations()
         //zoomIn( nil )
+        
+        //corner rounding
+        addSong.layer.cornerRadius = 10;
+        addSong.clipsToBounds = true;
+        deleteZone.layer.cornerRadius = 10;
+        deleteZone.clipsToBounds = true;
     }
     
     //get the user to confirm location access

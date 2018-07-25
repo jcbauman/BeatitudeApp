@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MapKit_Starter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Beatitude" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="61" width="375" height="393"/>
                             </mapView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="sGd-ja-Map">
-                                <rect key="frame" x="15" y="479" width="345" height="124"/>
+                                <rect key="frame" x="15" y="479" width="345" height="149"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ZONE SELECTOR RADIUS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9s-Kz-7Es">
                                         <rect key="frame" x="112.5" y="0.0" width="120.5" height="13"/>
@@ -37,31 +37,33 @@
                                         <rect key="frame" x="-2" y="25" width="349" height="31"/>
                                         <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD/UPDATE SONG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sP1-Cp-nw6">
-                                        <rect key="frame" x="0.0" y="67" width="345" height="22.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6l-WU-hE5">
+                                        <rect key="frame" x="0.0" y="67" width="345" height="35"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                        <color key="textColor" red="1" green="0.96008315970000002" blue="0.95930977579999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DELETE ZONE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6x-QB-V9e">
-                                        <rect key="frame" x="0.0" y="101.5" width="345" height="22.5"/>
+                                        <state key="normal" title="ADD/UPDATE SONG">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nh-DD-b8V">
+                                        <rect key="frame" x="0.0" y="114" width="345" height="35"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                        <color key="textColor" red="1" green="0.96008315970000002" blue="0.95930977579999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <state key="normal" title="DELETE ZONE">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="e6l-WU-hE5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="22c-Wl-1Y7"/>
+                            <constraint firstItem="1nh-DD-b8V" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="2hB-pt-CXW"/>
                             <constraint firstItem="sGd-ja-Map" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="EEk-an-bdR"/>
                             <constraint firstAttribute="trailing" secondItem="EY0-FH-iBw" secondAttribute="trailing" constant="15" id="Fex-nD-9nI"/>
-                            <constraint firstItem="p6x-QB-V9e" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="HfI-4r-79b"/>
                             <constraint firstItem="u6n-lR-HdB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="41" id="MPn-pg-dUi"/>
                             <constraint firstItem="EY0-FH-iBw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="PoK-xs-nov"/>
-                            <constraint firstAttribute="trailing" secondItem="sP1-Cp-nw6" secondAttribute="trailing" constant="15" id="RCj-YV-dgs"/>
                             <constraint firstItem="sGd-ja-Map" firstAttribute="top" secondItem="u6n-lR-HdB" secondAttribute="bottom" constant="25" id="VV4-OG-LGl"/>
                             <constraint firstAttribute="trailing" secondItem="sGd-ja-Map" secondAttribute="trailing" constant="15" id="iwP-jV-Hj1"/>
                             <constraint firstItem="u6n-lR-HdB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mvE-RZ-rq1"/>
@@ -72,6 +74,8 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="addSong" destination="e6l-WU-hE5" id="j6C-aG-S8z"/>
+                        <outlet property="deleteZone" destination="1nh-DD-b8V" id="fpn-TN-J1N"/>
                         <outlet property="mapView" destination="u6n-lR-HdB" id="QEC-fB-rpN"/>
                     </connections>
                 </viewController>
