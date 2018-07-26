@@ -10,6 +10,7 @@ class ViewController: UIViewController {
     @IBOutlet var mapView: MKMapView?
     @IBOutlet weak var addSong: UIButton!
     @IBOutlet weak var deleteZone: UIButton!
+    @IBOutlet weak var centerMap: UIButton!
     
     let locationManager = CLLocationManager()
     
@@ -41,6 +42,10 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func centerMapPressed(_ sender: UIButton!) {
+        zoomIn(self)
+    }
+    
     func addAnnotations(){
         mapView?.delegate = self
         mapView?.addAnnotations(places)
@@ -51,8 +56,8 @@ class ViewController: UIViewController {
     
     func zoomIn(_ sender: Any?){
         let userLocation = mapView?.userLocation
-        let region = MKCoordinateRegionMakeWithDistance((userLocation?.location?.coordinate)!, 200, 200)
-        mapView?.setRegion(region, animated: true)
+        let region = MKCoordinateRegionMakeWithDistance((userLocation?.location?.coordinate)!, 500, 500)
+        mapView?.setRegion(region, animated: false)
         
     }
     
