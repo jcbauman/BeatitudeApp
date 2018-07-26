@@ -16,9 +16,10 @@ class ViewController: UIViewController {
     let places = Place.getPlaces()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         requestLocationAccess()
         addAnnotations()
-        //zoomIn( nil )
+        //zoomIn(self)
         
         //corner rounding
         addSong.layer.cornerRadius = 10;
@@ -55,14 +56,28 @@ class ViewController: UIViewController {
         
     }
     
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            let span = MKCoordinateSpanMake(0.05, 0.05)
+            let region = MKCoordinateRegion(center: location.coordinate, span: span)
+            mapView?.setRegion(region, animated: true)
+        }
+    }
+    
 }
 
 //dequeue and display annotations if they are not the user's annotation
-extension ViewController: MKMapViewDelegate{
+extension ViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+            
+        else {
             let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "annotationView") ?? MKAnnotationView()
-            annotationView.image = UIImage(named: "Place icon")
+            annotationView.image = UIImage(named: "place icon")
             return annotationView
+        }
     }
     
     
