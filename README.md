@@ -1,5 +1,4 @@
 # Beatitude
-##By Jack Bauman
 An app to link Spotify playback with MapKit and allow users to create and experience location-based playlists.
 ​
 ## Audience
@@ -35,4 +34,6 @@ I will need to integrate Spotify SDK and Mapkit.  I was hoping to have a sharing
 ## Week 6 - Polish
 - Beautification
 - Sharing Element (if possible)
+
+Jack Bauman
 
