@@ -1,4 +1,4 @@
-# “Beatitude”
+# Beatitude
 An app to link Spotify playback with MapKit and allow users to create and experience location-based playlists.
 ​
 ## Audience
