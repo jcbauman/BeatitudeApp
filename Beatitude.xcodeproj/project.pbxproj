@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3D06A406210685B500A3797E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8BE99A1DBF9B4C004A4C0A /* MapKit.framework */; };
-		3D06A40F2107E42E00A3797E /* ModelKitStarter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D06A40D2107E42E00A3797E /* ModelKitStarter.xcdatamodeld */; };
+		3D06A40F2107E42E00A3797E /* MusicZones.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D06A40D2107E42E00A3797E /* MusicZones.xcdatamodeld */; };
 		AF8BE9861DBF9A4B004A4C0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8BE9851DBF9A4B004A4C0A /* AppDelegate.swift */; };
 		AF8BE9881DBF9A4B004A4C0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8BE9871DBF9A4B004A4C0A /* ViewController.swift */; };
 		AF8BE98B1DBF9A4B004A4C0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF8BE9891DBF9A4B004A4C0A /* Main.storyboard */; };
@@ -72,7 +72,7 @@
 				AF8BE98C1DBF9A4B004A4C0A /* Assets.xcassets */,
 				AF8BE98E1DBF9A4B004A4C0A /* LaunchScreen.storyboard */,
 				AF8BE9911DBF9A4B004A4C0A /* Info.plist */,
-				3D06A40D2107E42E00A3797E /* ModelKitStarter.xcdatamodeld */,
+				3D06A40D2107E42E00A3797E /* MusicZones.xcdatamodeld */,
 			);
 			path = "MapKit Starter";
 			sourceTree = "<group>";
@@ -166,7 +166,7 @@
 			files = (
 				AF8BE9881DBF9A4B004A4C0A /* ViewController.swift in Sources */,
 				AF8BE9861DBF9A4B004A4C0A /* AppDelegate.swift in Sources */,
-				3D06A40F2107E42E00A3797E /* ModelKitStarter.xcdatamodeld in Sources */,
+				3D06A40F2107E42E00A3797E /* MusicZones.xcdatamodeld in Sources */,
 				AFC772561DBFA22C0062D617 /* Places.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,13 +335,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		3D06A40D2107E42E00A3797E /* ModelKitStarter.xcdatamodeld */ = {
+		3D06A40D2107E42E00A3797E /* MusicZones.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				3D06A40E2107E42E00A3797E /* ModelKitStarter.xcdatamodel */,
 			);
 			currentVersion = 3D06A40E2107E42E00A3797E /* ModelKitStarter.xcdatamodel */;
-			path = ModelKitStarter.xcdatamodeld;
+			path = MusicZones.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

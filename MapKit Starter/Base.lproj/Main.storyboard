@@ -24,8 +24,8 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u6n-lR-HdB">
                                 <rect key="frame" x="0.0" y="61" width="375" height="393"/>
                             </mapView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="sGd-ja-Map">
-                                <rect key="frame" x="15" y="469" width="345" height="194"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sGd-ja-Map">
+                                <rect key="frame" x="15" y="469" width="345" height="182"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGP-DN-NtE">
                                         <rect key="frame" x="89" y="0.0" width="167" height="28"/>
@@ -38,11 +38,11 @@
                                         </connections>
                                     </button>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="EY0-FH-iBw">
-                                        <rect key="frame" x="-2" y="40" width="349" height="31"/>
+                                        <rect key="frame" x="-2" y="36" width="349" height="31"/>
                                         <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </slider>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6l-WU-hE5">
-                                        <rect key="frame" x="0.0" y="82" width="345" height="50"/>
+                                        <rect key="frame" x="0.0" y="74" width="345" height="50"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="DNK-fg-eBA"/>
@@ -52,13 +52,11 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="nf9-KR-7nB" kind="popoverPresentation" popoverAnchorView="e6l-WU-hE5" id="unT-S7-q3u">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
+                                            <action selector="saveSongPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GLq-Uv-THC"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nh-DD-b8V">
-                                        <rect key="frame" x="0.0" y="144" width="345" height="50"/>
+                                        <rect key="frame" x="0.0" y="132" width="345" height="50"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="HgM-T0-K9T"/>
@@ -71,7 +69,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="e6l-WU-hE5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="22c-Wl-1Y7"/>
                             <constraint firstItem="1nh-DD-b8V" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="2hB-pt-CXW"/>
@@ -98,24 +96,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="24.800000000000001" y="29.23538230884558"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Q6L-qI-mS0">
-            <objects>
-                <viewController id="nf9-KR-7nB" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="PS5-lN-hcF"/>
-                        <viewControllerLayoutGuide type="bottom" id="6LJ-oW-Q2D"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cdJ-go-9VF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fe3-0o-Cuz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="762" y="32"/>
         </scene>
     </scenes>
 </document>

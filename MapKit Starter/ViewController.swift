@@ -1,10 +1,11 @@
 //
 //  ViewController.swift
-//  MapKit Starter
+//  Beatitude
 //
 
 import UIKit
 import MapKit
+import CoreData
 
 class ViewController: UIViewController {
     @IBOutlet var mapView: MKMapView?
@@ -16,11 +17,15 @@ class ViewController: UIViewController {
     
     let places = Place.getPlaces()
     
+    //CoreData
+    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     override func viewDidLoad() {
+        
+        //populate map
         super.viewDidLoad()
         requestLocationAccess()
         addAnnotations()
-        //zoomIn(self)
         
         //corner rounding
         addSong.layer.cornerRadius = 10;
@@ -42,8 +47,28 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func centerMapPressed(_ sender: UIButton!) {
+    //zoom in on user on button press
+    @IBAction func centerMapPressed(_ sender: UIButton) {
         zoomIn(self)
+    }
+    
+    //add song-linked zone to core data
+    @IBAction func saveSongPressed(_ sender: UIButton) {
+        
+        let newZone = NSEntityDescription.insertNewObject(forEntityName: "Zones", into: context)
+        newZone.setValue("spotify:track:0sAgDmilipOED3mWTGl8Ob", forKey: "song")
+        newZone.setValue(37.773512, forKey: "latitude")
+        newZone.setValue(-122.417272, forKey: "longitude")
+        newZone.setValue(5, forKey: "radius")
+        
+        do {
+            try context.save()
+            print("saved")
+        }
+        catch{
+            print("couldn't save context, error bro!")
+        }
+        
     }
     
     func addAnnotations(){
