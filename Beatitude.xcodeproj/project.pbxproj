@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D06A406210685B500A3797E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8BE99A1DBF9B4C004A4C0A /* MapKit.framework */; };
 		3D06A40F2107E42E00A3797E /* MusicZones.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D06A40D2107E42E00A3797E /* MusicZones.xcdatamodeld */; };
+		3D152FCB210B8E9400365ACA /* ManageZonesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D152FCA210B8E9400365ACA /* ManageZonesController.swift */; };
 		AF8BE9861DBF9A4B004A4C0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8BE9851DBF9A4B004A4C0A /* AppDelegate.swift */; };
 		AF8BE9881DBF9A4B004A4C0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8BE9871DBF9A4B004A4C0A /* ViewController.swift */; };
 		AF8BE98B1DBF9A4B004A4C0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF8BE9891DBF9A4B004A4C0A /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		3D06A40E2107E42E00A3797E /* ModelKitStarter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModelKitStarter.xcdatamodel; sourceTree = "<group>"; };
+		3D152FCA210B8E9400365ACA /* ManageZonesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageZonesController.swift; sourceTree = "<group>"; };
 		AF8BE9821DBF9A4B004A4C0A /* Beatitude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beatitude.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF8BE9851DBF9A4B004A4C0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF8BE9871DBF9A4B004A4C0A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "MapKit Starter/ViewController.swift"; sourceTree = "<group>"; };
@@ -50,6 +52,7 @@
 				AFC772551DBFA22C0062D617 /* Places.swift */,
 				AF8BE9971DBF9A66004A4C0A /* Places.plist */,
 				AF8BE9891DBF9A4B004A4C0A /* Main.storyboard */,
+				3D152FCA210B8E9400365ACA /* ManageZonesController.swift */,
 				AF8BE9871DBF9A4B004A4C0A /* ViewController.swift */,
 				AF8BE9841DBF9A4B004A4C0A /* MapKit Starter */,
 				AF8BE9831DBF9A4B004A4C0A /* Products */,
@@ -166,6 +169,7 @@
 			files = (
 				AF8BE9881DBF9A4B004A4C0A /* ViewController.swift in Sources */,
 				AF8BE9861DBF9A4B004A4C0A /* AppDelegate.swift in Sources */,
+				3D152FCB210B8E9400365ACA /* ManageZonesController.swift in Sources */,
 				3D06A40F2107E42E00A3797E /* MusicZones.xcdatamodeld in Sources */,
 				AFC772561DBFA22C0062D617 /* Places.swift in Sources */,
 			);
