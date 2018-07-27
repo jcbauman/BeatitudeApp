@@ -35,3 +35,5 @@ I will need to integrate Spotify SDK and Mapkit.  I was hoping to have a sharing
 - Beautification
 - Sharing Element (if possible)
 
+Jack Bauman
+
