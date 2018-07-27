@@ -7,13 +7,21 @@
 //
 
 import UIKit
+import CoreData
 
-class ManageZonesController: UITableViewController {
+class ManageZonesController: UITableViewController{
 
+    var zoneArray:[Zones] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        self.fetchData()
+        self.tableView.reloadData()
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -31,23 +39,32 @@ class ManageZonesController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        //print("Zone array count = ", zoneArray.count)  REMOVE
+        return zoneArray.count
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let song = zoneArray[indexPath.row]
+        cell.textLabel!.text = song.song!
+    
         return cell
     }
-    */
+    
+    func fetchData(){
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        do{
+            zoneArray = try context.fetch(Zones.fetchRequest())
+        }catch{
+            print(error)
+        }
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
