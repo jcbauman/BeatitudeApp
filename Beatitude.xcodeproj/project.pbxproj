@@ -120,7 +120,7 @@
 				TargetAttributes = {
 					AF8BE9811DBF9A4B004A4C0A = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = X872NB7KGG;
+						DevelopmentTeam = JZZA5N7MP3;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
@@ -293,10 +293,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = X872NB7KGG;
+				DEVELOPMENT_TEAM = JZZA5N7MP3;
 				INFOPLIST_FILE = "MapKit Starter/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pranjalsatija.MapKit-Starter";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JackBauman.Beatitude;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -306,10 +306,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = X872NB7KGG;
+				DEVELOPMENT_TEAM = JZZA5N7MP3;
 				INFOPLIST_FILE = "MapKit Starter/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pranjalsatija.MapKit-Starter";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JackBauman.Beatitude;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
