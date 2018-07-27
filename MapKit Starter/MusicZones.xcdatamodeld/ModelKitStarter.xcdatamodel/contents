@@ -5,8 +5,9 @@
         <attribute name="longitude" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="radius" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="song" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="songURI" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Zones" positionX="1152" positionY="2739" width="128" height="103"/>
+        <element name="Zones" positionX="1152" positionY="2739" width="128" height="120"/>
     </elements>
 </model>

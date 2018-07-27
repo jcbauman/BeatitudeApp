@@ -56,7 +56,8 @@ class ViewController: UIViewController {
     @IBAction func saveSongPressed(_ sender: UIButton) {
         
         let newZone = NSEntityDescription.insertNewObject(forEntityName: "Zones", into: context)
-        newZone.setValue("spotify:track:0sAgDmilipOED3mWTGl8Ob", forKey: "song")
+        newZone.setValue("spotify:track:0sAgDmilipOED3mWTGl8Ob", forKey: "songURI")
+        newZone.setValue("This Is What's Happening Now", forKey: "song")
         newZone.setValue(37.773512, forKey: "latitude")
         newZone.setValue(-122.417272, forKey: "longitude")
         newZone.setValue(5, forKey: "radius")
