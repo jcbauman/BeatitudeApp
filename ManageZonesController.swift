@@ -49,9 +49,11 @@ class ManageZonesController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SongEditorTableViewCell
         let song = zoneArray[indexPath.row]
-        cell.textLabel!.text = song.song!
+        
+        cell.albumLogo.image = UIImage(named: "zone_logo.png")
+        cell.songTitle!.text = song.song!
     
         return cell
     }
