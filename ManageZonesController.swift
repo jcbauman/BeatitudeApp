@@ -67,7 +67,25 @@ class ManageZonesController: UITableViewController{
         }
     }
     
+    //deletion handler
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            let song = zoneArray[indexPath.row]
+            context.delete(song)
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            do{
+                zoneArray = try context.fetch(Zones.fetchRequest())
+            }
+            catch{
+                print(error)
+            }
+            tableView.reloadData()
+        }
+    }
 
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -76,17 +94,7 @@ class ManageZonesController: UITableViewController{
     }
     */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
+
 
     /*
     // Override to support rearranging the table view.

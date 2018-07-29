@@ -106,7 +106,7 @@
         <scene sceneID="G3c-SH-gCM">
             <objects>
                 <tableViewController id="ZaG-GR-QY6" customClass="ManageZonesController" customModule="Beatitude" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LPS-5s-TC5">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LPS-5s-TC5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.99607843137254903" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -121,7 +121,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yap-aN-j0K">
-                                            <rect key="frame" x="200" y="39" width="159" height="28"/>
+                                            <rect key="frame" x="120" y="39" width="239" height="28"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="28" id="Mxm-rK-UCg"/>
                                             </constraints>
@@ -140,7 +140,7 @@
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Yap-aN-j0K" firstAttribute="leading" secondItem="KKS-uk-xtS" secondAttribute="leading" constant="200" id="1E2-Cr-LOV"/>
+                                        <constraint firstItem="Yap-aN-j0K" firstAttribute="leading" secondItem="KKS-uk-xtS" secondAttribute="leading" constant="120" id="1E2-Cr-LOV"/>
                                         <constraint firstItem="djR-fU-WYy" firstAttribute="leading" secondItem="KKS-uk-xtS" secondAttribute="leading" constant="7" id="4pa-tU-LTL"/>
                                         <constraint firstAttribute="trailing" secondItem="djR-fU-WYy" secondAttribute="trailing" constant="290" id="9rN-tn-bch"/>
                                         <constraint firstAttribute="trailing" secondItem="Yap-aN-j0K" secondAttribute="trailing" constant="16" id="Ra4-z0-r1N"/>
