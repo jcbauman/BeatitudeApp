@@ -25,9 +25,15 @@ class ViewController: UIViewController {
         //populate map
         super.viewDidLoad()
         requestLocationAccess()
+        viewDidAppear()
+    }
+    
+    func viewDidAppear(){
+        super.viewDidAppear(true)
         addAnnotations()
         
         //corner rounding
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Futura", size: 20)!]
         addSong.layer.cornerRadius = 10;
         addSong.clipsToBounds = true;
         deleteZone.layer.cornerRadius = 10;
@@ -58,8 +64,8 @@ class ViewController: UIViewController {
         let newZone = NSEntityDescription.insertNewObject(forEntityName: "Zones", into: context)
         newZone.setValue("spotify:track:0sAgDmilipOED3mWTGl8Ob", forKey: "songURI")
         newZone.setValue("This Is What's Happening Now", forKey: "song")
-        newZone.setValue(37.773512, forKey: "latitude")
-        newZone.setValue(-120.417272, forKey: "longitude")
+        newZone.setValue(mapView?.centerCoordinate.latitude, forKey: "latitude")
+        newZone.setValue(mapView?.centerCoordinate.longitude, forKey: "longitude")
         newZone.setValue(97, forKey: "radius")
         
         do {
@@ -69,6 +75,8 @@ class ViewController: UIViewController {
         catch{
             print("couldn't save context, error bro!")
         }
+        mapView?.removeAnnotations(places)
+        addAnnotations()
         
     }
     
