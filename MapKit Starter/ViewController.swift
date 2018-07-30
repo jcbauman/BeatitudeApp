@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var addSong: UIButton!
     @IBOutlet weak var deleteZone: UIButton!
     @IBOutlet weak var centerMap: UIButton!
+    @IBOutlet weak var centerPin: UIImage!
     
     let locationManager = CLLocationManager()
     
@@ -32,8 +33,10 @@ class ViewController: UIViewController {
         super.viewDidAppear(true)
         addAnnotations()
         
-        //corner rounding
-        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Futura", size: 20)!]
+        //UI elements
+        self.navigationController?.navigationBar.titleTextAttributes =
+            [NSForegroundColorAttributeName: UIColor.red,
+             NSFontAttributeName: UIFont(name: "Futura", size: 20)!]
         addSong.layer.cornerRadius = 10;
         addSong.clipsToBounds = true;
         deleteZone.layer.cornerRadius = 10;
