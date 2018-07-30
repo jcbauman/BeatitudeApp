@@ -13,10 +13,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var deleteZone: UIButton!
     @IBOutlet weak var centerMap: UIButton!
     @IBOutlet weak var centerPin: UIImage!
+    @IBOutlet weak var radiusSlider: UISlider!
     
     let locationManager = CLLocationManager()
     
-    let places = Place.getPlaces()
+    var places = Place.getPlaces()
     
     //CoreData
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -31,9 +32,16 @@ class ViewController: UIViewController {
     
     func viewDidAppear(){
         super.viewDidAppear(true)
+        print("viewDidApp!")
+        //clear and reload zones
+        self.mapView?.removeAnnotations((self.mapView?.annotations)!)
+        let overlays = self.mapView?.overlays
+        self.mapView?.removeOverlays(overlays!)
+        
+        places = Place.getPlaces()
         addAnnotations()
         
-        //UI elements
+        //UI button/navBar elements
         self.navigationController?.navigationBar.titleTextAttributes =
             [NSForegroundColorAttributeName: UIColor.red,
              NSFontAttributeName: UIFont(name: "Futura", size: 20)!]
@@ -69,7 +77,7 @@ class ViewController: UIViewController {
         newZone.setValue("This Is What's Happening Now", forKey: "song")
         newZone.setValue(mapView?.centerCoordinate.latitude, forKey: "latitude")
         newZone.setValue(mapView?.centerCoordinate.longitude, forKey: "longitude")
-        newZone.setValue(97, forKey: "radius")
+        newZone.setValue(radiusSlider.value, forKey: "radius")
         
         do {
             try context.save()
@@ -78,7 +86,13 @@ class ViewController: UIViewController {
         catch{
             print("couldn't save context, error bro!")
         }
-        mapView?.removeAnnotations(places)
+        
+        //clear and reload zones
+        self.mapView?.removeAnnotations((self.mapView?.annotations)!)
+        let overlays = self.mapView?.overlays
+        self.mapView?.removeOverlays(overlays!)
+
+        places = Place.getPlaces()
         addAnnotations()
         
     }
@@ -91,13 +105,15 @@ class ViewController: UIViewController {
         mapView?.addOverlays(overlays)
     }
     
+    //zoom in on user's location
     func zoomIn(_ sender: Any?){
         let userLocation = mapView?.userLocation
         let region = MKCoordinateRegionMakeWithDistance((userLocation?.location?.coordinate)!, 500, 500)
-        mapView?.setRegion(region, animated: false)
+        mapView?.setRegion(region, animated: true)
         
     }
     
+    //opening location
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             let span = MKCoordinateSpanMake(0.05, 0.05)
@@ -122,7 +138,7 @@ extension ViewController: MKMapViewDelegate {
         }
     }
     
-    
+    //overlay UI elements
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKCircleRenderer(overlay: overlay)
         renderer.fillColor = UIColor.black.withAlphaComponent(0.1)
