@@ -11,6 +11,7 @@
 		3D06A40F2107E42E00A3797E /* MusicZones.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D06A40D2107E42E00A3797E /* MusicZones.xcdatamodeld */; };
 		3D152FCB210B8E9400365ACA /* ManageZonesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D152FCA210B8E9400365ACA /* ManageZonesController.swift */; };
 		3D59CBC2210BD67900AD5D7F /* SongEditorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D59CBC1210BD67900AD5D7F /* SongEditorTableViewCell.swift */; };
+		3D59CBC62110F7BD00AD5D7F /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D59CBC52110F7BD00AD5D7F /* SearchTableViewController.swift */; };
 		AF8BE9861DBF9A4B004A4C0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8BE9851DBF9A4B004A4C0A /* AppDelegate.swift */; };
 		AF8BE9881DBF9A4B004A4C0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8BE9871DBF9A4B004A4C0A /* ViewController.swift */; };
 		AF8BE98B1DBF9A4B004A4C0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF8BE9891DBF9A4B004A4C0A /* Main.storyboard */; };
@@ -18,12 +19,16 @@
 		AF8BE9901DBF9A4B004A4C0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF8BE98E1DBF9A4B004A4C0A /* LaunchScreen.storyboard */; };
 		AF8BE9981DBF9A66004A4C0A /* Places.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF8BE9971DBF9A66004A4C0A /* Places.plist */; };
 		AFC772561DBFA22C0062D617 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC772551DBFA22C0062D617 /* Places.swift */; };
+		EF018BC017B7A8152030A3FF /* Pods_Beatitude.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C67158BEA690B5B0A8FAE930 /* Pods_Beatitude.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3D06A40E2107E42E00A3797E /* ModelKitStarter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModelKitStarter.xcdatamodel; sourceTree = "<group>"; };
 		3D152FCA210B8E9400365ACA /* ManageZonesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageZonesController.swift; sourceTree = "<group>"; };
 		3D59CBC1210BD67900AD5D7F /* SongEditorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongEditorTableViewCell.swift; sourceTree = "<group>"; };
+		3D59CBC52110F7BD00AD5D7F /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		6D9D28B2C38C848C0BEEE852 /* Pods-Beatitude.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beatitude.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Beatitude/Pods-Beatitude.debug.xcconfig"; sourceTree = "<group>"; };
+		7A98089685FBA69752E55C5B /* Pods-Beatitude.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beatitude.release.xcconfig"; path = "Pods/Target Support Files/Pods-Beatitude/Pods-Beatitude.release.xcconfig"; sourceTree = "<group>"; };
 		AF8BE9821DBF9A4B004A4C0A /* Beatitude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beatitude.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF8BE9851DBF9A4B004A4C0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF8BE9871DBF9A4B004A4C0A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "MapKit Starter/ViewController.swift"; sourceTree = "<group>"; };
@@ -34,6 +39,7 @@
 		AF8BE9971DBF9A66004A4C0A /* Places.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Places.plist; sourceTree = "<group>"; };
 		AF8BE99A1DBF9B4C004A4C0A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AFC772551DBFA22C0062D617 /* Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
+		C67158BEA690B5B0A8FAE930 /* Pods_Beatitude.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beatitude.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,12 +48,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D06A406210685B500A3797E /* MapKit.framework in Frameworks */,
+				EF018BC017B7A8152030A3FF /* Pods_Beatitude.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EE20479CFA19C0C228B9488 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6D9D28B2C38C848C0BEEE852 /* Pods-Beatitude.debug.xcconfig */,
+				7A98089685FBA69752E55C5B /* Pods-Beatitude.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AF8BE9791DBF9A4B004A4C0A = {
 			isa = PBXGroup;
 			children = (
@@ -57,9 +73,11 @@
 				3D59CBC1210BD67900AD5D7F /* SongEditorTableViewCell.swift */,
 				3D152FCA210B8E9400365ACA /* ManageZonesController.swift */,
 				AF8BE9871DBF9A4B004A4C0A /* ViewController.swift */,
+				3D59CBC52110F7BD00AD5D7F /* SearchTableViewController.swift */,
 				AF8BE9841DBF9A4B004A4C0A /* MapKit Starter */,
 				AF8BE9831DBF9A4B004A4C0A /* Products */,
 				AF8BE9991DBF9B4C004A4C0A /* Frameworks */,
+				0EE20479CFA19C0C228B9488 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				AF8BE99A1DBF9B4C004A4C0A /* MapKit.framework */,
+				C67158BEA690B5B0A8FAE930 /* Pods_Beatitude.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -98,9 +117,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF8BE9941DBF9A4B004A4C0A /* Build configuration list for PBXNativeTarget "Beatitude" */;
 			buildPhases = (
+				21ACB4C0921442865571DAA3 /* [CP] Check Pods Manifest.lock */,
 				AF8BE97E1DBF9A4B004A4C0A /* Sources */,
 				AF8BE97F1DBF9A4B004A4C0A /* Frameworks */,
 				AF8BE9801DBF9A4B004A4C0A /* Resources */,
+				E9E59D74C0573B4C6702FD41 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -119,13 +140,16 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0800;
-				ORGANIZATIONNAME = "Pranjal Satija";
+				ORGANIZATIONNAME = "Rocko Bauman";
 				TargetAttributes = {
 					AF8BE9811DBF9A4B004A4C0A = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = JZZA5N7MP3;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 1;
 							};
@@ -165,6 +189,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		21ACB4C0921442865571DAA3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Beatitude-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9E59D74C0573B4C6702FD41 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Beatitude/Pods-Beatitude-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Beatitude/Pods-Beatitude-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AF8BE97E1DBF9A4B004A4C0A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -173,6 +236,7 @@
 				AF8BE9881DBF9A4B004A4C0A /* ViewController.swift in Sources */,
 				AF8BE9861DBF9A4B004A4C0A /* AppDelegate.swift in Sources */,
 				3D152FCB210B8E9400365ACA /* ManageZonesController.swift in Sources */,
+				3D59CBC62110F7BD00AD5D7F /* SearchTableViewController.swift in Sources */,
 				3D59CBC2210BD67900AD5D7F /* SongEditorTableViewCell.swift in Sources */,
 				3D06A40F2107E42E00A3797E /* MusicZones.xcdatamodeld in Sources */,
 				AFC772561DBFA22C0062D617 /* Places.swift in Sources */,
@@ -295,12 +359,13 @@
 		};
 		AF8BE9951DBF9A4B004A4C0A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D9D28B2C38C848C0BEEE852 /* Pods-Beatitude.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = JZZA5N7MP3;
 				INFOPLIST_FILE = "MapKit Starter/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.JackBauman.Beatitude;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RockoBauman.Beatitude;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -308,12 +373,13 @@
 		};
 		AF8BE9961DBF9A4B004A4C0A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A98089685FBA69752E55C5B /* Pods-Beatitude.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = JZZA5N7MP3;
 				INFOPLIST_FILE = "MapKit Starter/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.JackBauman.Beatitude;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RockoBauman.Beatitude;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

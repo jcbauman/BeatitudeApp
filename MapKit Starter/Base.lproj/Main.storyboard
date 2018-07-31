@@ -55,6 +55,7 @@
                                         </state>
                                         <connections>
                                             <action selector="saveSongPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GLq-Uv-THC"/>
+                                            <segue destination="s6D-P6-rLa" kind="show" id="BuW-WV-7pw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nh-DD-b8V">
@@ -114,6 +115,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="232.80000000000001" y="154.27286356821591"/>
+        </scene>
+        <!--Search Spotify-->
+        <scene sceneID="00O-9y-CBe">
+            <objects>
+                <tableViewController id="s6D-P6-rLa" customClass="SearchTableViewController" customModule="Beatitude" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="SW0-gB-JF1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="al6-X4-ENr">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="al6-X4-ENr" id="3yo-wc-6O2">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="s6D-P6-rLa" id="oh1-jY-cJu"/>
+                            <outlet property="delegate" destination="s6D-P6-rLa" id="7sM-Ey-Nbl"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Search Spotify" id="a1r-nW-IYX"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pNV-tB-r1j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1006" y="-247"/>
         </scene>
         <!--Manage Zones-->
         <scene sceneID="G3c-SH-gCM">
@@ -179,7 +209,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Czd-Qe-sFC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1096.8" y="152.47376311844079"/>
+            <point key="canvasLocation" x="1874" y="154"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VIx-W4-OBv">

@@ -3,7 +3,6 @@
 //  Beatitude
 //
 //  Created by Rocko Bauman on 7/27/18.
-//  Copyright © 2018 Pranjal Satija. All rights reserved.
 //
 
 import UIKit
