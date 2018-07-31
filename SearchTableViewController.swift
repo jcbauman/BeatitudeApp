@@ -12,7 +12,7 @@ import Alamofire
 class SearchTableViewController: UITableViewController {
 
     var accessToken = ""
-    var searchURL = "https://api.spotify.com/v1/search?q=Curtis%20Mayfield&type=track&limit=20"
+    var searchURL = "https://api.spotify.com/v1/search?q=Curtis%20Mayfield&type=track&market=US&limit=20"
     
     typealias JSONStandard = [String: AnyObject]
     
@@ -20,22 +20,18 @@ class SearchTableViewController: UITableViewController {
         super.viewDidLoad()
         var authToken = getAlamoAuth()
         
-        if authToken != "" {
             callAlamo(url: searchURL)
-        }
         
     }
     
+    //get an authorization token for search
     func getAlamoAuth() -> String {
         let parameters = ["client_id" : "a5656d6551e647cb98f7c561ecb245b5",
                           "client_secret" : "3bf2f4cf94e440908654d356ab2fe3cf",
                           "grant_type" : "client_credentials"]
-        
         var token = ""
-        
         Alamofire.request("https://accounts.spotify.com/api/token", method: .post, parameters: parameters).responseJSON(completionHandler: {
             response in
-           // print(response.result.value)
             switch response.result{
                 case .success(let value):
                 let json = JSON(value)
@@ -48,9 +44,14 @@ class SearchTableViewController: UITableViewController {
         return token
     }
     
-
+    //Spotify API call
     func callAlamo(url: String){
-        Alamofire.request(url).responseJSON(completionHandler:{
+        let headers: HTTPHeaders = [
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Authorization": String("Bearer" + accessToken)
+        ]
+        Alamofire.request(url, headers: headers).responseJSON(completionHandler:{
             response in
             self.parseData(JSONData: response.data!)
         })
@@ -60,6 +61,7 @@ class SearchTableViewController: UITableViewController {
         do {
             var readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as? [String: AnyObject]
             print(readableJSON)
+            print("DONE")
 
         }catch{
             print(error)
