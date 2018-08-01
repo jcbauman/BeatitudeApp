@@ -9,11 +9,17 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
+struct post{
+    let mainImage : UIImage!
+    let name: String!
+    
+}
+
 class SearchTableViewController: UITableViewController {
 
     var accessToken = ""
     var searchURL = "https://api.spotify.com/v1/search?q=Curtis%20Mayfield&type=track&market=US&limit=20"
-    var trackNames = [String]()
+    var posts = [post]()
     typealias JSONStandard = [String: AnyObject]
     
     override func viewDidLoad() {
@@ -65,8 +71,19 @@ class SearchTableViewController: UITableViewController {
                     for i in 0..<items.count{
                         let item = items[i]
                         let name = item["name"] as! String
-                        trackNames.append(name)
-                        self.tableView.reloadData()
+                        
+                        if let album = item["album"] as? JSONStandard{
+                            if let images = album["images"] as? [JSONStandard]{
+                                let imageData = images[0]
+                                let mainImageURL = URL(string: imageData["url"] as! String)
+                                let mainImageData = NSData(contentsOf: mainImageURL!)
+                                let mainImage = UIImage(data: mainImageData as! Data)
+                                
+                                posts.append(post.init(mainImage: mainImage, name: name))
+                                self.tableView.reloadData()
+                            }
+                        }
+                        
                     }
                 }
             }
@@ -91,12 +108,18 @@ class SearchTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return trackNames.count
+        return posts.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "trackCell")
-        cell?.textLabel?.text = trackNames[indexPath.row]
+        
+        let mainImageView = cell?.viewWithTag(2) as! UIImageView
+        mainImageView.image = posts[indexPath.row].mainImage
+        
+        let mainLabel = cell?.viewWithTag(1) as! UILabel
+        mainLabel.text = posts[indexPath.row].name
+        
         return cell!
     }
     
