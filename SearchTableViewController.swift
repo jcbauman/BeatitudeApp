@@ -16,25 +16,33 @@ struct post{
     let mainImage : UIImage!
     let name: String!
     let previewURL: String!
-    
 }
 
-class SearchTableViewController: UITableViewController {
+class SearchTableViewController: UITableViewController, UISearchBarDelegate {
 
     var accessToken = ""
-    var searchURL = "https://api.spotify.com/v1/search?q=Curtis%20Mayfield&type=track&market=US&limit=20"
+    var searchURL = String()
     var posts = [post]()
     typealias JSONStandard = [String: AnyObject]
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let keywords = searchBar.text
+        print("hiding keyboard000909090909")
+        self.view.endEditing(true)
+        let finalKeywords = keywords?.replacingOccurrences(of: " ", with: "%20")
+        searchURL = "https://api.spotify.com/v1/search?q=\(finalKeywords!)&type=track&market=US&limit=20"
+        getAlamoAuth()
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        getAlamoAuth()
-        
     }
     
     //get an authorization token for search and input link
     func getAlamoAuth(){
-        let parameters = ["client_id" : "a5656d6551e647cb98f7c561ecb245b5",
+        let parameters = ["client_id" : "a5656d6d551e647cb98f7c561ecb245b5",
                           "client_secret" : "3bf2f4cf94e440908654d356ab2fe3cf",
                           "grant_type" : "client_credentials"]
         Alamofire.request("https://accounts.spotify.com/api/token", method: .post, parameters: parameters).responseJSON(completionHandler: {
@@ -97,19 +105,10 @@ class SearchTableViewController: UITableViewController {
         }
     }
     
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -134,46 +133,4 @@ class SearchTableViewController: UITableViewController {
         vc.mainSongTitle = posts[indexPath!].name
         vc.mainPreviewURL = posts[indexPath!].previewURL
     }
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    
-*/
 }
