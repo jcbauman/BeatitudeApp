@@ -13,7 +13,7 @@ class SearchTableViewController: UITableViewController {
 
     var accessToken = ""
     var searchURL = "https://api.spotify.com/v1/search?q=Curtis%20Mayfield&type=track&market=US&limit=20"
-    
+    var trackNames = [String]()
     typealias JSONStandard = [String: AnyObject]
     
     override func viewDidLoad() {
@@ -22,7 +22,7 @@ class SearchTableViewController: UITableViewController {
         
     }
     
-    //get an authorization token for search
+    //get an authorization token for search and input link
     func getAlamoAuth(){
         let parameters = ["client_id" : "a5656d6551e647cb98f7c561ecb245b5",
                           "client_secret" : "3bf2f4cf94e440908654d356ab2fe3cf",
@@ -33,6 +33,8 @@ class SearchTableViewController: UITableViewController {
                 case .success(let value):
                 let json = JSON(value)
                 self.accessToken = json["access_token"].stringValue
+                
+                //API call after token obtained
                 self.callAlamo(url: self.searchURL)
             case .failure(let error):
                 print(error)
@@ -41,7 +43,6 @@ class SearchTableViewController: UITableViewController {
         
     }
     
-    //replace with "BQAYukIO4TCbL-6OzbQaTcyvaNEAMIWDvpWLLolHiASnTRoB2xGj6X_uO8VN0RshIBRSc8rNVs-I5hDehPA"
     //Spotify API call
     func callAlamo(url: String){
         let headers: HTTPHeaders = [
@@ -55,15 +56,26 @@ class SearchTableViewController: UITableViewController {
         })
     }
 
+    //parse JSON data from API
     func parseData(JSONData: Data){
         do {
-            var readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as? [String: AnyObject]
-            print(readableJSON)
-
+            var readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! JSONStandard
+            if let tracks = readableJSON["tracks"] as? JSONStandard{
+                if let items = tracks["items"] as? [JSONStandard]{
+                    for i in 0..<items.count{
+                        let item = items[i]
+                        let name = item["name"] as! String
+                        trackNames.append(name)
+                        self.tableView.reloadData()
+                    }
+                }
+            }
         }catch{
             print(error)
         }
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -72,25 +84,22 @@ class SearchTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return trackNames.count
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "trackCell")
+        cell?.textLabel?.text = trackNames[indexPath.row]
+        return cell!
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
