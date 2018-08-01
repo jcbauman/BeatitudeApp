@@ -12,6 +12,7 @@
 		3D152FCB210B8E9400365ACA /* ManageZonesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D152FCA210B8E9400365ACA /* ManageZonesController.swift */; };
 		3D59CBC2210BD67900AD5D7F /* SongEditorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D59CBC1210BD67900AD5D7F /* SongEditorTableViewCell.swift */; };
 		3D59CBC62110F7BD00AD5D7F /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D59CBC52110F7BD00AD5D7F /* SearchTableViewController.swift */; };
+		3D59CBD021123F5000AD5D7F /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D59CBCF21123F5000AD5D7F /* AudioViewController.swift */; };
 		AF8BE9861DBF9A4B004A4C0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8BE9851DBF9A4B004A4C0A /* AppDelegate.swift */; };
 		AF8BE9881DBF9A4B004A4C0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8BE9871DBF9A4B004A4C0A /* ViewController.swift */; };
 		AF8BE98B1DBF9A4B004A4C0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF8BE9891DBF9A4B004A4C0A /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		3D152FCA210B8E9400365ACA /* ManageZonesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageZonesController.swift; sourceTree = "<group>"; };
 		3D59CBC1210BD67900AD5D7F /* SongEditorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongEditorTableViewCell.swift; sourceTree = "<group>"; };
 		3D59CBC52110F7BD00AD5D7F /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		3D59CBCF21123F5000AD5D7F /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		6D9D28B2C38C848C0BEEE852 /* Pods-Beatitude.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beatitude.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Beatitude/Pods-Beatitude.debug.xcconfig"; sourceTree = "<group>"; };
 		7A98089685FBA69752E55C5B /* Pods-Beatitude.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beatitude.release.xcconfig"; path = "Pods/Target Support Files/Pods-Beatitude/Pods-Beatitude.release.xcconfig"; sourceTree = "<group>"; };
 		AF8BE9821DBF9A4B004A4C0A /* Beatitude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beatitude.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +69,7 @@
 		AF8BE9791DBF9A4B004A4C0A = {
 			isa = PBXGroup;
 			children = (
+				3D59CBCF21123F5000AD5D7F /* AudioViewController.swift */,
 				AFC772551DBFA22C0062D617 /* Places.swift */,
 				AF8BE9971DBF9A66004A4C0A /* Places.plist */,
 				AF8BE9891DBF9A4B004A4C0A /* Main.storyboard */,
@@ -240,6 +243,7 @@
 				3D152FCB210B8E9400365ACA /* ManageZonesController.swift in Sources */,
 				3D59CBC62110F7BD00AD5D7F /* SearchTableViewController.swift in Sources */,
 				3D59CBC2210BD67900AD5D7F /* SongEditorTableViewCell.swift in Sources */,
+				3D59CBD021123F5000AD5D7F /* AudioViewController.swift in Sources */,
 				3D06A40F2107E42E00A3797E /* MusicZones.xcdatamodeld in Sources */,
 				AFC772561DBFA22C0062D617 /* Places.swift in Sources */,
 			);

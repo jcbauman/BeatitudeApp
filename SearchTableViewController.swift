@@ -8,10 +8,14 @@
 import UIKit
 import SwiftyJSON
 import Alamofire
+import AVFoundation
+
+var player = AVAudioPlayer()
 
 struct post{
     let mainImage : UIImage!
     let name: String!
+    let previewURL: String!
     
 }
 
@@ -70,8 +74,9 @@ class SearchTableViewController: UITableViewController {
                 if let items = tracks["items"] as? [JSONStandard]{
                     for i in 0..<items.count{
                         let item = items[i]
+                        print(item)
                         let name = item["name"] as! String
-                        
+                        let previewURL = item["preview_url"] as! String
                         if let album = item["album"] as? JSONStandard{
                             if let images = album["images"] as? [JSONStandard]{
                                 let imageData = images[0]
@@ -79,7 +84,7 @@ class SearchTableViewController: UITableViewController {
                                 let mainImageData = NSData(contentsOf: mainImageURL!)
                                 let mainImage = UIImage(data: mainImageData as! Data)
                                 
-                                posts.append(post.init(mainImage: mainImage, name: name))
+                                posts.append(post.init(mainImage: mainImage, name: name, previewURL: previewURL))
                                 self.tableView.reloadData()
                             }
                         }
@@ -122,6 +127,13 @@ class SearchTableViewController: UITableViewController {
         
         return cell!
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       let indexPath = self.tableView.indexPathForSelectedRow?.row
+        let vc = segue.destination as! AudioViewController
+        vc.mainSongTitle = posts[indexPath!].name
+        vc.mainPreviewURL = posts[indexPath!].previewURL
+    }
     
 
     /*
@@ -162,11 +174,6 @@ class SearchTableViewController: UITableViewController {
     /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+*/
 }

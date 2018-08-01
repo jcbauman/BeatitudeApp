@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="s6D-P6-rLa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2m6-Ji-S7O">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -121,7 +121,7 @@
         <scene sceneID="00O-9y-CBe">
             <objects>
                 <tableViewController id="s6D-P6-rLa" customClass="SearchTableViewController" customModule="Beatitude" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="SW0-gB-JF1">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="SW0-gB-JF1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -140,8 +140,8 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxG-dZ-Pye">
-                                            <rect key="frame" x="87" y="33" width="272" height="23"/>
-                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                            <rect key="frame" x="87" y="36.5" width="272" height="17"/>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -155,6 +155,9 @@
                                         <constraint firstItem="ayh-z5-XqK" firstAttribute="leading" secondItem="3yo-wc-6O2" secondAttribute="leading" constant="10" id="yJn-hi-Qtk"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="0YO-gt-XGd" kind="show" id="3sZ-jU-1xS"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -167,6 +170,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pNV-tB-r1j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1005.6" y="-247.82608695652175"/>
+        </scene>
+        <!--Audio View Controller-->
+        <scene sceneID="IJ4-9Z-HKz">
+            <objects>
+                <viewController id="0YO-gt-XGd" customClass="AudioViewController" customModule="Beatitude" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Uu-oP-RUN"/>
+                        <viewControllerLayoutGuide type="bottom" id="1VU-Nm-hTL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="j1O-mo-ujz" customClass="Audio">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9AW-cT-iut">
+                                <rect key="frame" x="64" y="248" width="211" height="117"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0u-ek-2Hh">
+                                <rect key="frame" x="134" y="405" width="71" height="30"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="pausePlayPressed:" destination="0YO-gt-XGd" eventType="touchUpInside" id="0My-9A-xhN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9AW-cT-iut" firstAttribute="centerX" secondItem="j1O-mo-ujz" secondAttribute="centerX" id="80p-ea-PNA"/>
+                            <constraint firstItem="s0u-ek-2Hh" firstAttribute="centerX" secondItem="j1O-mo-ujz" secondAttribute="centerX" id="tsf-2c-Tun"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pausePlay" destination="s0u-ek-2Hh" id="8YX-8G-ftq"/>
+                        <outlet property="songTitle" destination="9AW-cT-iut" id="OTm-nf-uHO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Rv-R4-wSJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1708" y="-578.86056971514245"/>
         </scene>
         <!--Manage Zones-->
         <scene sceneID="G3c-SH-gCM">
