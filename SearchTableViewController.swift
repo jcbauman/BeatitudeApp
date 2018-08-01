@@ -18,38 +18,36 @@ class SearchTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var authToken = getAlamoAuth()
-        
-            callAlamo(url: searchURL)
+        getAlamoAuth()
         
     }
     
     //get an authorization token for search
-    func getAlamoAuth() -> String {
+    func getAlamoAuth(){
         let parameters = ["client_id" : "a5656d6551e647cb98f7c561ecb245b5",
                           "client_secret" : "3bf2f4cf94e440908654d356ab2fe3cf",
                           "grant_type" : "client_credentials"]
-        var token = ""
         Alamofire.request("https://accounts.spotify.com/api/token", method: .post, parameters: parameters).responseJSON(completionHandler: {
             response in
             switch response.result{
                 case .success(let value):
                 let json = JSON(value)
-                token = json["access_token"].stringValue
-                
+                self.accessToken = json["access_token"].stringValue
+                self.callAlamo(url: self.searchURL)
             case .failure(let error):
                 print(error)
             }
         })
-        return token
+        
     }
     
+    //replace with "BQAYukIO4TCbL-6OzbQaTcyvaNEAMIWDvpWLLolHiASnTRoB2xGj6X_uO8VN0RshIBRSc8rNVs-I5hDehPA"
     //Spotify API call
     func callAlamo(url: String){
         let headers: HTTPHeaders = [
         "Accept": "application/json",
         "Content-Type": "application/json",
-        "Authorization": String("Bearer" + accessToken)
+        "Authorization": String("Bearer " + String(accessToken))
         ]
         Alamofire.request(url, headers: headers).responseJSON(completionHandler:{
             response in
@@ -61,7 +59,6 @@ class SearchTableViewController: UITableViewController {
         do {
             var readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as? [String: AnyObject]
             print(readableJSON)
-            print("DONE")
 
         }catch{
             print(error)
