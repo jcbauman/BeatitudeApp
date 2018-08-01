@@ -25,7 +25,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     var posts = [post]()
     typealias JSONStandard = [String: AnyObject]
     
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet var searchBar: UISearchBar!
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let keywords = searchBar.text
@@ -36,6 +36,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         getAlamoAuth()
 
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
