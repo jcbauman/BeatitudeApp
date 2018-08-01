@@ -121,26 +121,22 @@
         <scene sceneID="00O-9y-CBe">
             <objects>
                 <tableViewController id="s6D-P6-rLa" customClass="SearchTableViewController" customModule="Beatitude" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="SW0-gB-JF1">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" sectionIndexMinimumDisplayRowCount="1" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="SW0-gB-JF1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Enter a song, artist, album" id="nFF-lh-NBq">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search for a song" id="ZCr-EJ-tGV">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="barTintColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
-                            <scopeButtonTitles>
-                                <string>Title</string>
-                                <string>Title</string>
-                            </scopeButtonTitles>
+                            <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="go"/>
                             <connections>
-                                <outlet property="delegate" destination="SW0-gB-JF1" id="tVo-VX-cmW"/>
+                                <outlet property="delegate" destination="s6D-P6-rLa" id="btA-Dc-JuW"/>
                             </connections>
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="trackCell" rowHeight="89" id="al6-X4-ENr">
-                                <rect key="frame" x="0.0" y="84" width="375" height="89"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="89"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="al6-X4-ENr" id="3yo-wc-6O2">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="88.5"/>
@@ -184,7 +180,7 @@
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="umk-DD-pRW"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchBar" destination="nFF-lh-NBq" id="6ba-Mp-WJA"/>
+                        <outlet property="searchBar" destination="ZCr-EJ-tGV" id="hgL-UC-gtj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pNV-tB-r1j" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -230,7 +226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Rv-R4-wSJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1708" y="-578.86056971514245"/>
+            <point key="canvasLocation" x="1890" y="-591"/>
         </scene>
         <!--Manage Zones-->
         <scene sceneID="G3c-SH-gCM">
