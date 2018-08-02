@@ -2,6 +2,8 @@
 //  ViewController.swift
 //  Beatitude
 //
+//  Created by Rocko Bauman
+//
 
 import UIKit
 import MapKit
@@ -18,6 +20,11 @@ class ViewController: UIViewController {
     let locationManager = CLLocationManager()
     
     var places = Place.getPlaces()
+    
+    //Variables contributed by SearchTableViewController
+    var newSongTitle = String()
+    var newSongImage = UIImage()
+    var newSongURI = String()
     
     //CoreData
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -73,8 +80,8 @@ class ViewController: UIViewController {
     @IBAction func saveSongPressed(_ sender: UIButton) {
         
         let newZone = NSEntityDescription.insertNewObject(forEntityName: "Zones", into: context)
-        newZone.setValue("spotify:track:0sAgDmilipOED3mWTGl8Ob", forKey: "songURI")
-        newZone.setValue("This Is What's Happening Now", forKey: "song")
+        newZone.setValue(newSongURI, forKey: "songURI")
+        newZone.setValue(newSongTitle, forKey: "song")
         newZone.setValue(mapView?.centerCoordinate.latitude, forKey: "latitude")
         newZone.setValue(mapView?.centerCoordinate.longitude, forKey: "longitude")
         newZone.setValue(radiusSlider.value, forKey: "radius")
@@ -121,7 +128,6 @@ class ViewController: UIViewController {
             mapView?.setRegion(region, animated: true)
         }
     }
-    
 }
 
 //dequeue and display annotations if they are not the user's annotation

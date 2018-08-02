@@ -29,15 +29,28 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     //when search bar triggered, begin search
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        posts.removeAll()
+        tableView.reloadData()
+        
         let keywords = searchBar.text
         self.view.endEditing(true)
         let finalKeywords = keywords?.replacingOccurrences(of: " ", with: "%20")
         searchURL = "https://api.spotify.com/v1/search?q=\(finalKeywords!)&type=track&market=US&limit=10"
-        getAlamoAuth()
+        
+        //search for songs
+        if(accessToken != ""){
+            self.callAlamo(url: self.searchURL)
+        }
     }
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //UI
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
+        
+        //get authorization token immediately
+        getAlamoAuth()
     }
     
     //get an authorization token for search and input link
@@ -50,18 +63,13 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
             switch response.result{
                 case .success(let value):
                 let json = JSON(value)
-                print(json)
                 self.accessToken = json["access_token"].stringValue
-                
                 //API call after token obtained
                 print("gotAuth!")
-                print(self.accessToken)
-                self.callAlamo(url: self.searchURL)
             case .failure(let error):
                 print(error)
             }
         })
-        
     }
     
     //Spotify API call
@@ -75,6 +83,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         Alamofire.request(url, headers: headers).responseJSON(completionHandler:{
             response in
             self.parseData(JSONData: response.data!)
+            print("sent request")
         })
     }
 
@@ -86,15 +95,18 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                 if let items = tracks["items"] as? [JSONStandard]{
                     for i in 0..<items.count{
                         let item = items[i]
-                        print(item)
                         let name = item["name"] as! String
-                        let previewURL = item["preview_url"] as? String
+                        var previewURL = ""
+                        if let externalURLS = item["external_urls"] as? JSONStandard{
+                            previewURL = (externalURLS["spotify"] as! String)
+                            print(String(previewURL)!)
+                        }
                         if let album = item["album"] as? JSONStandard{
                             if let images = album["images"] as? [JSONStandard]{
                                 let imageData = images[0]
                                 let mainImageURL = URL(string: imageData["url"] as! String)
                                 let mainImageData = NSData(contentsOf: mainImageURL!)
-                                let mainImage = UIImage(data: mainImageData as! Data)
+                                let mainImage = UIImage(data: mainImageData! as Data)
                                 
                                 posts.append(post.init(mainImage: mainImage, name: name, previewURL: previewURL))
                                 self.tableView.reloadData()
@@ -132,10 +144,20 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         return cell!
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       let indexPath = self.tableView.indexPathForSelectedRow?.row
-        let vc = segue.destination as! AudioViewController
-        vc.mainSongTitle = posts[indexPath!].name
-        vc.mainPreviewURL = posts[indexPath!].previewURL
+    //upon song selection
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "backToMap", sender: self)
     }
+    
+    //go back to Map Editor (ViewController) and update variables
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let indexPath = self.tableView.indexPathForSelectedRow?.row
+        let vc = segue.destination as! ViewController
+        vc.newSongTitle = posts[indexPath!].name
+        vc.newSongImage = posts[indexPath!].mainImage
+        vc.newSongURI = posts[indexPath!].previewURL
+    }
+    
+    //  CODE TO PLAY A SONG LINK IN SPOTIFY:
+    //  UIApplication.shared.open(URL(string: posts[indexPath!].previewURL)!, options: [:], completionHandler: nil)
 }

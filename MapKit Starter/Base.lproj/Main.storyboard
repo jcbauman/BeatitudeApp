@@ -166,9 +166,6 @@
                                         <constraint firstItem="ayh-z5-XqK" firstAttribute="leading" secondItem="3yo-wc-6O2" secondAttribute="leading" constant="10" id="yJn-hi-Qtk"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="0YO-gt-XGd" kind="show" id="3sZ-jU-1xS"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -200,7 +197,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9AW-cT-iut">
-                                <rect key="frame" x="64" y="248" width="211" height="117"/>
+                                <rect key="frame" x="64" y="204" width="211" height="161"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="117" id="2jP-26-xB8"/>
                                 </constraints>
@@ -288,7 +285,7 @@
                                         <constraint firstItem="djR-fU-WYy" firstAttribute="centerY" secondItem="KKS-uk-xtS" secondAttribute="centerY" id="moM-9O-qPa"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="albumLogo" destination="djR-fU-WYy" id="EQD-lt-6k3"/>
                                     <outlet property="songTitle" destination="Yap-aN-j0K" id="1Ut-HC-iVa"/>
