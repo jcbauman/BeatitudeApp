@@ -56,7 +56,7 @@
                                         </state>
                                         <connections>
                                             <action selector="saveSongPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GLq-Uv-THC"/>
-                                            <segue destination="s6D-P6-rLa" kind="show" id="BuW-WV-7pw"/>
+                                            <segue destination="s6D-P6-rLa" kind="show" identifier="searchSpotifySegue" id="BuW-WV-7pw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nh-DD-b8V">
@@ -70,7 +70,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="ZaG-GR-QY6" kind="show" id="EAm-s4-PCz"/>
+                                            <segue destination="ZaG-GR-QY6" kind="show" identifier="manageZoneSegue" id="EAm-s4-PCz"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -150,7 +150,7 @@
                                                 <constraint firstAttribute="width" secondItem="ayh-z5-XqK" secondAttribute="height" multiplier="69:68" id="mlm-aD-eqQ"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxG-dZ-Pye">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxG-dZ-Pye">
                                             <rect key="frame" x="87" y="36.5" width="272" height="17"/>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
                                             <nil key="textColor"/>
@@ -258,8 +258,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="105.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yap-aN-j0K">
-                                            <rect key="frame" x="120" y="39" width="239" height="28"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Song Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yap-aN-j0K">
+                                            <rect key="frame" x="93" y="39" width="266" height="28"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="28" id="Mxm-rK-UCg"/>
                                             </constraints>
@@ -267,20 +267,18 @@
                                             <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="djR-fU-WYy">
-                                            <rect key="frame" x="7" y="20" width="78" height="75"/>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p7p-1e-G9i">
-                                            <rect key="frame" x="7" y="20" width="78" height="75"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="djR-fU-WYy">
+                                            <rect key="frame" x="7" y="15.5" width="78" height="75"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="75" id="AgB-Jq-HoU"/>
+                                                <constraint firstAttribute="width" secondItem="djR-fU-WYy" secondAttribute="height" multiplier="26:25" id="Y9g-5r-Tcv"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Yap-aN-j0K" firstAttribute="leading" secondItem="KKS-uk-xtS" secondAttribute="leading" constant="120" id="1E2-Cr-LOV"/>
                                         <constraint firstItem="djR-fU-WYy" firstAttribute="leading" secondItem="KKS-uk-xtS" secondAttribute="leading" constant="7" id="4pa-tU-LTL"/>
+                                        <constraint firstAttribute="bottom" secondItem="djR-fU-WYy" secondAttribute="bottom" constant="15" id="8aI-4b-7A9"/>
                                         <constraint firstAttribute="trailing" secondItem="djR-fU-WYy" secondAttribute="trailing" constant="290" id="9rN-tn-bch"/>
+                                        <constraint firstItem="djR-fU-WYy" firstAttribute="top" secondItem="KKS-uk-xtS" secondAttribute="top" constant="15.5" id="DFB-72-2w8"/>
                                         <constraint firstAttribute="trailing" secondItem="Yap-aN-j0K" secondAttribute="trailing" constant="16" id="Ra4-z0-r1N"/>
                                         <constraint firstItem="Yap-aN-j0K" firstAttribute="centerY" secondItem="KKS-uk-xtS" secondAttribute="centerY" id="ctl-BG-yDW"/>
                                         <constraint firstItem="djR-fU-WYy" firstAttribute="centerY" secondItem="KKS-uk-xtS" secondAttribute="centerY" id="moM-9O-qPa"/>
@@ -304,7 +302,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Czd-Qe-sFC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1874" y="154"/>
+            <point key="canvasLocation" x="1889" y="401"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VIx-W4-OBv">

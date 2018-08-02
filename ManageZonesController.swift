@@ -51,7 +51,11 @@ class ManageZonesController: UITableViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SongEditorTableViewCell
         let song = zoneArray[indexPath.row]
         
-        cell.albumLogo.image = UIImage(named: "zone_logo.png")
+        let imageURL = URL(string: song.imageURL as! String)
+        let mainImageData = NSData(contentsOf: imageURL!)
+        let mainImage = UIImage(data: mainImageData! as Data)
+        
+        cell.albumLogo!.image = mainImage!
         cell.songTitle!.text = song.song!
     
         return cell

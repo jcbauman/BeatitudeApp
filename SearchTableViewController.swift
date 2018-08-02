@@ -18,10 +18,14 @@ struct post{
     let mainImage : UIImage!
     let name: String!
     let previewURL: String!
+    let imageURL: String!
 }
 
 class SearchTableViewController: UITableViewController, UISearchBarDelegate {
 
+    var mapCenterLongitude = 0.0
+    var mapCenterLatitude = 0.0
+    
     var accessToken = ""
     var searchURL = String()
     var posts = [post]()
@@ -29,7 +33,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-    //CoreData
+    //CoreData initializtion
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     //when search bar triggered, begin search
@@ -109,11 +113,12 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                         if let album = item["album"] as? JSONStandard{
                             if let images = album["images"] as? [JSONStandard]{
                                 let imageData = images[0]
+                                let imageURL = (imageData["url"] as! String)
                                 let mainImageURL = URL(string: imageData["url"] as! String)
                                 let mainImageData = NSData(contentsOf: mainImageURL!)
                                 let mainImage = UIImage(data: mainImageData! as Data)
                                 
-                                posts.append(post.init(mainImage: mainImage, name: name, previewURL: previewURL))
+                                posts.append(post.init(mainImage: mainImage, name: name, previewURL: previewURL, imageURL: imageURL))
                                 self.tableView.reloadData()
                             }
                         }
@@ -152,16 +157,9 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     //upon song selection
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "backToMap", sender: self)
-//        let vc = ViewController()
-//        let indexPath = self.tableView.indexPathForSelectedRow?.row
-//        vc.newSongTitle = posts[indexPath!].name
-//        vc.newSongImage = posts[indexPath!].mainImage
-//        vc.newSongURI = posts[indexPath!].previewURL
-        
-//       navigationController?.popToViewController(vc, animated: true)
     }
     
-    //go back to Map Editor (ViewController) and update variables
+    //go back to Map Editor (ViewController) and store location intoCoreData
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let indexPath = self.tableView.indexPathForSelectedRow?.row
         let vc = segue.destination as! ViewController
@@ -169,8 +167,9 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         let newZone = NSEntityDescription.insertNewObject(forEntityName: "Zones", into: context)
         newZone.setValue(posts[indexPath!].previewURL, forKey: "songURI")
         newZone.setValue(posts[indexPath!].name, forKey: "song")
-        newZone.setValue(vc.mapCenterLatitude, forKey: "latitude")
-        newZone.setValue(vc.mapCenterLongitude, forKey: "longitude")
+        newZone.setValue(mapCenterLatitude, forKey: "latitude")
+        newZone.setValue(mapCenterLongitude, forKey: "longitude")
+        newZone.setValue(posts[indexPath!].imageURL, forKey: "imageURL")
         newZone.setValue(100, forKey: "radius")
         
         do {

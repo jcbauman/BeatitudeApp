@@ -105,13 +105,13 @@ class ViewController: UIViewController {
     }
     
     //opening location
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            let span = MKCoordinateSpanMake(0.05, 0.05)
-            let region = MKCoordinateRegion(center: location.coordinate, span: span)
-            mapView?.setRegion(region, animated: true)
-        }
-    }
+//    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        if let location = locations.first {
+//            let span = MKCoordinateSpanMake(0.05, 0.05)
+//            let region = MKCoordinateRegion(center: location.coordinate, span: span)
+//            mapView?.setRegion(region, animated: true)
+//        }
+//    }
 }
 
 //dequeue and display annotations if they are not the user's annotation
@@ -137,5 +137,13 @@ extension ViewController: MKMapViewDelegate {
         return renderer
     }
     
+    func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "searchSpotifySegue" {
+            let destinationVC : SearchTableViewController = segue.destination as! SearchTableViewController
+            destinationVC.mapCenterLongitude = (mapView?.centerCoordinate.longitude)!
+            destinationVC.mapCenterLatitude = (mapView?.centerCoordinate.latitude)!
+        }
+        
+    }
 }
 
