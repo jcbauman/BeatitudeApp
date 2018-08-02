@@ -18,18 +18,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var radiusSlider: UISlider!
     
     let locationManager = CLLocationManager()
+    var mapCenterLongitude = 0.0
+    var mapCenterLatitude = 0.0
     
     var places = Place.getPlaces()
-    
-    //Variables contributed by SearchTableViewController
-    var newSongTitle = String()
-    var newSongImage = UIImage()
-    var newSongURI = String()
     
     //CoreData
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
+        
         
         //populate map
         super.viewDidLoad()
@@ -79,29 +77,15 @@ class ViewController: UIViewController {
     //add song-linked zone to core data
     @IBAction func saveSongPressed(_ sender: UIButton) {
         
-        let newZone = NSEntityDescription.insertNewObject(forEntityName: "Zones", into: context)
-        newZone.setValue(newSongURI, forKey: "songURI")
-        newZone.setValue(newSongTitle, forKey: "song")
-        newZone.setValue(mapView?.centerCoordinate.latitude, forKey: "latitude")
-        newZone.setValue(mapView?.centerCoordinate.longitude, forKey: "longitude")
-        newZone.setValue(radiusSlider.value, forKey: "radius")
-        
-        do {
-            try context.save()
-            print("saved")
-        }
-        catch{
-            print("couldn't save context, error bro!")
-        }
+        mapCenterLongitude = (mapView?.centerCoordinate.longitude)!
+        mapCenterLatitude = (mapView?.centerCoordinate.latitude)!
         
         //clear and reload zones
         self.mapView?.removeAnnotations((self.mapView?.annotations)!)
         let overlays = self.mapView?.overlays
         self.mapView?.removeOverlays(overlays!)
-
         places = Place.getPlaces()
         addAnnotations()
-        
     }
     
     func addAnnotations(){
@@ -152,5 +136,6 @@ extension ViewController: MKMapViewDelegate {
         renderer.lineWidth = 2
         return renderer
     }
+    
 }
 

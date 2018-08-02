@@ -9,9 +9,11 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 import AVFoundation
+import CoreData
 
 var player = AVAudioPlayer()
 
+//display object for song search
 struct post{
     let mainImage : UIImage!
     let name: String!
@@ -26,6 +28,9 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     typealias JSONStandard = [String: AnyObject]
     
     @IBOutlet weak var searchBar: UISearchBar!
+    
+    //CoreData
+    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     //when search bar triggered, begin search
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -147,15 +152,35 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     //upon song selection
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "backToMap", sender: self)
+//        let vc = ViewController()
+//        let indexPath = self.tableView.indexPathForSelectedRow?.row
+//        vc.newSongTitle = posts[indexPath!].name
+//        vc.newSongImage = posts[indexPath!].mainImage
+//        vc.newSongURI = posts[indexPath!].previewURL
+        
+//       navigationController?.popToViewController(vc, animated: true)
     }
     
     //go back to Map Editor (ViewController) and update variables
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let indexPath = self.tableView.indexPathForSelectedRow?.row
         let vc = segue.destination as! ViewController
-        vc.newSongTitle = posts[indexPath!].name
-        vc.newSongImage = posts[indexPath!].mainImage
-        vc.newSongURI = posts[indexPath!].previewURL
+        
+        let newZone = NSEntityDescription.insertNewObject(forEntityName: "Zones", into: context)
+        newZone.setValue(posts[indexPath!].previewURL, forKey: "songURI")
+        newZone.setValue(posts[indexPath!].name, forKey: "song")
+        newZone.setValue(vc.mapCenterLatitude, forKey: "latitude")
+        newZone.setValue(vc.mapCenterLongitude, forKey: "longitude")
+        newZone.setValue(100, forKey: "radius")
+        
+        do {
+            try context.save()
+            print("saved")
+        }
+        catch{
+            print("couldn't save context, error bro!")
+        }
+
     }
     
     //  CODE TO PLAY A SONG LINK IN SPOTIFY:

@@ -178,6 +178,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="ZCr-EJ-tGV" id="hgL-UC-gtj"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="backToMap" id="OCm-kf-GQX"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pNV-tB-r1j" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -330,5 +331,8 @@
     <resources>
         <image name="zone_logo_toDrop" width="72" height="72"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="adA-fe-rMX"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
