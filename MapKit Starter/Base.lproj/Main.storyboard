@@ -199,14 +199,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9AW-cT-iut">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9AW-cT-iut">
                                 <rect key="frame" x="64" y="248" width="211" height="117"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="117" id="2jP-26-xB8"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0u-ek-2Hh">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0u-ek-2Hh">
                                 <rect key="frame" x="134" y="405" width="71" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="yuZ-5N-DOj"/>
+                                </constraints>
                                 <state key="normal" title="Play"/>
                                 <connections>
                                     <action selector="pausePlayPressed:" destination="0YO-gt-XGd" eventType="touchUpInside" id="0My-9A-xhN"/>
@@ -215,7 +221,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="9AW-cT-iut" secondAttribute="trailing" constant="100" id="3ol-9V-17c"/>
                             <constraint firstItem="9AW-cT-iut" firstAttribute="centerX" secondItem="j1O-mo-ujz" secondAttribute="centerX" id="80p-ea-PNA"/>
+                            <constraint firstItem="9AW-cT-iut" firstAttribute="top" secondItem="1Uu-oP-RUN" secondAttribute="bottom" constant="184" id="9cI-ha-TGl"/>
+                            <constraint firstItem="1VU-Nm-hTL" firstAttribute="top" secondItem="9AW-cT-iut" secondAttribute="bottom" constant="302" id="FV7-Kx-eoW"/>
+                            <constraint firstItem="s0u-ek-2Hh" firstAttribute="top" secondItem="9AW-cT-iut" secondAttribute="bottom" constant="40" id="L5r-UA-Cz6"/>
+                            <constraint firstItem="9AW-cT-iut" firstAttribute="leading" secondItem="j1O-mo-ujz" secondAttribute="leading" constant="64" id="Ubh-hP-zya"/>
+                            <constraint firstItem="s0u-ek-2Hh" firstAttribute="leading" secondItem="j1O-mo-ujz" secondAttribute="leading" constant="134" id="YLh-qU-aUJ"/>
+                            <constraint firstAttribute="trailing" secondItem="s0u-ek-2Hh" secondAttribute="trailing" constant="170" id="bsr-ed-BAb"/>
+                            <constraint firstItem="1VU-Nm-hTL" firstAttribute="top" secondItem="s0u-ek-2Hh" secondAttribute="bottom" constant="232" id="cXM-ip-oQ6"/>
                             <constraint firstItem="s0u-ek-2Hh" firstAttribute="centerX" secondItem="j1O-mo-ujz" secondAttribute="centerX" id="tsf-2c-Tun"/>
                         </constraints>
                     </view>

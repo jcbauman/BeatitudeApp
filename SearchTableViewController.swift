@@ -66,6 +66,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     //Spotify API call
     func callAlamo(url: String){
+        print(searchURL)
         let headers: HTTPHeaders = [
         "Accept": "application/json",
         "Content-Type": "application/json",
@@ -74,7 +75,6 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         Alamofire.request(url, headers: headers).responseJSON(completionHandler:{
             response in
             self.parseData(JSONData: response.data!)
-            print(response)
         })
     }
 
@@ -88,7 +88,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                         let item = items[i]
                         print(item)
                         let name = item["name"] as! String
-                        let previewURL = item["preview_url"] as! String
+                        let previewURL = item["preview_url"] as? String
                         if let album = item["album"] as? JSONStandard{
                             if let images = album["images"] as? [JSONStandard]{
                                 let imageData = images[0]
