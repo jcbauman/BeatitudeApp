@@ -135,15 +135,16 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="88.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kzt-je-mhp" userLabel="Album Logo">
-                                            <rect key="frame" x="16" y="13" width="63" height="63"/>
+                                        <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ayh-z5-XqK">
+                                            <rect key="frame" x="10" y="10" width="69" height="68"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="kzt-je-mhp" secondAttribute="height" multiplier="1:1" id="7j1-bJ-ta9"/>
-                                                <constraint firstAttribute="height" constant="63" id="kva-d0-xUO"/>
+                                                <constraint firstAttribute="height" constant="68" id="2Q9-0a-i93"/>
+                                                <constraint firstAttribute="width" constant="69" id="Ldu-TJ-Wfc"/>
+                                                <constraint firstAttribute="width" secondItem="ayh-z5-XqK" secondAttribute="height" multiplier="69:68" id="mlm-aD-eqQ"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxG-dZ-Pye">
-                                            <rect key="frame" x="87" y="36" width="272" height="17"/>
+                                            <rect key="frame" x="87" y="36.5" width="272" height="17"/>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -151,10 +152,11 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="gxG-dZ-Pye" firstAttribute="centerY" secondItem="3yo-wc-6O2" secondAttribute="centerY" id="2cM-Pm-FsT"/>
-                                        <constraint firstItem="gxG-dZ-Pye" firstAttribute="leading" secondItem="kzt-je-mhp" secondAttribute="trailing" constant="8" id="9pA-Gg-0e0"/>
-                                        <constraint firstItem="kzt-je-mhp" firstAttribute="centerY" secondItem="3yo-wc-6O2" secondAttribute="centerY" id="KTK-4H-gqo"/>
+                                        <constraint firstAttribute="trailing" secondItem="ayh-z5-XqK" secondAttribute="trailing" constant="296" id="6oG-Mi-ogm"/>
                                         <constraint firstAttribute="trailing" secondItem="gxG-dZ-Pye" secondAttribute="trailing" constant="16" id="V0l-ru-VEP"/>
-                                        <constraint firstItem="kzt-je-mhp" firstAttribute="leading" secondItem="3yo-wc-6O2" secondAttribute="leading" constant="16" id="yv2-ak-IcC"/>
+                                        <constraint firstAttribute="bottom" secondItem="ayh-z5-XqK" secondAttribute="bottom" constant="10.5" id="cYB-wS-lFu"/>
+                                        <constraint firstItem="gxG-dZ-Pye" firstAttribute="leading" secondItem="ayh-z5-XqK" secondAttribute="trailing" constant="8" id="mJ8-uD-nhW"/>
+                                        <constraint firstItem="ayh-z5-XqK" firstAttribute="leading" secondItem="3yo-wc-6O2" secondAttribute="leading" constant="10" id="yJn-hi-Qtk"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -174,7 +176,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pNV-tB-r1j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1109.5999999999999" y="-500.59970014992507"/>
+            <point key="canvasLocation" x="1110" y="-500"/>
         </scene>
         <!--Manage Zones-->
         <scene sceneID="G3c-SH-gCM">
@@ -301,7 +303,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Player" id="MO4-uT-Q1K"/>
                     <connections>
-                        <outlet property="editMap" destination="7kv-12-6yY" id="JBd-jn-UtR"/>
                         <outlet property="playButton" destination="9lf-oc-z3d" id="UIR-Jc-Tj4"/>
                     </connections>
                 </viewController>

@@ -19,7 +19,6 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     var player = AVAudioPlayer()
     
     @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var editMap: UIButton!
     
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -49,10 +48,6 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         self.navigationController?.navigationBar.titleTextAttributes =
             [NSForegroundColorAttributeName: UIColor.red,
              NSFontAttributeName: UIFont(name: "Futura", size: 20)!]
-        playButton.layer.cornerRadius = 10;
-        playButton.clipsToBounds = true;
-        editMap.layer.cornerRadius = 10;
-        editMap.clipsToBounds = true;
     
     }
     
