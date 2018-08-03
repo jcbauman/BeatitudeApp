@@ -10,10 +10,13 @@ import UIKit
 import CoreData
 import CoreLocation
 import MapKit
+import AVFoundation
 
 class MainViewController: UIViewController, CLLocationManagerDelegate {
 
     var currentSong = URL(string:"spotify.com")
+    
+    var player = AVAudioPlayer()
     
     @IBOutlet weak var playButton: UIButton!
     
@@ -71,6 +74,13 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func pausePlayPressed(_ sender: Any) {
         if playButton.titleLabel?.text! == "PAUSE" {
             playButton.setTitle("PLAY", for: .normal)
+            do{
+                player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Pop", ofType: "aiff")!))
+                player.prepareToPlay()
+                player.play()
+            }catch{
+                print(error)
+            }
         }else {
             playButton.setTitle("PAUSE", for: .normal)
         }

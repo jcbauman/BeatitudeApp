@@ -10,12 +10,12 @@ import UIKit
 import Foundation
 import AVFoundation
 
-var player = AVAudioPlayer()
 
 class AudioViewController: UIViewController {
 
     var mainSongTitle = String()
     var mainPreviewURL = String()
+    var player = AVAudioPlayer()
     
     @IBOutlet weak var pausePlay: UIButton!
     @IBOutlet weak var songTitle: UILabel!
@@ -56,13 +56,6 @@ class AudioViewController: UIViewController {
             pausePlay.setTitle("Play", for: .normal)
         }
         else {
-            do{
-                player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Pop", ofType: "aiff")!))
-                player.prepareToPlay()
-                player.play()
-            }catch{
-                print(error)
-            }
             pausePlay.setTitle("Pause", for: .normal)
         }
     }
