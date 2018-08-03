@@ -30,6 +30,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         
         playButton.setTitle("PLAY", for: .normal)
         locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         do {
@@ -75,9 +76,11 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         if playButton.titleLabel?.text! == "PAUSE" {
             playButton.setTitle("PLAY", for: .normal)
             do{
+                //override spotify by playing a popping sound
                 player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Pop", ofType: "aiff")!))
                 player.prepareToPlay()
                 player.play()
+                currentSong = URL(string:"spotify.com")
             }catch{
                 print(error)
             }

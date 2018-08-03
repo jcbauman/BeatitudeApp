@@ -41,7 +41,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         let keywords = searchBar.text
         self.view.endEditing(true)
         let finalKeywords = keywords?.replacingOccurrences(of: " ", with: "%20")
-        searchURL = "https://api.spotify.com/v1/search?q=\(finalKeywords!)&type=track&market=US&limit=10"
+        searchURL = "https://api.spotify.com/v1/search?q=\(finalKeywords!)&type=track&market=US&limit=12"
         
         //search for songs
         if(accessToken != ""){
@@ -165,7 +165,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         print(mapCenterLatitude)
         newZone.setValue(mapCenterLongitude, forKey: "longitude")
         newZone.setValue(posts[indexPath!].imageURL, forKey: "imageURL")
-        newZone.setValue(5, forKey: "radius")
+        newZone.setValue(15, forKey: "radius")
         
         do {
             try context.save()
