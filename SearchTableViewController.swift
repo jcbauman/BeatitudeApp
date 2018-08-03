@@ -4,7 +4,6 @@
 //
 //  Created by Rocko Bauman on 7/31/18.
 //
-
 import UIKit
 import SwiftyJSON
 import Alamofire
@@ -22,7 +21,7 @@ struct post{
 }
 
 class SearchTableViewController: UITableViewController, UISearchBarDelegate {
-
+    
     var mapCenterLongitude = Double()
     var mapCenterLatitude = Double()
     
@@ -51,7 +50,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
             self.callAlamo(url: self.searchURL)
         }
     }
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,7 +66,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         Alamofire.request("https://accounts.spotify.com/api/token", method: .post, parameters: parameters).responseJSON(completionHandler: {
             response in
             switch response.result{
-                case .success(let value):
+            case .success(let value):
                 let json = JSON(value)
                 self.accessToken = json["access_token"].stringValue
                 //API call after token obtained
@@ -82,9 +81,9 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     func callAlamo(url: String){
         print(searchURL)
         let headers: HTTPHeaders = [
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-        "Authorization": String("Bearer " + String(accessToken))
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "Authorization": String("Bearer " + String(accessToken))
         ]
         Alamofire.request(url, headers: headers).responseJSON(completionHandler:{
             response in
@@ -92,7 +91,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
             print("sent request")
         })
     }
-
+    
     //parse JSON data from API
     func parseData(JSONData: Data){
         do {
@@ -133,7 +132,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return posts.count
@@ -150,7 +149,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         
         return cell!
     }
-
+    
     //upon song selection
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "backToMap", sender: self)
@@ -177,7 +176,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         catch{
             print("couldn't save context, error bro!")
         }
-
+        
     }
     
     //  CODE TO PLAY A SONG LINK IN SPOTIFY:

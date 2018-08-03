@@ -96,6 +96,7 @@ class ViewController: UIViewController {
         
     }
     
+
     //opening location
 //    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 //        if let location = locations.first {
@@ -129,7 +130,7 @@ extension ViewController: MKMapViewDelegate {
         return renderer
     }
     
-    func prepare(for segue: UIStoryboardSegue, sender: UIButton) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "searchSpotifySegue" {
             let destinationVC : SearchTableViewController = segue.destination as! SearchTableViewController
             destinationVC.mapCenterLongitude = (mapView?.centerCoordinate.longitude)!
