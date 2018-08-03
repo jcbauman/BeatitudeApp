@@ -83,6 +83,13 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
             }
         }else {
             playButton.setTitle("PAUSE", for: .normal)
+            do{
+                player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Pop", ofType: "aiff")!))
+                player.prepareToPlay()
+                player.play()
+            }catch{
+                print(error)
+            }
         }
     }
     

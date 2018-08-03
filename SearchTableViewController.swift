@@ -7,7 +7,6 @@
 import UIKit
 import SwiftyJSON
 import Alamofire
-import AVFoundation
 import CoreData
 
 
@@ -176,9 +175,9 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
             print("couldn't save context, error bro!")
         }
         navigationController?.popViewController(animated: true)
-
     }
     
     //  CODE TO PLAY A SONG LINK IN SPOTIFY:
-    //  UIApplication.shared.open(URL(string: posts[indexPath!].previewURL)!, options: [:], completionHandler: nil)
+    // UIApplication.shared.open(URL(string: posts[indexPath!].previewURL)!, options: [:], completionHandler: nil)
+    
 }

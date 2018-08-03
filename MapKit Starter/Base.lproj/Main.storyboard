@@ -28,7 +28,7 @@
                                 <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </mapView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sGd-ja-Map">
-                                <rect key="frame" x="15" y="469" width="345" height="182"/>
+                                <rect key="frame" x="15" y="469" width="345" height="144"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGP-DN-NtE">
                                         <rect key="frame" x="89" y="0.0" width="167" height="28"/>
@@ -40,12 +40,8 @@
                                             <action selector="centerMapPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3mx-zM-hHu"/>
                                         </connections>
                                     </button>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="0.0" maxValue="200" translatesAutoresizingMaskIntoConstraints="NO" id="EY0-FH-iBw">
-                                        <rect key="frame" x="-2" y="36" width="349" height="31"/>
-                                        <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </slider>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6l-WU-hE5">
-                                        <rect key="frame" x="0.0" y="74" width="345" height="50"/>
+                                        <rect key="frame" x="0.0" y="36" width="345" height="50"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="DNK-fg-eBA"/>
@@ -60,7 +56,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nh-DD-b8V">
-                                        <rect key="frame" x="0.0" y="132" width="345" height="50"/>
+                                        <rect key="frame" x="0.0" y="94" width="345" height="50"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="HgM-T0-K9T"/>
@@ -89,9 +85,7 @@
                             <constraint firstItem="e6l-WU-hE5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="22c-Wl-1Y7"/>
                             <constraint firstItem="1nh-DD-b8V" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="2hB-pt-CXW"/>
                             <constraint firstItem="sGd-ja-Map" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="EEk-an-bdR"/>
-                            <constraint firstAttribute="trailing" secondItem="EY0-FH-iBw" secondAttribute="trailing" constant="15" id="Fex-nD-9nI"/>
                             <constraint firstItem="gp9-id-Mah" firstAttribute="centerX" secondItem="u6n-lR-HdB" secondAttribute="centerX" id="ISR-ID-Y0s"/>
-                            <constraint firstItem="EY0-FH-iBw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="PoK-xs-nov"/>
                             <constraint firstItem="gp9-id-Mah" firstAttribute="centerY" secondItem="u6n-lR-HdB" secondAttribute="centerY" id="S07-0a-bRp"/>
                             <constraint firstItem="sGd-ja-Map" firstAttribute="top" secondItem="u6n-lR-HdB" secondAttribute="bottom" constant="15" id="VV4-OG-LGl"/>
                             <constraint firstAttribute="trailing" secondItem="sGd-ja-Map" secondAttribute="trailing" constant="15" id="iwP-jV-Hj1"/>
@@ -110,12 +104,11 @@
                         <outlet property="centerPin" destination="S07-0a-bRp" id="NAg-lq-wR7"/>
                         <outlet property="deleteZone" destination="1nh-DD-b8V" id="fpn-TN-J1N"/>
                         <outlet property="mapView" destination="u6n-lR-HdB" id="QEC-fB-rpN"/>
-                        <outlet property="radiusSlider" destination="EY0-FH-iBw" id="Y0N-c4-Zg5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="594" y="282"/>
+            <point key="canvasLocation" x="592.79999999999995" y="281.10944527736132"/>
         </scene>
         <!--Search Spotify-->
         <scene sceneID="00O-9y-CBe">
@@ -184,61 +177,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pNV-tB-r1j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1110" y="-500"/>
-        </scene>
-        <!--Audio View Controller-->
-        <scene sceneID="IJ4-9Z-HKz">
-            <objects>
-                <viewController id="0YO-gt-XGd" customClass="AudioViewController" customModule="Beatitude" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1Uu-oP-RUN"/>
-                        <viewControllerLayoutGuide type="bottom" id="1VU-Nm-hTL"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="j1O-mo-ujz" customClass="Audio">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9AW-cT-iut">
-                                <rect key="frame" x="64" y="204" width="211" height="161"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="117" id="2jP-26-xB8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0u-ek-2Hh">
-                                <rect key="frame" x="134" y="405" width="71" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="yuZ-5N-DOj"/>
-                                </constraints>
-                                <state key="normal" title="Play"/>
-                                <connections>
-                                    <action selector="pausePlayPressed:" destination="0YO-gt-XGd" eventType="touchUpInside" id="0My-9A-xhN"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="9AW-cT-iut" secondAttribute="trailing" constant="100" id="3ol-9V-17c"/>
-                            <constraint firstItem="9AW-cT-iut" firstAttribute="centerX" secondItem="j1O-mo-ujz" secondAttribute="centerX" id="80p-ea-PNA"/>
-                            <constraint firstItem="9AW-cT-iut" firstAttribute="top" secondItem="1Uu-oP-RUN" secondAttribute="bottom" constant="184" id="9cI-ha-TGl"/>
-                            <constraint firstItem="1VU-Nm-hTL" firstAttribute="top" secondItem="9AW-cT-iut" secondAttribute="bottom" constant="302" id="FV7-Kx-eoW"/>
-                            <constraint firstItem="s0u-ek-2Hh" firstAttribute="top" secondItem="9AW-cT-iut" secondAttribute="bottom" constant="40" id="L5r-UA-Cz6"/>
-                            <constraint firstItem="9AW-cT-iut" firstAttribute="leading" secondItem="j1O-mo-ujz" secondAttribute="leading" constant="64" id="Ubh-hP-zya"/>
-                            <constraint firstItem="s0u-ek-2Hh" firstAttribute="leading" secondItem="j1O-mo-ujz" secondAttribute="leading" constant="134" id="YLh-qU-aUJ"/>
-                            <constraint firstAttribute="trailing" secondItem="s0u-ek-2Hh" secondAttribute="trailing" constant="170" id="bsr-ed-BAb"/>
-                            <constraint firstItem="1VU-Nm-hTL" firstAttribute="top" secondItem="s0u-ek-2Hh" secondAttribute="bottom" constant="232" id="cXM-ip-oQ6"/>
-                            <constraint firstItem="s0u-ek-2Hh" firstAttribute="centerX" secondItem="j1O-mo-ujz" secondAttribute="centerX" id="tsf-2c-Tun"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="pausePlay" destination="s0u-ek-2Hh" id="8YX-8G-ftq"/>
-                        <outlet property="songTitle" destination="9AW-cT-iut" id="OTm-nf-uHO"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Rv-R4-wSJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1890" y="-591"/>
         </scene>
         <!--Manage Zones-->
         <scene sceneID="G3c-SH-gCM">
