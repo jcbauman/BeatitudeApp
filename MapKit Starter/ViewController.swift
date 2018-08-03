@@ -28,7 +28,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        
         //populate map
         super.viewDidLoad()
         requestLocationAccess()
@@ -79,13 +78,6 @@ class ViewController: UIViewController {
         
         mapCenterLongitude = (mapView?.centerCoordinate.longitude)!
         mapCenterLatitude = (mapView?.centerCoordinate.latitude)!
-        
-        //clear and reload zones
-        self.mapView?.removeAnnotations((self.mapView?.annotations)!)
-        let overlays = self.mapView?.overlays
-        self.mapView?.removeOverlays(overlays!)
-        places = Place.getPlaces()
-        addAnnotations()
     }
     
     func addAnnotations(){
@@ -137,13 +129,19 @@ extension ViewController: MKMapViewDelegate {
         return renderer
     }
     
-    func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    func prepare(for segue: UIStoryboardSegue, sender: UIButton) {
         if segue.identifier == "searchSpotifySegue" {
             let destinationVC : SearchTableViewController = segue.destination as! SearchTableViewController
             destinationVC.mapCenterLongitude = (mapView?.centerCoordinate.longitude)!
+            print("set longitude")
             destinationVC.mapCenterLatitude = (mapView?.centerCoordinate.latitude)!
         }
-        
+        //clear and reload zones
+        self.mapView?.removeAnnotations((self.mapView?.annotations)!)
+        let overlays = self.mapView?.overlays
+        self.mapView?.removeOverlays(overlays!)
+        places = Place.getPlaces()
+        addAnnotations()
     }
 }
 

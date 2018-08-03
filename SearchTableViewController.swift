@@ -23,8 +23,8 @@ struct post{
 
 class SearchTableViewController: UITableViewController, UISearchBarDelegate {
 
-    var mapCenterLongitude = 0.0
-    var mapCenterLatitude = 0.0
+    var mapCenterLongitude = Double()
+    var mapCenterLatitude = Double()
     
     var accessToken = ""
     var searchURL = String()
@@ -54,9 +54,6 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //UI
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
         
         //get authorization token immediately
         getAlamoAuth()
@@ -168,6 +165,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         newZone.setValue(posts[indexPath!].previewURL, forKey: "songURI")
         newZone.setValue(posts[indexPath!].name, forKey: "song")
         newZone.setValue(mapCenterLatitude, forKey: "latitude")
+        print(mapCenterLatitude)
         newZone.setValue(mapCenterLongitude, forKey: "longitude")
         newZone.setValue(posts[indexPath!].imageURL, forKey: "imageURL")
         newZone.setValue(100, forKey: "radius")

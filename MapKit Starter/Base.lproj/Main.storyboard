@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2m6-Ji-S7O">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MlF-A6-1y0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -115,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="232.80000000000001" y="154.27286356821591"/>
+            <point key="canvasLocation" x="759" y="401"/>
         </scene>
         <!--Search Spotify-->
         <scene sceneID="00O-9y-CBe">
@@ -183,7 +183,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pNV-tB-r1j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1005.6" y="-247.82608695652175"/>
+            <point key="canvasLocation" x="1110" y="-500"/>
         </scene>
         <!--Audio View Controller-->
         <scene sceneID="IJ4-9Z-HKz">
@@ -302,35 +302,96 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Czd-Qe-sFC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1889" y="401"/>
+            <point key="canvasLocation" x="2828" y="400.74962518740631"/>
+        </scene>
+        <!--Player-->
+        <scene sceneID="pdN-71-8ka">
+            <objects>
+                <viewController id="wud-6M-KtQ" customClass="MainViewController" customModule="Beatitude" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I4U-4A-qXY"/>
+                        <viewControllerLayoutGuide type="bottom" id="5P3-gJ-sbG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0if-d5-ogO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lf-oc-z3d">
+                                <rect key="frame" x="16" y="383" width="343" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="M3m-TD-ITM"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="eXH-eH-T83"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <state key="normal" title="PLAY">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveSongPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vwm-rA-yIN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kv-12-6yY">
+                                <rect key="frame" x="16" y="441" width="345" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="345" id="6zz-4u-Geu"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="pNP-Bq-LJM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <state key="normal" title="EDIT MAP">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveSongPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vbB-jy-DvC"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="Taa-8i-P4K"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="7kv-12-6yY" secondAttribute="trailing" constant="14" id="3J4-Hn-UZr"/>
+                            <constraint firstItem="9lf-oc-z3d" firstAttribute="centerX" secondItem="0if-d5-ogO" secondAttribute="centerX" id="Am8-Zm-ql8"/>
+                            <constraint firstItem="9lf-oc-z3d" firstAttribute="leading" secondItem="0if-d5-ogO" secondAttribute="leading" constant="16" id="L9a-XT-Gcg"/>
+                            <constraint firstItem="5P3-gJ-sbG" firstAttribute="top" secondItem="7kv-12-6yY" secondAttribute="bottom" constant="176" id="P9a-iQ-Deg"/>
+                            <constraint firstItem="7kv-12-6yY" firstAttribute="top" secondItem="9lf-oc-z3d" secondAttribute="bottom" constant="8" id="QLi-EE-bvR"/>
+                            <constraint firstAttribute="trailing" secondItem="9lf-oc-z3d" secondAttribute="trailing" constant="16" id="UEQ-Na-MGs"/>
+                            <constraint firstItem="7kv-12-6yY" firstAttribute="leading" secondItem="0if-d5-ogO" secondAttribute="leading" constant="16" id="yGE-B6-y1F"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Player" id="MO4-uT-Q1K"/>
+                    <connections>
+                        <outlet property="playButton" destination="9lf-oc-z3d" id="UIR-Jc-Tj4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sDE-sB-E4M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-89" y="-76"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="VIx-W4-OBv">
+        <scene sceneID="eNZ-1d-tLy">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2m6-Ji-S7O" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MlF-A6-1y0" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="R2F-un-i4t">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZKj-5V-liE">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="adA-fe-rMX"/>
+                        <segue destination="wud-6M-KtQ" kind="relationship" relationship="rootViewController" id="coP-hM-m0F"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fPD-GY-EIK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5yD-Ey-q6O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-706.39999999999998" y="154.27286356821591"/>
+            <point key="canvasLocation" x="-932" y="-40"/>
         </scene>
     </scenes>
     <resources>
         <image name="zone_logo_toDrop" width="72" height="72"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="adA-fe-rMX"/>
+        <segue reference="Taa-8i-P4K"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

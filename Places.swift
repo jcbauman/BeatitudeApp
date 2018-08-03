@@ -12,12 +12,14 @@ extension Place: MKAnnotation {}
     var songURI: String?
     var radius: Double?
     var coordinate: CLLocationCoordinate2D
+    var imageURL: String?
     
-    init(song: String?, songURI: String?, coordinate: CLLocationCoordinate2D, radius: Double) {
+    init(song: String?, songURI: String?, coordinate: CLLocationCoordinate2D, radius: Double, imageURL: String) {
         self.song = song
         self.songURI = songURI
         self.coordinate = coordinate
         self.radius = radius
+        self.imageURL = imageURL
     }
     
     static func getPlaces() -> [Place] {
@@ -43,8 +45,9 @@ extension Place: MKAnnotation {}
             let songURI = item.songURI!
             let latitude = item.latitude!, longitude = item.longitude!
             let radius = item.radius!
+            let imageURL = item.imageURL!
             
-            let place = Place(song: song, songURI: songURI, coordinate: CLLocationCoordinate2DMake(CLLocationDegrees(latitude), CLLocationDegrees(longitude)), radius: Double(radius))
+            let place = Place(song: song, songURI: songURI, coordinate: CLLocationCoordinate2DMake(CLLocationDegrees(latitude), CLLocationDegrees(longitude)), radius: Double(radius), imageURL: imageURL)
             places.append(place)
         }
         return places as [Place]
