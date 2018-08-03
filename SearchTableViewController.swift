@@ -22,6 +22,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     var mapCenterLongitude = Double()
     var mapCenterLatitude = Double()
+    var mapSpan = Double()
     
     var accessToken = ""
     var searchURL = String()
@@ -159,7 +160,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         print(mapCenterLatitude)
         newZone.setValue(mapCenterLongitude, forKey: "longitude")
         newZone.setValue(posts[indexPath!].imageURL, forKey: "imageURL")
-        newZone.setValue(30, forKey: "radius")
+        newZone.setValue((mapSpan * 29000.0), forKey: "radius")
         do {
             try context.save()
             print("saved")

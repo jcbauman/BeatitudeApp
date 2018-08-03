@@ -74,7 +74,6 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
                             currentSong = nextSong
                             UIApplication.shared.open(currentSong!, options: [:], completionHandler: nil)
                     }
-                    
                 }
             }
         }

@@ -134,8 +134,10 @@ extension ViewController: MKMapViewDelegate {
         if segue.identifier == "searchSpotifySegue" {
             let destinationVC : SearchTableViewController = segue.destination as! SearchTableViewController
             destinationVC.mapCenterLongitude = (mapView?.centerCoordinate.longitude)!
-            print("set longitude")
             destinationVC.mapCenterLatitude = (mapView?.centerCoordinate.latitude)!
+            let mapSpan = (mapView?.region.span.longitudeDelta)!
+            print(mapSpan)
+            destinationVC.mapSpan = mapSpan
         }
         //clear and reload zones
         self.mapView?.removeAnnotations((self.mapView?.annotations)!)
