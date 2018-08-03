@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var deleteZone: UIButton!
     @IBOutlet weak var centerMap: UIButton!
     @IBOutlet weak var centerPin: UIImage!
-    @IBOutlet weak var radiusSlider: UISlider!
     
     let locationManager = CLLocationManager()
     var mapCenterLongitude = 0.0
@@ -31,18 +30,6 @@ class ViewController: UIViewController {
         //populate map
         super.viewDidLoad()
         requestLocationAccess()
-        viewDidAppear()
-    }
-    
-    func viewDidAppear(){
-        super.viewDidAppear(true)
-        print("viewDidApp!")
-        //clear and reload zones
-        self.mapView?.removeAnnotations((self.mapView?.annotations)!)
-        let overlays = self.mapView?.overlays
-        self.mapView?.removeOverlays(overlays!)
-        
-        places = Place.getPlaces()
         addAnnotations()
         
         //UI button/navBar elements
@@ -53,6 +40,11 @@ class ViewController: UIViewController {
         addSong.clipsToBounds = true;
         deleteZone.layer.cornerRadius = 10;
         deleteZone.clipsToBounds = true;
+    }
+    
+    func viewWillAppear(){
+        super.viewWillAppear(true)
+        addAnnotations()
     }
     
     //get the user to confirm location access
@@ -81,11 +73,17 @@ class ViewController: UIViewController {
     }
     
     func addAnnotations(){
+        //clear and reload zones
+        self.mapView?.removeAnnotations((self.mapView?.annotations)!)
+        let overlays = self.mapView?.overlays
+        self.mapView?.removeOverlays(overlays!)
+        
+        places = Place.getPlaces()
         mapView?.delegate = self
         mapView?.addAnnotations(places)
         
-        let overlays = places.map { MKCircle(center: $0.coordinate, radius: $0.radius! )}
-        mapView?.addOverlays(overlays)
+        let newOverlays = places.map { MKCircle(center: $0.coordinate, radius: $0.radius! )}
+        mapView?.addOverlays(newOverlays)
     }
     
     //zoom in on user's location
