@@ -42,8 +42,8 @@ class ViewController: UIViewController {
         deleteZone.clipsToBounds = true;
     }
     
-    func viewWillAppear(){
-        super.viewWillAppear(true)
+    func viewDidAppear(){
+        super.viewDidAppear(true)
         addAnnotations()
     }
     
