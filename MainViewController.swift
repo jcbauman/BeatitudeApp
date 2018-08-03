@@ -20,7 +20,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var playButton: UIButton!
     
-    
+
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let locationManager: CLLocationManager = CLLocationManager()
     var places = Place.getPlaces()
@@ -33,6 +33,9 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
+        print("Start Updating")
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.pausesLocationUpdatesAutomatically = false
         do {
             try context.save()
             print("saved")
@@ -50,6 +53,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if playButton.titleLabel?.text! == "PAUSE" {
+            var songsInArea = [String]()
             for currentLocation in locations{
                 places = Place.getPlaces()
                 for zone in places{
@@ -59,14 +63,18 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
                     let distance : CLLocationDistance = pinLoc.distance(from: currentLocation)
                     let distanceDoub = Double(distance)
                     if(distanceDoub <= zone.radius!){
-                        //play this song
-                        let nextSong = URL(string: zone.songURI!)!
-                        if nextSong != currentSong{
-                            print("PLAYING SONG")
+                        songsInArea.append(zone.songURI!)
+                    }
+                }
+                //play last song in list (fixes collision of zones freakout)
+                if songsInArea.count > 0{
+                    let lastSongAdded = songsInArea[songsInArea.count - 1]
+                    let nextSong = URL(string: lastSongAdded)!
+                    if nextSong != currentSong && playButton.titleLabel?.text! == "PAUSE"{
                             currentSong = nextSong
                             UIApplication.shared.open(currentSong!, options: [:], completionHandler: nil)
-                        }
                     }
+                    
                 }
             }
         }
@@ -74,13 +82,15 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func pausePlayPressed(_ sender: Any) {
         if playButton.titleLabel?.text! == "PAUSE" {
+            locationManager.stopUpdatingLocation()
+            print("Stopped Updating")
             playButton.setTitle("PLAY", for: .normal)
             do{
                 //override spotify by playing a popping sound
                 player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Pop", ofType: "aiff")!))
                 player.prepareToPlay()
                 player.play()
-                currentSong = URL(string:"spotify.com")
+                //currentSong = URL(string:"spotify.com")
             }catch{
                 print(error)
             }
@@ -93,6 +103,8 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
             }catch{
                 print(error)
             }
+            locationManager.startUpdatingLocation()
+            print("Start Updating")
         }
     }
     

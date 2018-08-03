@@ -148,15 +148,9 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         return cell!
     }
     
-    //upon song selection
+    //upon song selection, go back to Map Editor (ViewController) and store location intoCoreData
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "backToMap", sender: self)
-    }
-    
-    //go back to Map Editor (ViewController) and store location intoCoreData
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let indexPath = self.tableView.indexPathForSelectedRow?.row
-        //let vc = segue.destination as! ViewController
         
         let newZone = NSEntityDescription.insertNewObject(forEntityName: "Zones", into: context)
         newZone.setValue(posts[indexPath!].previewURL, forKey: "songURI")
@@ -165,8 +159,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         print(mapCenterLatitude)
         newZone.setValue(mapCenterLongitude, forKey: "longitude")
         newZone.setValue(posts[indexPath!].imageURL, forKey: "imageURL")
-        newZone.setValue(15, forKey: "radius")
-        
+        newZone.setValue(30, forKey: "radius")
         do {
             try context.save()
             print("saved")
@@ -176,8 +169,4 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         }
         navigationController?.popViewController(animated: true)
     }
-    
-    //  CODE TO PLAY A SONG LINK IN SPOTIFY:
-    // UIApplication.shared.open(URL(string: posts[indexPath!].previewURL)!, options: [:], completionHandler: nil)
-    
 }
