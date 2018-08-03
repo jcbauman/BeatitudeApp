@@ -8,7 +8,6 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 import CoreData
-import Foundation
 
 
 //display object for song search
@@ -24,7 +23,6 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     var mapCenterLongitude = Double()
     var mapCenterLatitude = Double()
     var mapSpan = Double()
-    var numberOfSongsLoaded = Int()
     
     var accessToken = ""
     var searchURL = String()
@@ -97,7 +95,6 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     func parseData(JSONData: Data){
         do {
             var readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! JSONStandard
-            numberOfSongsLoaded = 0
             if let tracks = readableJSON["tracks"] as? JSONStandard{
                 if let items = tracks["items"] as? [JSONStandard]{
                     for i in 0..<items.count{
@@ -106,8 +103,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                         var previewURL = ""
                         if let externalURLS = item["external_urls"] as? JSONStandard{
                             previewURL = (externalURLS["spotify"] as! String)
-                            numberOfSongsLoaded += 1
-                            
+                            print(String(previewURL)!)
                         }
                         if let album = item["album"] as? JSONStandard{
                             if let images = album["images"] as? [JSONStandard]{
