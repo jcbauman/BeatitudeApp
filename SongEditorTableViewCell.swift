@@ -8,8 +8,9 @@
 import UIKit
 
 class SongEditorTableViewCell: UITableViewCell {
-    @IBOutlet weak var albumLogo: UIImageView!
+
     @IBOutlet weak var songTitle: UILabel!
+    @IBOutlet weak var albumLogo: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
