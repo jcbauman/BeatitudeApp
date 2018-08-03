@@ -12,6 +12,10 @@
 		3D152FCB210B8E9400365ACA /* ManageZonesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D152FCA210B8E9400365ACA /* ManageZonesController.swift */; };
 		3D59CBC2210BD67900AD5D7F /* SongEditorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D59CBC1210BD67900AD5D7F /* SongEditorTableViewCell.swift */; };
 		3D59CBC62110F7BD00AD5D7F /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D59CBC52110F7BD00AD5D7F /* SearchTableViewController.swift */; };
+		3D96253C21151ED900C5C939 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D96253921151ED700C5C939 /* SpotifyAuthentication.framework */; };
+		3D96253D21151ED900C5C939 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D96253A21151ED800C5C939 /* SpotifyAudioPlayback.framework */; };
+		3D96253E21151ED900C5C939 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D96253B21151ED900C5C939 /* SpotifyMetadata.framework */; };
+		3D962544211520F400C5C939 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962543211520F400C5C939 /* Constants.swift */; };
 		3DB48D342113C2F300A0C30C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB48D332113C2F300A0C30C /* MainViewController.swift */; };
 		3DB48D3721140E9300A0C30C /* Pop.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 3DB48D3621140E9300A0C30C /* Pop.aiff */; };
 		AF8BE9861DBF9A4B004A4C0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8BE9851DBF9A4B004A4C0A /* AppDelegate.swift */; };
@@ -29,6 +33,11 @@
 		3D152FCA210B8E9400365ACA /* ManageZonesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageZonesController.swift; sourceTree = "<group>"; };
 		3D59CBC1210BD67900AD5D7F /* SongEditorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongEditorTableViewCell.swift; sourceTree = "<group>"; };
 		3D59CBC52110F7BD00AD5D7F /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		3D96253921151ED700C5C939 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
+		3D96253A21151ED800C5C939 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
+		3D96253B21151ED900C5C939 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
+		3D96253F21151F5500C5C939 /* Beatitude-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Beatitude-Bridging-Header.h"; sourceTree = "<group>"; };
+		3D962543211520F400C5C939 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3DB48D332113C2F300A0C30C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3DB48D3621140E9300A0C30C /* Pop.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Pop.aiff; sourceTree = "<group>"; };
 		6D9D28B2C38C848C0BEEE852 /* Pods-Beatitude.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beatitude.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Beatitude/Pods-Beatitude.debug.xcconfig"; sourceTree = "<group>"; };
@@ -51,7 +60,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D96253E21151ED900C5C939 /* SpotifyMetadata.framework in Frameworks */,
 				3D06A406210685B500A3797E /* MapKit.framework in Frameworks */,
+				3D96253D21151ED900C5C939 /* SpotifyAudioPlayback.framework in Frameworks */,
+				3D96253C21151ED900C5C939 /* SpotifyAuthentication.framework in Frameworks */,
 				EF018BC017B7A8152030A3FF /* Pods_Beatitude.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,11 +99,13 @@
 				3D152FCA210B8E9400365ACA /* ManageZonesController.swift */,
 				AF8BE9871DBF9A4B004A4C0A /* ViewController.swift */,
 				3D59CBC52110F7BD00AD5D7F /* SearchTableViewController.swift */,
+				3D962543211520F400C5C939 /* Constants.swift */,
 				AF8BE9841DBF9A4B004A4C0A /* MapKit Starter */,
 				AF8BE9831DBF9A4B004A4C0A /* Products */,
 				3DB48D3521140E5400A0C30C /* Sounds */,
 				AF8BE9991DBF9B4C004A4C0A /* Frameworks */,
 				0EE20479CFA19C0C228B9488 /* Pods */,
+				3D96253F21151F5500C5C939 /* Beatitude-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,6 +132,9 @@
 		AF8BE9991DBF9B4C004A4C0A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D96253A21151ED800C5C939 /* SpotifyAudioPlayback.framework */,
+				3D96253921151ED700C5C939 /* SpotifyAuthentication.framework */,
+				3D96253B21151ED900C5C939 /* SpotifyMetadata.framework */,
 				AF8BE99A1DBF9B4C004A4C0A /* MapKit.framework */,
 				C67158BEA690B5B0A8FAE930 /* Pods_Beatitude.framework */,
 			);
@@ -159,6 +176,7 @@
 					AF8BE9811DBF9A4B004A4C0A = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = JZZA5N7MP3;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -258,6 +276,7 @@
 				3DB48D342113C2F300A0C30C /* MainViewController.swift in Sources */,
 				3D06A40F2107E42E00A3797E /* MusicZones.xcdatamodeld in Sources */,
 				AFC772561DBFA22C0062D617 /* Places.swift in Sources */,
+				3D962544211520F400C5C939 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,11 +399,18 @@
 			baseConfigurationReference = 6D9D28B2C38C848C0BEEE852 /* Pods-Beatitude.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = JZZA5N7MP3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "MapKit Starter/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RockoBauman.Beatitude;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Beatitude-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -394,11 +420,17 @@
 			baseConfigurationReference = 7A98089685FBA69752E55C5B /* Pods-Beatitude.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = JZZA5N7MP3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "MapKit Starter/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RockoBauman.Beatitude;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Beatitude-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

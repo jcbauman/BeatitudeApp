@@ -17,9 +17,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor(red: 26/255, green: 26/255, blue: 26/255, alpha: 1)
         UINavigationBar.appearance().tintColor = UIColor.darkGray
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.red]
+        setupSpotify()
         return true
     }
 
+    func setupSpotify() {
+        SPTAuth.defaultInstance().clientID = Constants.clientID
+        SPTAuth.defaultInstance().redirectURL = Constants.redirectURI
+        SPTAuth.defaultInstance().sessionUserDefaultsKey = Constants.sessionKey
+        
+        //For this application we just want to stream music, so we will only request the streaming scope
+        SPTAuth.defaultInstance().requestedScopes = [SPTAuthStreamingScope]
+        
+        // Start the player (this is only need for applications that using streaming, which we will use
+        // in this tutorial)
+        do {
+            try SPTAudioStreamingController.sharedInstance().start(withClientId: Constants.clientID)
+        } catch {
+            fatalError("Couldn't start Spotify SDK")
+        }
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
