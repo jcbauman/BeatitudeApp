@@ -10,7 +10,6 @@ import Alamofire
 import AVFoundation
 import CoreData
 
-var player = AVAudioPlayer()
 
 //display object for song search
 struct post{
@@ -158,7 +157,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     //go back to Map Editor (ViewController) and store location intoCoreData
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let indexPath = self.tableView.indexPathForSelectedRow?.row
-        let vc = segue.destination as! ViewController
+        //let vc = segue.destination as! ViewController
         
         let newZone = NSEntityDescription.insertNewObject(forEntityName: "Zones", into: context)
         newZone.setValue(posts[indexPath!].previewURL, forKey: "songURI")
@@ -167,7 +166,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         print(mapCenterLatitude)
         newZone.setValue(mapCenterLongitude, forKey: "longitude")
         newZone.setValue(posts[indexPath!].imageURL, forKey: "imageURL")
-        newZone.setValue(100, forKey: "radius")
+        newZone.setValue(5, forKey: "radius")
         
         do {
             try context.save()
@@ -176,7 +175,8 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         catch{
             print("couldn't save context, error bro!")
         }
-        
+        navigationController?.popViewController(animated: true)
+
     }
     
     //  CODE TO PLAY A SONG LINK IN SPOTIFY:

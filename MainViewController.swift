@@ -14,7 +14,9 @@ import MapKit
 class MainViewController: UIViewController, CLLocationManagerDelegate {
 
     var currentSong = URL(string:"spotify.com")
+    
     @IBOutlet weak var playButton: UIButton!
+    
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let locationManager: CLLocationManager = CLLocationManager()
@@ -23,6 +25,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        playButton.setTitle("PLAY", for: .normal)
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
@@ -42,27 +45,37 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        for currentLocation in locations{
-            places = Place.getPlaces()
-            for zone in places{
-                let pinLocationLat = zone.coordinate.latitude
-                let pinLocationLong = zone.coordinate.longitude
-                let pinLoc = CLLocation(latitude: pinLocationLat, longitude: pinLocationLong)
-                let distance : CLLocationDistance = pinLoc.distance(from: currentLocation)
-                let distanceDoub = Double(distance)
-                if(distanceDoub <= zone.radius!){
-                    //play this song
-                    let nextSong = URL(string: zone.songURI!)!
-                    if nextSong != currentSong{
-                        print("PLAYING SONG")
-                        currentSong = nextSong
-                        UIApplication.shared.open(currentSong!, options: [:], completionHandler: nil)
+        if playButton.titleLabel?.text! == "PAUSE" {
+            for currentLocation in locations{
+                places = Place.getPlaces()
+                for zone in places{
+                    let pinLocationLat = zone.coordinate.latitude
+                    let pinLocationLong = zone.coordinate.longitude
+                    let pinLoc = CLLocation(latitude: pinLocationLat, longitude: pinLocationLong)
+                    let distance : CLLocationDistance = pinLoc.distance(from: currentLocation)
+                    let distanceDoub = Double(distance)
+                    if(distanceDoub <= zone.radius!){
+                        //play this song
+                        let nextSong = URL(string: zone.songURI!)!
+                        if nextSong != currentSong{
+                            print("PLAYING SONG")
+                            currentSong = nextSong
+                            UIApplication.shared.open(currentSong!, options: [:], completionHandler: nil)
+                        }
                     }
                 }
             }
         }
     }
-
+    
+    @IBAction func pausePlayPressed(_ sender: Any) {
+        if playButton.titleLabel?.text! == "PAUSE" {
+            playButton.setTitle("PLAY", for: .normal)
+        }else {
+            playButton.setTitle("PAUSE", for: .normal)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
