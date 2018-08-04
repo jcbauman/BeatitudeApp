@@ -11,6 +11,7 @@ import SafariServices
 
 class LoginViewController: UIViewController{
     @IBOutlet weak var connectWithSpot: UIButton!
+    var spotifyAuthWebView = SFSafariViewController(url: SPTAuth.defaultInstance().spotifyWebAuthenticationURL()!)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,14 +34,14 @@ class LoginViewController: UIViewController{
                                                selector: #selector(receievedUrlFromSpotify(_:)),
                                                name: NSNotification.Name.Spotify.authURLOpened,
                                                object: nil)
-        
         //Check to see if the user has Spotify installed
         if SPTAuth.supportsApplicationAuthentication() {
             //Open the Spotify app by opening its url
             UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
         } else {
             //Present a web browser in the app that lets the user sign in to Spotify
-            present(SFSafariViewController(url: webURL), animated: true, completion: nil)
+            spotifyAuthWebView = SFSafariViewController(url: webURL)
+            present(spotifyAuthWebView, animated: true, completion: nil)
         }
     }
     
@@ -48,7 +49,9 @@ class LoginViewController: UIViewController{
         guard let url = notification.object as? URL else { return }
         
         // Close the web view if it exists
-        ///spotifyAuthWebView?.dismiss(animated: true, completion: nil)
+        if !SPTAuth.supportsApplicationAuthentication(){
+            spotifyAuthWebView.dismiss(animated: true, completion: nil)
+        }
         
         // Remove the observer from the Notification Center
         NotificationCenter.default.removeObserver(self,
