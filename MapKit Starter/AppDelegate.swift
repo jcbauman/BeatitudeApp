@@ -38,6 +38,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    //This function is called when the app is opened by a URL
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        //Check if this URL was sent from the Spotify app or website
+        if SPTAuth.defaultInstance().canHandle(url) {
+            
+            //Send out a notification which we can listen for in our sign in view controller
+            NotificationCenter.default.post(name: NSNotification.Name.Spotify.authURLOpened, object: url)
+            
+            return true
+        }
+        
+        return false
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MlF-A6-1y0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bA7-Qn-8ab">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -79,7 +79,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.25882352941176467" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="e6l-WU-hE5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="22c-Wl-1Y7"/>
@@ -327,8 +327,61 @@
             </objects>
             <point key="canvasLocation" x="-932" y="-40"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="913-xI-gfV">
+            <objects>
+                <viewController id="bA7-Qn-8ab" customClass="LoginViewController" customModule="Beatitude" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lgu-o9-JSm"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hek-sN-FmW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ux5-T8-DSS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EW6-AQ-DRb">
+                                <rect key="frame" x="26" y="463" width="322" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="EW6-AQ-DRb" secondAttribute="height" multiplier="23:4" id="8K8-HV-sRG"/>
+                                    <constraint firstAttribute="width" constant="322" id="v4n-b2-Ja6"/>
+                                </constraints>
+                                <state key="normal" title="Login to Spotify" image="download"/>
+                                <connections>
+                                    <action selector="connectPressed:" destination="bA7-Qn-8ab" eventType="touchUpInside" id="nE5-lG-ZgA"/>
+                                    <segue destination="MlF-A6-1y0" kind="show" id="WHP-PJ-G6L"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beatitude" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LB1-4p-fna">
+                                <rect key="frame" x="70" y="162" width="234" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LB1-4p-fna" secondAttribute="height" multiplier="13:4" id="7On-CW-Pbp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="55"/>
+                                <color key="textColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EW6-AQ-DRb" firstAttribute="top" secondItem="lgu-o9-JSm" secondAttribute="bottom" constant="443" id="DaP-Gg-Aks"/>
+                            <constraint firstItem="LB1-4p-fna" firstAttribute="top" secondItem="lgu-o9-JSm" secondAttribute="bottom" constant="142" id="Tix-K4-UAe"/>
+                            <constraint firstItem="EW6-AQ-DRb" firstAttribute="centerX" secondItem="Ux5-T8-DSS" secondAttribute="centerX" id="dhB-al-FMu"/>
+                            <constraint firstItem="LB1-4p-fna" firstAttribute="leading" secondItem="Ux5-T8-DSS" secondAttribute="leading" constant="70" id="glL-XS-BYU"/>
+                            <constraint firstItem="LB1-4p-fna" firstAttribute="centerX" secondItem="Ux5-T8-DSS" secondAttribute="centerX" id="nXK-8O-3Hb"/>
+                            <constraint firstAttribute="trailing" secondItem="LB1-4p-fna" secondAttribute="trailing" constant="71" id="woT-1t-KLr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="connectWithSpot" destination="EW6-AQ-DRb" id="0hb-HM-vyQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S1m-gQ-BPH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1783.2" y="-40.029985007496258"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="download" width="537" height="94"/>
         <image name="zone_logo_toDrop" width="72" height="72"/>
     </resources>
     <inferredMetricsTieBreakers>

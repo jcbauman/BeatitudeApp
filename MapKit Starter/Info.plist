@@ -60,5 +60,9 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>spotify-action</string>
+    </array>
 </dict>
 </plist>

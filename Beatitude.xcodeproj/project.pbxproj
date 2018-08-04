@@ -16,6 +16,7 @@
 		3D96253D21151ED900C5C939 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D96253A21151ED800C5C939 /* SpotifyAudioPlayback.framework */; };
 		3D96253E21151ED900C5C939 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D96253B21151ED900C5C939 /* SpotifyMetadata.framework */; };
 		3D962544211520F400C5C939 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962543211520F400C5C939 /* Constants.swift */; };
+		3D9625462116094200C5C939 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9625452116094200C5C939 /* LoginViewController.swift */; };
 		3DB48D342113C2F300A0C30C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB48D332113C2F300A0C30C /* MainViewController.swift */; };
 		3DB48D3721140E9300A0C30C /* Pop.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 3DB48D3621140E9300A0C30C /* Pop.aiff */; };
 		AF8BE9861DBF9A4B004A4C0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8BE9851DBF9A4B004A4C0A /* AppDelegate.swift */; };
@@ -38,6 +39,7 @@
 		3D96253B21151ED900C5C939 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
 		3D96253F21151F5500C5C939 /* Beatitude-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Beatitude-Bridging-Header.h"; sourceTree = "<group>"; };
 		3D962543211520F400C5C939 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3D9625452116094200C5C939 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3DB48D332113C2F300A0C30C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3DB48D3621140E9300A0C30C /* Pop.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Pop.aiff; sourceTree = "<group>"; };
 		6D9D28B2C38C848C0BEEE852 /* Pods-Beatitude.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beatitude.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Beatitude/Pods-Beatitude.debug.xcconfig"; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				AFC772551DBFA22C0062D617 /* Places.swift */,
 				AF8BE9971DBF9A66004A4C0A /* Places.plist */,
 				AF8BE9891DBF9A4B004A4C0A /* Main.storyboard */,
+				3D9625452116094200C5C939 /* LoginViewController.swift */,
 				3DB48D332113C2F300A0C30C /* MainViewController.swift */,
 				3D59CBC1210BD67900AD5D7F /* SongEditorTableViewCell.swift */,
 				3D152FCA210B8E9400365ACA /* ManageZonesController.swift */,
@@ -276,6 +279,7 @@
 				3DB48D342113C2F300A0C30C /* MainViewController.swift in Sources */,
 				3D06A40F2107E42E00A3797E /* MusicZones.xcdatamodeld in Sources */,
 				AFC772561DBFA22C0062D617 /* Places.swift in Sources */,
+				3D9625462116094200C5C939 /* LoginViewController.swift in Sources */,
 				3D962544211520F400C5C939 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
