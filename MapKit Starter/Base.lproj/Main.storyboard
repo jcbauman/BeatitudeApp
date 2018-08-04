@@ -348,7 +348,7 @@
                                 <state key="normal" title="Login to Spotify" image="download"/>
                                 <connections>
                                     <action selector="connectPressed:" destination="bA7-Qn-8ab" eventType="touchUpInside" id="nE5-lG-ZgA"/>
-                                    <segue destination="MlF-A6-1y0" kind="show" id="WHP-PJ-G6L"/>
+                                    <segue destination="MlF-A6-1y0" kind="show" identifier="loggedIn" id="WHP-PJ-G6L"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beatitude" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LB1-4p-fna">

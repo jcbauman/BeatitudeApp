@@ -98,7 +98,7 @@ class LoginViewController: UIViewController{
         
         DispatchQueue.main.async {
             // Present next view controller or use performSegue(withIdentifier:, sender:)
-            self.present(MainViewController(), animated: true, completion: nil)
+            self.performSegue(withIdentifier: "loggedIn", sender: Any?)
         }
     }
     
