@@ -40,6 +40,8 @@ class ViewController: UIViewController {
         addSong.clipsToBounds = true;
         deleteZone.layer.cornerRadius = 10;
         deleteZone.clipsToBounds = true;
+        centerMap.layer.cornerRadius = 10;
+        centerMap.clipsToBounds = true
     }
     
     func viewWillAppear(){
