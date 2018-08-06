@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AVFoundation
 
 protocol MediaPlayerDelegate: class {
     func mediaPlayerDidFinishTrack()
@@ -122,6 +123,25 @@ extension MediaPlayer: SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDeleg
     
     func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didStopPlayingTrack trackUri: String!) {
         delegate?.mediaPlayerDidFinishTrack()
+    }
+    
+    func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didChangePlaybackStatus isPlaying: Bool) {
+        if isPlaying {
+            self.activateAudioSession()
+        } else {
+            self.deactivateAudioSession()
+        }
+    }
+    
+    func activateAudioSession() {
+        try? AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        try? AVAudioSession.sharedInstance().setActive(true)
+    }
+    
+    // MARK: Deactivate audio session
+    
+    func deactivateAudioSession() {
+        try? AVAudioSession.sharedInstance().setActive(false)
     }
     
 }

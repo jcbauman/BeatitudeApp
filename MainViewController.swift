@@ -117,8 +117,9 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func pausePlayPressed(_ sender: Any) {
         if playButton.titleLabel?.text! == "PAUSE" {
+            //STOP PLAYER
+            
             MediaPlayer.shared.pause()
-            locationManager.stopUpdatingLocation()
             print("Stopped Updating")
             playButton.setTitle("PLAY", for: .normal)
             do{
@@ -131,7 +132,10 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
             }catch{
                 print(error)
             }
-        }else {
+        } else {
+            //RESUME PLAYER
+            locationManager.pausesLocationUpdatesAutomatically = false
+            locationManager.startUpdatingLocation()
             MediaPlayer.shared.resume()
             playButton.setTitle("PAUSE", for: .normal)
             do{
@@ -141,7 +145,6 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
             }catch{
                 print(error)
             }
-            locationManager.pausesLocationUpdatesAutomatically = false
             print("Start Updating")
         }
     }
