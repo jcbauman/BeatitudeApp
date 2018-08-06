@@ -44,7 +44,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
             print("saved")
         }
         catch{
-            print("couldn't save context, error bro!")
+            print("couldn't save context, error")
         }
         
         //UI

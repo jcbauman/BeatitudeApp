@@ -85,6 +85,7 @@ class ManageZonesController: UITableViewController{
                 print(error)
             }
             tableView.reloadData()
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadMapAnnotations"), object: nil)
     }
     }
 

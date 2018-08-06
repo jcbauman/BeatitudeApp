@@ -42,10 +42,17 @@ class ViewController: UIViewController {
         deleteZone.clipsToBounds = true;
         centerMap.layer.cornerRadius = 10;
         centerMap.clipsToBounds = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadMapAnn(_:)), name: Notification.Name(rawValue: "reloadMapAnnotations"), object: nil)
     }
     
     func viewWillAppear(){
         super.viewWillAppear(true)
+        addAnnotations()
+        zoomIn(self)
+    }
+    
+    @objc func reloadMapAnn(_ notification: Notification) {
         addAnnotations()
     }
     

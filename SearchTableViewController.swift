@@ -185,5 +185,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
             print("couldn't save context, error!")
         }
         navigationController?.popViewController(animated: true)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadMapAnnotations"), object: nil)
+
     }
 }
