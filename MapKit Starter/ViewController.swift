@@ -40,10 +40,19 @@ class ViewController: UIViewController {
         addSong.clipsToBounds = true;
         deleteZone.layer.cornerRadius = 10;
         deleteZone.clipsToBounds = true;
+        centerMap.layer.cornerRadius = 10;
+        centerMap.clipsToBounds = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadMapAnn(_:)), name: Notification.Name(rawValue: "reloadMapAnnotations"), object: nil)
     }
     
-    func viewDidAppear(){
-        super.viewDidAppear(true)
+    func viewWillAppear(){
+        super.viewWillAppear(true)
+        addAnnotations()
+        zoomIn(self)
+    }
+    
+    @objc func reloadMapAnn(_ notification: Notification) {
         addAnnotations()
     }
     

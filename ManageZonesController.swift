@@ -11,6 +11,7 @@ import CoreData
 class ManageZonesController: UITableViewController{
 
     var zoneArray:[Zones] = []
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +63,6 @@ class ManageZonesController: UITableViewController{
     }
     
     func fetchData(){
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         do{
             zoneArray = try context.fetch(Zones.fetchRequest())
         }catch{
@@ -72,7 +72,6 @@ class ManageZonesController: UITableViewController{
     
     //deletion handler
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         if editingStyle == .delete {
             // Delete the row from the data source
             let song = zoneArray[indexPath.row]
@@ -85,6 +84,7 @@ class ManageZonesController: UITableViewController{
                 print(error)
             }
             tableView.reloadData()
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadMapAnnotations"), object: nil)
     }
     }
 
