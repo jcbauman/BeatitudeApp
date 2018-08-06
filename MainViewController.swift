@@ -14,6 +14,7 @@ import AVFoundation
 
 class MainViewController: UIViewController, CLLocationManagerDelegate {
 
+    var currentlyInZone = false
     var currentSong = String()
     fileprivate var track: SPTTrack?
     
@@ -21,6 +22,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var editMap: UIButton!
+    @IBOutlet weak var zoneStatus: UILabel!
     
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -35,7 +37,6 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
-        print("Start Updating")
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.pausesLocationUpdatesAutomatically = false
         do {
@@ -58,8 +59,8 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if playButton.titleLabel?.text! == "PAUSE" {
             var songsInArea = [String]()
+            var songTitlesInArea = [String]()
             for currentLocation in locations{
                 places = Place.getPlaces()
                 for zone in places{
@@ -68,23 +69,28 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
                     let pinLoc = CLLocation(latitude: pinLocationLat, longitude: pinLocationLong)
                     let distance : CLLocationDistance = pinLoc.distance(from: currentLocation)
                     let distanceDoub = Double(distance)
-                    if(distanceDoub <= zone.radius!){
+                    if (distanceDoub <= zone.radius!) {
                         songsInArea.append(zone.songURI!)
+                        songTitlesInArea.append(zone.song!)
                     }
                 }
                 //play last song in list (fixes collision of zones freakout)
                 if songsInArea.count > 0{
+                    currentlyInZone = true
+                    updateZoneStatus(title: songTitlesInArea[songTitlesInArea.count - 1])
                     let lastSongAdded = songsInArea[songsInArea.count - 1]
                     let nextSong = lastSongAdded
                     if nextSong != currentSong && playButton.titleLabel?.text! == "PAUSE"{
                             currentSong = nextSong
                             load(trackString: currentSong)
-                        MediaPlayer.shared.play(track: track!)
+                            MediaPlayer.shared.play(track: track!)
                             //updatePlayButton(playing: true)
                     }
+                }else{
+                    currentlyInZone = false
+                    updateZoneStatus(title: "")
                 }
             }
-        }
     }
     
     private func load(trackString: String) {
@@ -101,6 +107,14 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    func updateZoneStatus(title: String){
+        if currentlyInZone == true{
+            zoneStatus.text = String("Current zone: " + title)
+        }else{
+             zoneStatus.text = String("You are not currently in a music zone")
+        }
+    }
+    
     @IBAction func pausePlayPressed(_ sender: Any) {
         if playButton.titleLabel?.text! == "PAUSE" {
             locationManager.stopUpdatingLocation()
@@ -111,6 +125,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
                 player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Pop", ofType: "aiff")!))
                 player.prepareToPlay()
                 player.play()
+                locationManager.pausesLocationUpdatesAutomatically = true
                 //currentSong = URL(string:"spotify.com")
             }catch{
                 print(error)
@@ -124,7 +139,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
             }catch{
                 print(error)
             }
-            locationManager.startUpdatingLocation()
+            locationManager.pausesLocationUpdatesAutomatically = false
             print("Start Updating")
         }
     }

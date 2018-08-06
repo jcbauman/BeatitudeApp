@@ -291,6 +291,15 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="Taa-8i-P4K"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are not currently in a zone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAD-yg-4pp">
+                                <rect key="frame" x="16" y="346" width="343" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="8hS-px-yEQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -300,6 +309,9 @@
                             <constraint firstItem="5P3-gJ-sbG" firstAttribute="top" secondItem="7kv-12-6yY" secondAttribute="bottom" constant="176" id="P9a-iQ-Deg"/>
                             <constraint firstItem="7kv-12-6yY" firstAttribute="top" secondItem="9lf-oc-z3d" secondAttribute="bottom" constant="8" id="QLi-EE-bvR"/>
                             <constraint firstAttribute="trailing" secondItem="9lf-oc-z3d" secondAttribute="trailing" constant="16" id="UEQ-Na-MGs"/>
+                            <constraint firstItem="xAD-yg-4pp" firstAttribute="centerX" secondItem="0if-d5-ogO" secondAttribute="centerX" id="XlR-ON-KBC"/>
+                            <constraint firstItem="9lf-oc-z3d" firstAttribute="top" secondItem="xAD-yg-4pp" secondAttribute="bottom" constant="14" id="sFW-Z5-FGA"/>
+                            <constraint firstItem="xAD-yg-4pp" firstAttribute="width" secondItem="9lf-oc-z3d" secondAttribute="width" id="sqc-1p-NVD"/>
                             <constraint firstItem="7kv-12-6yY" firstAttribute="leading" secondItem="0if-d5-ogO" secondAttribute="leading" constant="16" id="yGE-B6-y1F"/>
                         </constraints>
                     </view>
@@ -307,11 +319,12 @@
                     <connections>
                         <outlet property="editMap" destination="7kv-12-6yY" id="JBd-jn-UtR"/>
                         <outlet property="playButton" destination="9lf-oc-z3d" id="UIR-Jc-Tj4"/>
+                        <outlet property="zoneStatus" destination="xAD-yg-4pp" id="tTT-xT-mf1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sDE-sB-E4M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-89" y="-76"/>
+            <point key="canvasLocation" x="-90.400000000000006" y="-76.011994002998506"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eNZ-1d-tLy">
