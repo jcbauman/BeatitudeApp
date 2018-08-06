@@ -52,7 +52,9 @@ extension LoginViewController: LoginManagerDelegate {
         DispatchQueue.main.async() {
             self.dismiss(animated: true, completion: nil)
             print("DISMISSED")
-            self.performSegue(withIdentifier: "loggedIn", sender: self)
+            //self.performSegue(withIdentifier: "loggedIn", sender: self)
+            let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
+            appDelegate?.logInViewSetup()
             print("SEGUED")
         }
     }
