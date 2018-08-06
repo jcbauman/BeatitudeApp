@@ -83,7 +83,8 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
                     if nextSong != currentSong && playButton.titleLabel?.text! == "PAUSE"{
                             currentSong = nextSong
                             load(trackString: currentSong)
-                            MediaPlayer.shared.play(track: track!)
+                            MediaPlayer.shared.playTrack(uri: currentSong)
+                           // MediaPlayer.shared.play(track: track!)
                             //updatePlayButton(playing: true)
                     }
                 }else{

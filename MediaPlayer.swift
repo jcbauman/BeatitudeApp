@@ -22,8 +22,8 @@ class MediaPlayer: NSObject {
     static let shared = MediaPlayer()
     private override init() {}
     weak var delegate: MediaPlayerDelegate?
-    private var player: SPTAudioStreamingController?
-    private (set) var currentTrack: SPTPartialTrack?
+    var player: SPTAudioStreamingController?
+    private (set) var currentTrack: SPTTrack?
     var isPlaying: Bool {
         if let player = player,
             let state = player.playbackState {
@@ -52,6 +52,17 @@ class MediaPlayer: NSObject {
             } else {
                 self.currentTrack = track
                 self.delegate?.mediaPlayerDidStartPlaying(track: track)
+            }
+        })
+    }
+    
+    func playTrack(uri: String) {
+        player?.playSpotifyURI(uri, startingWith: 0, startingWithPosition: 0, callback: { (error) in
+            if let error = error {
+                self.delegate?.mediaPlayerDidFail(error: error)
+            } else {
+//                self.currentTrack = track
+//                self.delegate?.mediaPlayerDidStartPlaying(track: track)
             }
         })
     }
