@@ -22,18 +22,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zone_logo" translatesAutoresizingMaskIntoConstraints="NO" id="uDM-HT-oGe">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_4726" translatesAutoresizingMaskIntoConstraints="NO" id="fBu-cC-n7q">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="uDM-HT-oGe" secondAttribute="height" multiplier="375:667" id="kt7-Wo-H4K"/>
+                                    <constraint firstAttribute="width" secondItem="fBu-cC-n7q" secondAttribute="height" multiplier="375:667" id="EHW-SL-9d7"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="uDM-HT-oGe" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="AD1-Dt-rMZ"/>
-                            <constraint firstItem="uDM-HT-oGe" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="dGT-9T-fwu"/>
-                            <constraint firstAttribute="trailing" secondItem="uDM-HT-oGe" secondAttribute="trailing" id="mhB-CL-piP"/>
+                            <constraint firstItem="fBu-cC-n7q" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="4hh-sV-PUS"/>
+                            <constraint firstAttribute="trailing" secondItem="fBu-cC-n7q" secondAttribute="trailing" id="EUS-gI-UZa"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="fBu-cC-n7q" secondAttribute="bottom" id="MwS-P2-Xka"/>
+                            <constraint firstItem="fBu-cC-n7q" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="QJZ-D5-DE6"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -43,6 +44,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="zone_logo" width="72" height="72"/>
+        <image name="IMG_4726" width="1242" height="2208"/>
     </resources>
 </document>

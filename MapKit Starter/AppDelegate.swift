@@ -17,17 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor(red: 26/255, green: 26/255, blue: 26/255, alpha: 1)
         UINavigationBar.appearance().tintColor = UIColor.darkGray
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.red]
-        
+        logInViewSetup()
+        return true
+    }
+    
+    func logInViewSetup(){
         //checks if Spotify user is already logged in
         if !LoginManager.shared.isLogged {
-//            self.window?.rootViewController = LoginViewController()
-//            self.window?.makeKeyAndVisible()
+            self.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "loginView") as! LoginViewController
         } else {
             //jump away from log in screen
+            self.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "navController") as! UINavigationController
             LoginManager.shared.preparePlayer()
         }
-        
-        return true
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {

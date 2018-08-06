@@ -38,12 +38,12 @@ class LoginViewController: UIViewController{
     // MARK: - Navigation
 
     //In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "loggedIn"{
-            let navController = segue.destination as! UINavigationController
-            let mainVC = navController. as! MainViewController
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "loggedIn"{
+//            let navController = segue.destination as! UINavigationController
+//            let mainVC = navController. as! MainViewController
+//        }
+//    }
 }
 
 extension LoginViewController: LoginManagerDelegate {
@@ -52,7 +52,7 @@ extension LoginViewController: LoginManagerDelegate {
         DispatchQueue.main.async() {
             self.dismiss(animated: true, completion: nil)
             print("DISMISSED")
-            //self.performSegue(withIdentifier: "loggedIn", sender: self)
+            self.performSegue(withIdentifier: "loggedIn", sender: self)
             print("SEGUED")
         }
     }
