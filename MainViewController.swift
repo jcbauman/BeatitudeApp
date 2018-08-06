@@ -125,7 +125,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
                 player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Pop", ofType: "aiff")!))
                 player.prepareToPlay()
                 player.play()
-                locationManager.pausesLocationUpdatesAutomatically = true
+                //locationManager.pausesLocationUpdatesAutomatically = true
                 //currentSong = URL(string:"spotify.com")
             }catch{
                 print(error)

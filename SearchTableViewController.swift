@@ -31,7 +31,10 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     var posts = [post]()
     typealias JSONStandard = [String: AnyObject]
     
+    let loadingLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+    
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var loadingBar: UIProgressView!
     
     //CoreData initializtion
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -41,6 +44,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         posts.removeAll()
         tableView.reloadData()
         
+        loadingLabel.isHidden = false
         let keywords = searchBar.text
         self.view.endEditing(true)
         let finalKeywords = keywords?.replacingOccurrences(of: " ", with: "%20")
@@ -54,6 +58,14 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       // loadingBar.isHidden = true
+        loadingBar.setProgress(0.0, animated: false)
+        loadingLabel.center = self.view.center
+        loadingLabel.textAlignment = .center
+        loadingLabel.text = "Loading songs..."
+        self.view.addSubview(loadingLabel)
+        loadingLabel.isHidden = true
         
         //get authorization token immediately
         getAlamoAuth()
@@ -98,9 +110,12 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         do {
             var readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! JSONStandard
             numberOfSongsLoaded = 0
+            loadingBar.isHidden = false
             if let tracks = readableJSON["tracks"] as? JSONStandard{
                 if let items = tracks["items"] as? [JSONStandard]{
                     for i in 0..<items.count{
+                        loadingBar.progress = loadingBar.progress + 0.084
+                        print(loadingBar.progress)
                         let item = items[i]
                         let name = item["name"] as! String
                         let previewURL = item["uri"] as! String
@@ -112,19 +127,19 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                                 let mainImageData = NSData(contentsOf: mainImageURL!)
                                 let mainImage = UIImage(data: mainImageData! as Data)
                                 
-                                numberOfSongsLoaded += 1
-                                
+                                numberOfSongsLoaded = numberOfSongsLoaded + 1
                                 posts.append(post.init(mainImage: mainImage, name: name, previewURL: previewURL, imageURL: imageURL))
-                                self.tableView.reloadData()
                             }
                         }
-                        
                     }
                 }
+                self.tableView.reloadData()
             }
         }catch{
             print(error)
         }
+        loadingLabel.isHidden = true
+        loadingBar.isHidden = true
         print("done")
     }
     
