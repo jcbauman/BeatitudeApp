@@ -14,7 +14,8 @@ import AVFoundation
 
 class MainViewController: UIViewController, CLLocationManagerDelegate {
 
-    var currentSong = URL(string:"spotify.com")
+    var currentSong = String()
+    fileprivate var track: SPTTrack?
     
     var player = AVAudioPlayer()
     
@@ -74,13 +75,29 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
                 //play last song in list (fixes collision of zones freakout)
                 if songsInArea.count > 0{
                     let lastSongAdded = songsInArea[songsInArea.count - 1]
-                    let nextSong = URL(string: lastSongAdded)!
+                    let nextSong = lastSongAdded
                     if nextSong != currentSong && playButton.titleLabel?.text! == "PAUSE"{
                             currentSong = nextSong
-                            UIApplication.shared.open(currentSong!, options: [:], completionHandler: nil)
+                            load(trackString: currentSong)
+                        MediaPlayer.shared.play(track: track!)
+                            //updatePlayButton(playing: true)
                     }
                 }
             }
+        }
+    }
+    
+    private func load(trackString: String) {
+        guard LoginManager.shared.isLogged else {return}
+        MediaPlayer.shared.loadTrack(url: trackString) {[weak self] (track, error) in
+            guard let `self` = self else {return}
+            guard let track = track, error == nil else {
+                self.showDefaultError()
+                return
+            }
+            print("loaded track")
+            self.track = track
+            self.title = track.name
         }
     }
     
@@ -115,5 +132,12 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
+    }
+    
+    fileprivate func showDefaultError() {
+        let alert = UIAlertController(title: "Oops", message: "Something went wrong. Please try again.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
 }

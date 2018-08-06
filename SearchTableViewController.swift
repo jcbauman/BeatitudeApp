@@ -103,12 +103,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                     for i in 0..<items.count{
                         let item = items[i]
                         let name = item["name"] as! String
-                        var previewURL = ""
-                        if let externalURLS = item["external_urls"] as? JSONStandard{
-                            previewURL = (externalURLS["spotify"] as! String)
-                            numberOfSongsLoaded += 1
-                            
-                        }
+                        let previewURL = item["uri"] as! String
                         if let album = item["album"] as? JSONStandard{
                             if let images = album["images"] as? [JSONStandard]{
                                 let imageData = images[0]
@@ -116,6 +111,8 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                                 let mainImageURL = URL(string: imageData["url"] as! String)
                                 let mainImageData = NSData(contentsOf: mainImageURL!)
                                 let mainImage = UIImage(data: mainImageData! as Data)
+                                
+                                numberOfSongsLoaded += 1
                                 
                                 posts.append(post.init(mainImage: mainImage, name: name, previewURL: previewURL, imageURL: imageURL))
                                 self.tableView.reloadData()
@@ -170,7 +167,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
             print("saved")
         }
         catch{
-            print("couldn't save context, error bro!")
+            print("couldn't save context, error!")
         }
         navigationController?.popViewController(animated: true)
     }

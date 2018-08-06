@@ -17,41 +17,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor(red: 26/255, green: 26/255, blue: 26/255, alpha: 1)
         UINavigationBar.appearance().tintColor = UIColor.darkGray
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.red]
-        setupSpotify()
+        
+        //checks if Spotify user is already logged in
+        if !LoginManager.shared.isLogged {
+//            self.window?.rootViewController = LoginViewController()
+//            self.window?.makeKeyAndVisible()
+        } else {
+            //jump away from log in screen
+            LoginManager.shared.preparePlayer()
+        }
+        
         return true
     }
-
-    func setupSpotify() {
-        SPTAuth.defaultInstance().clientID = Constants.clientID
-        SPTAuth.defaultInstance().redirectURL = Constants.redirectURI
-        SPTAuth.defaultInstance().sessionUserDefaultsKey = Constants.sessionKey
-        
-        //For this application we just want to stream music, so we will only request the streaming scope
-        SPTAuth.defaultInstance().requestedScopes = [SPTAuthStreamingScope]
-        
-        // Start the player (this is only need for applications that using streaming, which we will use
-        // in this tutorial)
-        do {
-            try SPTAudioStreamingController.sharedInstance().start(withClientId: Constants.clientID)
-        } catch {
-            fatalError("Couldn't start Spotify SDK")
-        }
-    }
     
-    //This function is called when the app is opened by a URL
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        //Check if this URL was sent from the Spotify app or website
-        if SPTAuth.defaultInstance().canHandle(url) {
-            
-            //Send out a notification which we can listen for in our sign in view controller
-            NotificationCenter.default.post(name: NSNotification.Name.Spotify.authURLOpened, object: url)
-            
-            return true
-        }
-        
-        return false
+        return LoginManager.shared.handled(url: url)
     }
-    
+
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
