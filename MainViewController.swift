@@ -58,6 +58,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     }
     
+    //location checker to read zone distances and play songs in area
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
             var songsInArea = [String]()
             var songTitlesInArea = [String]()
@@ -74,18 +75,16 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
                         songTitlesInArea.append(zone.song!)
                     }
                 }
-                //play last song in list (fixes collision of zones freakout)
+                //play latest-added song in list (fixes collision of zones freakout)
                 if songsInArea.count > 0{
                     currentlyInZone = true
                     updateZoneStatus(title: songTitlesInArea[songTitlesInArea.count - 1])
                     let lastSongAdded = songsInArea[songsInArea.count - 1]
                     let nextSong = lastSongAdded
                     if nextSong != currentSong && playButton.titleLabel?.text! == "PAUSE"{
-                            currentSong = nextSong
-                            load(trackString: currentSong)
-                            MediaPlayer.shared.playTrack(uri: currentSong)
-                           // MediaPlayer.shared.play(track: track!)
-                            //updatePlayButton(playing: true)
+                        currentSong = nextSong
+                        //load(trackString: currentSong)
+                        MediaPlayer.shared.playTrack(uri: currentSong)
                     }
                 }else{
                     currentlyInZone = false
@@ -118,6 +117,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func pausePlayPressed(_ sender: Any) {
         if playButton.titleLabel?.text! == "PAUSE" {
+            MediaPlayer.shared.pause()
             locationManager.stopUpdatingLocation()
             print("Stopped Updating")
             playButton.setTitle("PLAY", for: .normal)
@@ -132,6 +132,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
                 print(error)
             }
         }else {
+            MediaPlayer.shared.resume()
             playButton.setTitle("PAUSE", for: .normal)
             do{
                 player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Pop", ofType: "aiff")!))

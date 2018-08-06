@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapKit Starter/ViewController.swift"
-            timestampString = "555277200.225583"
+            timestampString = "555277942.087733"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "48"
@@ -41,24 +41,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MainViewController.swift"
-            timestampString = "555277200.226015"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "load(trackString:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "MediaPlayer.swift"
-            timestampString = "555277200.226663"
+            timestampString = "555277942.087883"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
@@ -74,7 +58,7 @@
                   moduleName = "Beatitude"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Rocko/Desktop/Beatitude%20App/MapKitDemo%202/MediaPlayer.swift"
-                  timestampString = "555277200.875917"
+                  timestampString = "555277942.343554"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "42"
@@ -89,7 +73,7 @@
                   moduleName = "Beatitude"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Rocko/Desktop/Beatitude%20App/MapKitDemo%202/MediaPlayer.swift"
-                  timestampString = "555277200.878885"
+                  timestampString = "555277942.346661"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "43"
@@ -106,60 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MainViewController.swift"
-            timestampString = "555277200.226737"
+            timestampString = "555278236.277917"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "load(trackString:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Beatitude.MainViewController.(load in _5D05D9324CEF8E211874FB8778417B82)(trackString: Swift.String) -&gt; ()"
-                  moduleName = "Beatitude"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Rocko/Desktop/Beatitude%20App/MapKitDemo%202/MainViewController.swift"
-                  timestampString = "555277200.8858171"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99"
-                  offsetFromSymbolStart = "150">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__ObjC.SPTTrack&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Beatitude.MainViewController.(load in _5D05D9324CEF8E211874FB8778417B82)(trackString: Swift.String) -&gt; ()"
-                  moduleName = "Beatitude"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Rocko/Desktop/Beatitude%20App/MapKitDemo%202/MainViewController.swift"
-                  timestampString = "555277200.889004"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99"
-                  offsetFromSymbolStart = "35">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MainViewController.swift"
-            timestampString = "555277200.227037"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "load(trackString:)"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "updateZoneStatus(title:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
