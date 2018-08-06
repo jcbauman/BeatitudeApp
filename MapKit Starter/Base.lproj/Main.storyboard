@@ -256,7 +256,7 @@
             </objects>
             <point key="canvasLocation" x="1945" y="755"/>
         </scene>
-        <!--Beatitude Player-->
+        <!--Player-->
         <scene sceneID="pdN-71-8ka">
             <objects>
                 <viewController id="wud-6M-KtQ" customClass="MainViewController" customModule="Beatitude" customModuleProvider="target" sceneMemberID="viewController">
@@ -321,7 +321,7 @@
                             <constraint firstItem="7kv-12-6yY" firstAttribute="leading" secondItem="0if-d5-ogO" secondAttribute="leading" constant="16" id="yGE-B6-y1F"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Beatitude Player" id="MO4-uT-Q1K"/>
+                    <navigationItem key="navigationItem" title="Player" id="MO4-uT-Q1K"/>
                     <connections>
                         <outlet property="editMap" destination="7kv-12-6yY" id="JBd-jn-UtR"/>
                         <outlet property="playButton" destination="9lf-oc-z3d" id="UIR-Jc-Tj4"/>

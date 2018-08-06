@@ -32,12 +32,14 @@ class MediaPlayer: NSObject {
         return false
     }
     
+    //unusued media function:
     func loadAlbum(url: String, completion: @escaping (_ album: SPTAlbum?, _ error: Error?) -> Void) {
         SPTAlbum.album(withURI: URL(string: url), accessToken: LoginManager.shared.auth.session.accessToken, market: nil) { (error, response) in
             completion(response as? SPTAlbum, error)
         }
     }
     
+    //unusued media function:
     func loadTrack(url: String, completion: @escaping (_ track: SPTTrack?, _ error: Error?) -> Void) {
         SPTTrack.track(withURI: URL(string: url), accessToken: LoginManager.shared.auth.session.accessToken, market: nil) { (error, response) in
             completion(response as? SPTTrack, error)
