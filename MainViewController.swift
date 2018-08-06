@@ -23,6 +23,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var editMap: UIButton!
     @IBOutlet weak var zoneStatus: UILabel!
+    @IBOutlet weak var albumDisplay: UIImageView!
     
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -33,6 +34,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         
         playButton.setTitle("PLAY", for: .normal)
+        albumDisplay.image = UIImage(named: "unnamed")
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
@@ -62,6 +64,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
             var songsInArea = [String]()
             var songTitlesInArea = [String]()
+            var songImagesInArea = [String]()
             for currentLocation in locations{
                 places = Place.getPlaces()
                 for zone in places{
@@ -73,6 +76,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
                     if (distanceDoub <= zone.radius!) {
                         songsInArea.append(zone.songURI!)
                         songTitlesInArea.append(zone.song!)
+                        songImagesInArea.append(zone.imageURL!)
                     }
                 }
                 //play latest-added song in list (fixes collision of zones freakout)
@@ -85,6 +89,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
                         currentSong = nextSong
                         //load(trackString: currentSong)
                         MediaPlayer.shared.playTrack(uri: currentSong)
+                        updateCurrentAlbumArt\(image: songImagesInArea[songImagesInArea.count - 1])
                     }
                 }else{
                     currentlyInZone = false
@@ -105,6 +110,13 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
             self.track = track
             self.title = track.name
         }
+    }
+    
+    func updateCurrentAlbumArt(image: String){
+        let imageURL = URL(string: image as String)
+        let imageData = NSData(contentsOf: imageURL!)
+        let mainImage = UIImage(data: imageData! as Data)
+        albumDisplay.image = mainImage
     }
     
     func updateZoneStatus(title: String){
