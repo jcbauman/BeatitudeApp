@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MlF-A6-1y0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bA7-Qn-8ab">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -300,11 +300,8 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="Taa-8i-P4K"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are not currently in a zone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAD-yg-4pp">
-                                <rect key="frame" x="16" y="346" width="343" height="23"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="23" id="8hS-px-yEQ"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are not currently in a zone" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAD-yg-4pp">
+                                <rect key="frame" x="16" y="346.5" width="343" height="22.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -383,24 +380,61 @@
                                 <color key="textColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TkB-hF-5fC">
+                                <rect key="frame" x="123.5" y="559" width="128" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="X6L-BF-KS0"/>
+                                    <constraint firstAttribute="height" constant="31" id="pqB-hx-tV8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                <state key="normal" title="Get the Spotify App">
+                                    <color key="titleColor" red="0.01176470588" green="0.73333333329999995" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="openSpotifyApp:" destination="bA7-Qn-8ab" eventType="touchUpInside" id="7mj-VK-gQJ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create geographic music experiences" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKU-It-vBp">
+                                <rect key="frame" x="16" y="242" width="343" height="19.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="eyi-Sn-HUH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To get started, login to your Spotify Premium account." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6h-90-6If">
+                                <rect key="frame" x="26" y="441" width="322" height="17"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
+                                <color key="textColor" red="0.01176470588" green="0.73333333329999995" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="P6h-90-6If" firstAttribute="width" secondItem="EW6-AQ-DRb" secondAttribute="width" id="4qo-vH-f0q"/>
+                            <constraint firstItem="VKU-It-vBp" firstAttribute="top" secondItem="LB1-4p-fna" secondAttribute="bottom" constant="8" id="9Hy-aA-Y5O"/>
                             <constraint firstItem="Hek-sN-FmW" firstAttribute="top" secondItem="EW6-AQ-DRb" secondAttribute="bottom" constant="148" id="9zq-DE-5S3"/>
                             <constraint firstItem="LB1-4p-fna" firstAttribute="leading" secondItem="Ux5-T8-DSS" secondAttribute="leading" constant="70" id="C1j-je-GrN"/>
                             <constraint firstItem="EW6-AQ-DRb" firstAttribute="centerX" secondItem="Ux5-T8-DSS" secondAttribute="centerX" id="R21-Dj-Cq4"/>
+                            <constraint firstItem="P6h-90-6If" firstAttribute="centerX" secondItem="Ux5-T8-DSS" secondAttribute="centerX" id="SP7-2Y-c6k"/>
+                            <constraint firstItem="TkB-hF-5fC" firstAttribute="top" secondItem="EW6-AQ-DRb" secondAttribute="bottom" constant="40" id="UCr-ET-tGY"/>
+                            <constraint firstItem="VKU-It-vBp" firstAttribute="centerX" secondItem="Ux5-T8-DSS" secondAttribute="centerX" id="WSe-zQ-gxc"/>
+                            <constraint firstItem="EW6-AQ-DRb" firstAttribute="top" secondItem="P6h-90-6If" secondAttribute="bottom" constant="5" id="dyo-ea-F3F"/>
                             <constraint firstItem="LB1-4p-fna" firstAttribute="top" secondItem="lgu-o9-JSm" secondAttribute="bottom" constant="142" id="hlO-LG-l3j"/>
+                            <constraint firstItem="TkB-hF-5fC" firstAttribute="centerX" secondItem="Ux5-T8-DSS" secondAttribute="centerX" id="lj6-1c-fZm"/>
                             <constraint firstItem="LB1-4p-fna" firstAttribute="centerX" secondItem="Ux5-T8-DSS" secondAttribute="centerX" id="n4G-RG-2fv"/>
                             <constraint firstAttribute="trailing" secondItem="LB1-4p-fna" secondAttribute="trailing" constant="71" id="raa-aG-asd"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="connectWithSpot" destination="EW6-AQ-DRb" id="0hb-HM-vyQ"/>
+                        <outlet property="spotifyApp" destination="TkB-hF-5fC" id="5DV-GW-fnX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S1m-gQ-BPH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1782" y="-76"/>
+            <point key="canvasLocation" x="-1783.2" y="-76.011994002998506"/>
         </scene>
     </scenes>
     <resources>
