@@ -32,7 +32,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGP-DN-NtE">
                                         <rect key="frame" x="72.5" y="0.0" width="200" height="28"/>
-                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.98431372549019602" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="SkR-BR-Qaz"/>
                                         </constraints>
@@ -75,11 +75,11 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zone_logo_toDrop" translatesAutoresizingMaskIntoConstraints="NO" id="gp9-id-Mah">
-                                <rect key="frame" x="171" y="242.5" width="33" height="33"/>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="drop_pin" translatesAutoresizingMaskIntoConstraints="NO" id="gp9-id-Mah">
+                                <rect key="frame" x="63" y="135" width="68" height="68"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="33" id="gdG-Pk-peh"/>
-                                    <constraint firstAttribute="height" constant="33" id="vCA-dk-eAw"/>
+                                    <constraint firstAttribute="width" constant="30" id="Rc2-RK-gj3"/>
+                                    <constraint firstAttribute="height" constant="30" id="WME-ob-Jxf"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -105,7 +105,7 @@
                     <connections>
                         <outlet property="addSong" destination="e6l-WU-hE5" id="j6C-aG-S8z"/>
                         <outlet property="centerMap" destination="ZGP-DN-NtE" id="U1k-KK-M6u"/>
-                        <outlet property="centerPin" destination="S07-0a-bRp" id="NAg-lq-wR7"/>
+                        <outlet property="centerRadiusPin" destination="gp9-id-Mah" id="sRu-kx-UCd"/>
                         <outlet property="deleteZone" destination="1nh-DD-b8V" id="fpn-TN-J1N"/>
                         <outlet property="mapView" destination="u6n-lR-HdB" id="QEC-fB-rpN"/>
                     </connections>
@@ -208,7 +208,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="105.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yap-aN-j0K">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yap-aN-j0K">
                                             <rect key="frame" x="93" y="39" width="266" height="28"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="28" id="Mxm-rK-UCg"/>
@@ -237,7 +237,7 @@
                                         <constraint firstItem="djR-fU-WYy" firstAttribute="centerY" secondItem="KKS-uk-xtS" secondAttribute="centerY" id="moM-9O-qPa"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <color key="tintColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="albumLogo" destination="djR-fU-WYy" id="EQD-lt-6k3"/>
@@ -453,7 +453,7 @@
     </scenes>
     <resources>
         <image name="download" width="537" height="94"/>
-        <image name="zone_logo_toDrop" width="72" height="72"/>
+        <image name="drop_pin" width="60" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Taa-8i-P4K"/>

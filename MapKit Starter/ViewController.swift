@@ -14,7 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var addSong: UIButton!
     @IBOutlet weak var deleteZone: UIButton!
     @IBOutlet weak var centerMap: UIButton!
-    @IBOutlet weak var centerPin: UIImage!
+    @IBOutlet weak var centerRadiusPin: UIImageView!
+    
     
     let locationManager = CLLocationManager()
     var mapCenterLongitude = 0.0
@@ -44,7 +45,10 @@ class ViewController: UIViewController {
         centerMap.clipsToBounds = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadMapAnn(_:)), name: Notification.Name(rawValue: "reloadMapAnnotations"), object: nil)
-    }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(justAddedNewZoner(_:)), name: Notification.Name(rawValue: "justAddedNewZone"), object: nil)
+        }
+    
     
     func viewWillAppear(){
         super.viewWillAppear(true)
@@ -54,6 +58,16 @@ class ViewController: UIViewController {
     
     @objc func reloadMapAnn(_ notification: Notification) {
         addAnnotations()
+    }
+    
+    @objc func justAddedNewZoner(_ notification: Notification) {
+        addAnnotations()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let span = MKCoordinateSpan(latitudeDelta: (self.mapView?.region.span.latitudeDelta)! * 1.2, longitudeDelta: (self.mapView?.region.span.longitudeDelta)! * 1.2)
+            let region = MKCoordinateRegion(center: (self.mapView?.region.center)!, span: span)
+            
+            self.mapView?.setRegion(region, animated: true)
+        }
     }
     
     //get the user to confirm location access
@@ -98,9 +112,18 @@ class ViewController: UIViewController {
     //zoom in on user's location
     func zoomIn(_ sender: Any?){
         let userLocation = mapView?.userLocation
-        let region = MKCoordinateRegionMakeWithDistance((userLocation?.location?.coordinate)!, 500, 500)
-        mapView?.setRegion(region, animated: true)
-        
+        if userLocation == nil{
+            let alert = UIAlertController(title: "Beatitude can't find your location", message: "Make sure location services are enabled and you're in an area where location updates are possible.", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: true)
+
+        }
+        else{
+            let region = MKCoordinateRegionMakeWithDistance((userLocation?.location?.coordinate)!, 500, 500)
+            mapView?.setRegion(region, animated: true)
+        }
     }
     
 
@@ -123,7 +146,7 @@ extension ViewController: MKMapViewDelegate {
             
         else {
             let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "annotationView") ?? MKAnnotationView()
-            annotationView.image = UIImage(named: "place icon")
+            annotationView.image = UIImage(named: "zone_logo")
             return annotationView
         }
     }

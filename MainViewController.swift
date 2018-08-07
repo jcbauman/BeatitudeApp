@@ -89,7 +89,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
                         currentSong = nextSong
                         //load(trackString: currentSong)
                         MediaPlayer.shared.playTrack(uri: currentSong)
-                        updateCurrentAlbumArt\(image: songImagesInArea[songImagesInArea.count - 1])
+                        updateCurrentAlbumArt(image: songImagesInArea[songImagesInArea.count - 1])
                     }
                 }else{
                     currentlyInZone = false
@@ -121,7 +121,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     func updateZoneStatus(title: String){
         if currentlyInZone == true{
-            zoneStatus.text = String("Current zone: " + title)
+            zoneStatus.text = String("Zone: " + title)
         }else{
              zoneStatus.text = String("You are not currently in a music zone")
         }
