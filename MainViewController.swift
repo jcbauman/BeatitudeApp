@@ -155,13 +155,13 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     func updateZoneStatus(title: String, loading: Bool){
         if currentlyInZone == true{
             if playButton.titleLabel?.text! == "PAUSE"{
-                if loading == true{
-                    zoneStatus.text = String("Loading " + title)
+                if !loading{
+                    zoneStatus.text = String("Loading '" + title + "'")
                 } else {
-                    zoneStatus.text = String(title)
+                    zoneStatus.text = String("'" + title + "'")
                 }
             } else {
-                zoneStatus.text = String("Current Zone: " + title)
+                zoneStatus.text = String("Current Zone: '" + title + "'")
             }
         }else{
              zoneStatus.text = String("You are not currently in a music zone")
