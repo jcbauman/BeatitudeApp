@@ -43,10 +43,8 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.pausesLocationUpdatesAutomatically = false
         do {
             try context.save()
-            print("saved")
         }
         catch{
-            print("couldn't save context, error")
         }
         
         //UI
@@ -139,7 +137,6 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
                 self.showDefaultError()
                 return
             }
-            print("loaded track")
             self.track = track
             self.title = track.name
         }
@@ -169,7 +166,6 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
             //STOP PLAYER
             
             MediaPlayer.shared.pause()
-            print("Stopped Updating")
             playButton.setTitle("PLAY", for: .normal)
             do{
                 //override spotify by playing a popping sound
@@ -179,7 +175,6 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
                 //locationManager.pausesLocationUpdatesAutomatically = true
                 //currentSong = URL(string:"spotify.com")
             }catch{
-                print(error)
             }
         } else {
             //RESUME PLAYER
@@ -192,9 +187,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
                 player.prepareToPlay()
                 player.play()
             }catch{
-                print(error)
             }
-            print("Start Updating")
         }
     }
     

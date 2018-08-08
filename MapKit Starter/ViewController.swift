@@ -138,7 +138,6 @@ class ViewController: UIViewController {
                 
                 if UIApplication.shared.canOpenURL(settingsUrl) {
                     UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
-                        print("Settings opened: \(success)") // Prints true
                     })
                 }
             }
@@ -237,7 +236,6 @@ extension ViewController: MKMapViewDelegate {
             destinationVC.mapCenterLongitude = (mapView?.centerCoordinate.longitude)!
             destinationVC.mapCenterLatitude = (mapView?.centerCoordinate.latitude)!
             let mapSpan = (mapView?.region.span.longitudeDelta)!
-            print(mapSpan)
             destinationVC.mapSpan = mapSpan
         }
         //clear and reload zones

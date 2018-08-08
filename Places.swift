@@ -35,7 +35,6 @@ extension Place: MKAnnotation {}
         do{
             array = try context.fetch(Zones.fetchRequest())
         }catch{
-            print(error)
         }
         
         var places = [Place]()

@@ -48,9 +48,7 @@ class LoginManager {
         guard auth.canHandle(auth.redirectURL) else {return false}
         auth.handleAuthCallback(withTriggeredAuthURL: url, callback: { (error, session) in
             if error != nil {
-                print("error!")
             }
-            print("RECEIVED AUTHORIZATION")
             self.delegate?.loginManagerDidLoginWithSuccess()
             self.preparePlayer()
         })

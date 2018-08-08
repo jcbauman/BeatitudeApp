@@ -38,8 +38,6 @@ class ManageZonesController: UITableViewController{
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        //print("Zone array count = ", zoneArray.count)  REMOVE
         return zoneArray.count
     }
     
@@ -61,7 +59,6 @@ class ManageZonesController: UITableViewController{
         do{
             zoneArray = try context.fetch(Zones.fetchRequest())
         }catch{
-            print(error)
         }
     }
     
@@ -76,7 +73,6 @@ class ManageZonesController: UITableViewController{
                 zoneArray = try context.fetch(Zones.fetchRequest())
             }
             catch{
-                print(error)
             }
             tableView.reloadData()
             NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadMapAnnotations"), object: nil)

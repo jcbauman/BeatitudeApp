@@ -51,11 +51,9 @@ extension LoginViewController: LoginManagerDelegate {
 //    UIApplication.shared.keyWindow?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController.swift")
         DispatchQueue.main.async() {
             self.dismiss(animated: true, completion: nil)
-            print("DISMISSED")
             //self.performSegue(withIdentifier: "loggedIn", sender: self)
             let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
             appDelegate?.logInViewSetup()
-            print("SEGUED")
         }
     }
 }

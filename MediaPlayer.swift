@@ -44,7 +44,6 @@ class MediaPlayer: NSObject {
     func loadTrack(url: String, completion: @escaping (_ track: SPTTrack?, _ error: Error?) -> Void) {
         SPTTrack.track(withURI: URL(string: url), accessToken: LoginManager.shared.auth.session.accessToken, market: nil) { (error, response) in
             completion(response as? SPTTrack, error)
-            print("sah")
         }
     }
     
@@ -118,7 +117,6 @@ extension MediaPlayer: SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDeleg
     }
     
     func audioStreamingDidLogin(_ audioStreaming: SPTAudioStreamingController!) {
-        print("logged in")
     }
     
     func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didStopPlayingTrack trackUri: String!) {

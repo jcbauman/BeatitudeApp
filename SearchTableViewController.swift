@@ -84,16 +84,13 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                 let json = JSON(value)
                 self.accessToken = json["access_token"].stringValue
                 //API call after token obtained
-                print("gotAuth!")
             case .failure(let error):
-                print(error)
             }
         })
     }
     
     //Spotify API call
     func callAlamo(url: String){
-        print(searchURL)
         let headers: HTTPHeaders = [
             "Accept": "application/json",
             "Content-Type": "application/json",
@@ -102,7 +99,6 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         Alamofire.request(url, headers: headers).responseJSON(completionHandler:{
             response in
             self.parseData(JSONData: response.data!)
-            print("sent request")
         })
     }
     
@@ -134,7 +130,6 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                 self.tableView.reloadData()
             }
         }catch{
-            print(error)
         }
         if posts.count == 0{
             loadingLabel.text = "No results, try again"
@@ -142,7 +137,6 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         else{
             loadingLabel.isHidden = true
             loadingBar.isHidden = true
-            print("done")
         }
     }
     
@@ -176,16 +170,13 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         newZone.setValue(posts[indexPath!].previewURL, forKey: "songURI")
         newZone.setValue(posts[indexPath!].name, forKey: "song")
         newZone.setValue(mapCenterLatitude, forKey: "latitude")
-        print(mapCenterLatitude)
         newZone.setValue(mapCenterLongitude, forKey: "longitude")
         newZone.setValue(posts[indexPath!].imageURL, forKey: "imageURL")
         newZone.setValue((mapSpan * 29000.0), forKey: "radius")
         do {
             try context.save()
-            print("saved")
         }
         catch{
-            print("couldn't save context, error!")
         }
         navigationController?.popViewController(animated: true)
         NotificationCenter.default.post(name: Notification.Name(rawValue: "justAddedNewZone"), object: nil)
