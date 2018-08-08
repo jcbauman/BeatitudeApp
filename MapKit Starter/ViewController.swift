@@ -14,8 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var addSong: UIButton!
     @IBOutlet weak var deleteZone: UIButton!
     @IBOutlet weak var centerMap: UIButton!
-    @IBOutlet weak var centerRadiusPin: UIImageView!
     @IBOutlet var infoBox: UIImageView!
+    @IBOutlet weak var centerCircle: UIImageView!
     
     
     let locationManager = CLLocationManager()
@@ -47,6 +47,8 @@ class ViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = infoButton
         navigationItem.rightBarButtonItem?.tintColor = UIColor.yellow
         navigationItem.leftBarButtonItem?.tintColor = UIColor.yellow
+        centerCircle.isHidden = true
+        centerCircle.alpha = 1
         
         //setup Notification observers
         NotificationCenter.default.addObserver(self, selector: #selector(reloadMapAnn(_:)), name: Notification.Name(rawValue: "reloadMapAnnotations"), object: nil)
@@ -56,12 +58,17 @@ class ViewController: UIViewController {
         //infobox tap recognizer
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissInfo))
         infoBox.addGestureRecognizer(tapRecognizer)
+        
+        //center circle guide recognizer
+        let mapTapRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(showCircleGuide))
+            self.mapView?.addGestureRecognizer(mapTapRecognizer)
         }
     
     func viewWillAppear(){
         super.viewWillAppear(true)
         addAnnotations()
         zoomIn(self)
+        centerCircle.isHidden = true
     }
     
     //show help info box
@@ -83,6 +90,21 @@ class ViewController: UIViewController {
             self.infoBox.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
         }){(success: Bool) in
             self.infoBox.removeFromSuperview()
+        }
+    }
+    
+    //show and hide circle guide
+    func showCircleGuide(recognizer: UIPinchGestureRecognizer) {
+        if recognizer.state == .began || recognizer.state == .changed {
+            print("pinching")
+            centerCircle.isHidden = false
+            //centerCircle.alpha = 0
+           // UIImageView.animate(withDuration: 0.5){
+           //     self.centerCircle.alpha = 1
+          //  }
+        } else if recognizer.state == .ended{
+            print("stopped pinching")
+            centerCircle.isHidden = true
         }
     }
     

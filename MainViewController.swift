@@ -114,14 +114,14 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
                 //play latest-added song in list (fixes collision of zones freakout)
                 if songsInArea.count > 0{
                     currentlyInZone = true
-                    updateZoneStatus(title: songTitlesInArea[songTitlesInArea.count - 1], loading: true)
+                    updateZoneStatus(title: songTitlesInArea[songTitlesInArea.count - 1], loading: false)
                     let lastSongAdded = songsInArea[songsInArea.count - 1]
                     let nextSong = lastSongAdded
                     if nextSong != currentSong && playButton.titleLabel?.text! == "PAUSE"{
                         currentSong = nextSong
                         //load(trackString: currentSong)
                         MediaPlayer.shared.playTrack(uri: currentSong)
-                        updateZoneStatus(title: songTitlesInArea[songTitlesInArea.count - 1], loading: false)
+                        updateZoneStatus(title: songTitlesInArea[songTitlesInArea.count - 1], loading: true)
                         updateCurrentAlbumArt(image: songImagesInArea[songImagesInArea.count - 1])
                     }
                 }else{
@@ -155,11 +155,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     func updateZoneStatus(title: String, loading: Bool){
         if currentlyInZone == true{
             if playButton.titleLabel?.text! == "PAUSE"{
-                if !loading{
-                    zoneStatus.text = String("Loading '" + title + "'")
-                } else {
-                    zoneStatus.text = String("'" + title + "'")
-                }
+                zoneStatus.text = String(title)
             } else {
                 zoneStatus.text = String("Current Zone: '" + title + "'")
             }
