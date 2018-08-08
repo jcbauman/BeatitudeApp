@@ -46,6 +46,7 @@ class ViewController: UIViewController {
         let infoButton = UIBarButtonItem(title: "Help", style: .plain, target: self, action: #selector(showInfo))
         self.navigationItem.rightBarButtonItem = infoButton
         navigationItem.rightBarButtonItem?.tintColor = UIColor.yellow
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.yellow
         
         //setup Notification observers
         NotificationCenter.default.addObserver(self, selector: #selector(reloadMapAnn(_:)), name: Notification.Name(rawValue: "reloadMapAnnotations"), object: nil)
@@ -77,7 +78,7 @@ class ViewController: UIViewController {
     
     //hide help info box
     func dismissInfo(recognizer: UITapGestureRecognizer) {
-        UIImageView.animate(withDuration: 0.5, animations: {
+        UIImageView.animate(withDuration: 0.3, animations: {
             self.infoBox.alpha = 0
             self.infoBox.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
         }){(success: Bool) in

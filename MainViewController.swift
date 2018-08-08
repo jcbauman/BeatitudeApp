@@ -24,6 +24,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var editMap: UIButton!
     @IBOutlet weak var zoneStatus: UILabel!
     @IBOutlet weak var albumDisplay: UIImageView!
+    @IBOutlet var infoBox: UIImageView!
     
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -33,8 +34,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        playButton.setTitle("PLAY", for: .normal)
-        albumDisplay.image = UIImage(named: "unnamed")
+        //location updates
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
@@ -59,7 +59,37 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         editMap.clipsToBounds = true;
         albumDisplay.layer.cornerRadius = 10;
         albumDisplay.clipsToBounds = true;
+        playButton.setTitle("PLAY", for: .normal)
+        albumDisplay.image = UIImage(named: "unnamed")
+        let infoButton = UIBarButtonItem(title: "Help", style: .plain, target: self, action: #selector(showInfo))
+        self.navigationItem.rightBarButtonItem = infoButton
+        navigationItem.rightBarButtonItem?.tintColor = UIColor.yellow
+        
+        //infobox tap recognizer
+        let tappyRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissInfoBox))
+        infoBox.addGestureRecognizer(tappyRecognizer)
     
+    }
+    //show help info box
+    @objc func showInfo(){
+        self.view.addSubview(infoBox)
+        infoBox.center = self.view.center
+        infoBox.alpha = 0
+        infoBox.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        UIImageView.animate(withDuration: 0.5){
+            self.infoBox.alpha = 1
+            self.infoBox.transform = CGAffineTransform.identity
+        }
+    }
+    
+    //hide help info box
+    func dismissInfoBox(recognizer: UITapGestureRecognizer) {
+        UIImageView.animate(withDuration: 0.3, animations: {
+            self.infoBox.alpha = 0
+            self.infoBox.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        }){(success: Bool) in
+            self.infoBox.removeFromSuperview()
+        }
     }
     
     //location checker to read zone distances and play songs in area

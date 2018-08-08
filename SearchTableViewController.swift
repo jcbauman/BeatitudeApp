@@ -66,6 +66,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         loadingLabel.font = UIFont(name: "Futura", size: 14)
         self.view.addSubview(loadingLabel)
         loadingLabel.isHidden = true
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.yellow
         
         //get authorization token immediately
         getAlamoAuth()

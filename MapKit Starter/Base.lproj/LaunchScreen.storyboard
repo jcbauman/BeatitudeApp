@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_4726" translatesAutoresizingMaskIntoConstraints="NO" id="fBu-cC-n7q">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="load_screen" translatesAutoresizingMaskIntoConstraints="NO" id="fBu-cC-n7q">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fBu-cC-n7q" secondAttribute="height" multiplier="375:667" id="EHW-SL-9d7"/>
@@ -35,6 +35,10 @@
                             <constraint firstAttribute="trailing" secondItem="fBu-cC-n7q" secondAttribute="trailing" id="EUS-gI-UZa"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="fBu-cC-n7q" secondAttribute="bottom" id="MwS-P2-Xka"/>
                             <constraint firstItem="fBu-cC-n7q" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="QJZ-D5-DE6"/>
+                            <constraint firstAttribute="trailing" secondItem="fBu-cC-n7q" secondAttribute="trailing" id="R6d-iC-6V0"/>
+                            <constraint firstItem="fBu-cC-n7q" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="b3s-hs-CiS"/>
+                            <constraint firstItem="fBu-cC-n7q" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="lVJ-ML-uUl"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="fBu-cC-n7q" secondAttribute="bottom" id="mh9-ol-JOr"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -44,6 +48,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="IMG_4726" width="1242" height="2208"/>
+        <image name="load_screen" width="201" height="357"/>
     </resources>
 </document>

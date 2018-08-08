@@ -349,11 +349,21 @@
                     <connections>
                         <outlet property="albumDisplay" destination="XT1-54-jTp" id="r6Y-uD-Vfo"/>
                         <outlet property="editMap" destination="7kv-12-6yY" id="JBd-jn-UtR"/>
+                        <outlet property="infoBox" destination="6wM-bf-f0C" id="HXS-2H-Zjr"/>
                         <outlet property="playButton" destination="9lf-oc-z3d" id="UIR-Jc-Tj4"/>
                         <outlet property="zoneStatus" destination="xAD-yg-4pp" id="tTT-xT-mf1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sDE-sB-E4M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainInfoView" id="6wM-bf-f0C">
+                    <rect key="frame" x="0.0" y="0.0" width="379" height="654"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="dAK-ok-Vun" appends="YES" id="8T1-MM-unm"/>
+                    </connections>
+                </imageView>
+                <tapGestureRecognizer id="dAK-ok-Vun"/>
             </objects>
             <point key="canvasLocation" x="1788" y="-76.011994002998506"/>
         </scene>
@@ -384,7 +394,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beatitude" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LB1-4p-fna">
                                 <rect key="frame" x="70" y="162" width="234" height="72"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="55"/>
-                                <color key="textColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="1" green="0.98431372549999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TkB-hF-5fC">
@@ -834,6 +844,7 @@ NkJFQklCVEJcQmlCdkKLQpBClEKWQphCmkKjQqhCrkK2QrhCukK8Qr5Cw0LLVDdUOVQ+VExUUFRXVFxU
 aVRsVHlUflSGVIlUjlSWVJlUq1SuVLMAAAAAAAACAQAAAAAAAABZAAAAAAAAAAAAAAAAAABUtQ
 </mutableData>
         </image>
+        <image name="mainInfoView" width="603" height="1073"/>
         <image name="mainViewInfo" width="603" height="1073"/>
     </resources>
     <inferredMetricsTieBreakers>
