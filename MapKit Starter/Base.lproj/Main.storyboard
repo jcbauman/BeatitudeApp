@@ -423,7 +423,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="EW6-AQ-DRb" firstAttribute="leading" secondItem="Ux5-T8-DSS" secondAttribute="leading" constant="35" id="6vv-ee-x2i"/>
                             <constraint firstItem="VKU-It-vBp" firstAttribute="top" secondItem="LB1-4p-fna" secondAttribute="bottom" constant="8" id="9Hy-aA-Y5O"/>
@@ -475,7 +475,6 @@
         <image name="mainViewInfo" width="603" height="1073"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BuW-WV-7pw"/>
         <segue reference="OCm-kf-GQX"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

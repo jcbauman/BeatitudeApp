@@ -68,7 +68,6 @@ class ViewController: UIViewController {
         super.viewWillAppear(true)
         addAnnotations()
         zoomIn(self)
-        centerCircle.isHidden = false
     }
     
     //show help info box
