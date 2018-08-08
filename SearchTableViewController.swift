@@ -85,6 +85,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                 self.accessToken = json["access_token"].stringValue
                 //API call after token obtained
             case .failure(let error):
+                print("error")
             }
         })
     }
