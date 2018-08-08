@@ -47,7 +47,7 @@ class ViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = infoButton
         navigationItem.rightBarButtonItem?.tintColor = UIColor.yellow
         navigationItem.leftBarButtonItem?.tintColor = UIColor.yellow
-        centerCircle.isHidden = true
+        centerCircle.isHidden = false
         centerCircle.alpha = 1
         
         //setup Notification observers
@@ -60,7 +60,7 @@ class ViewController: UIViewController {
         infoBox.addGestureRecognizer(tapRecognizer)
         
         //center circle guide recognizer
-        let mapTapRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(showCircleGuide))
+        let mapTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(showCircleGuide))
             self.mapView?.addGestureRecognizer(mapTapRecognizer)
         }
     
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
         super.viewWillAppear(true)
         addAnnotations()
         zoomIn(self)
-        centerCircle.isHidden = true
+        centerCircle.isHidden = false
     }
     
     //show help info box
@@ -94,18 +94,16 @@ class ViewController: UIViewController {
     }
     
     //show and hide circle guide
-    func showCircleGuide(recognizer: UIPinchGestureRecognizer) {
-        if recognizer.state == .began || recognizer.state == .changed {
-            print("pinching")
+    func showCircleGuide(recognizer: UITapGestureRecognizer) {
+        if centerCircle.isHidden{
             centerCircle.isHidden = false
-            //centerCircle.alpha = 0
-           // UIImageView.animate(withDuration: 0.5){
-           //     self.centerCircle.alpha = 1
-          //  }
-        } else if recognizer.state == .ended{
-            print("stopped pinching")
-            centerCircle.isHidden = true
-        }
+            centerCircle.alpha = 0
+            UIImageView.animate(withDuration: 0.5){
+                self.centerCircle.alpha = 1
+            }
+        } else {
+                centerCircle.isHidden = true
+            }
     }
     
     //reload map annotations

@@ -28,7 +28,7 @@
                                 <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </mapView>
-                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Zone-select" translatesAutoresizingMaskIntoConstraints="NO" id="u5O-dA-kQO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Zone-select" translatesAutoresizingMaskIntoConstraints="NO" id="u5O-dA-kQO">
                                 <rect key="frame" x="37" y="109" width="304" height="304"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="u5O-dA-kQO" secondAttribute="height" multiplier="1:1" id="2ml-D1-mwJ"/>
