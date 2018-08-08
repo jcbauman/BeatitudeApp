@@ -57,6 +57,8 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         playButton.clipsToBounds = true;
         editMap.layer.cornerRadius = 10;
         editMap.clipsToBounds = true;
+        albumDisplay.layer.cornerRadius = 10;
+        albumDisplay.clipsToBounds = true;
     
     }
     

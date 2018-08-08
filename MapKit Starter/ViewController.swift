@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var deleteZone: UIButton!
     @IBOutlet weak var centerMap: UIButton!
     @IBOutlet weak var centerRadiusPin: UIImageView!
+    @IBOutlet var infoBox: UIImageView!
     
     
     let locationManager = CLLocationManager()
@@ -27,7 +28,6 @@ class ViewController: UIViewController {
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
-        
         //populate map
         super.viewDidLoad()
         requestLocationAccess()
@@ -43,12 +43,19 @@ class ViewController: UIViewController {
         deleteZone.clipsToBounds = true;
         centerMap.layer.cornerRadius = 10;
         centerMap.clipsToBounds = true
+        let infoButton = UIBarButtonItem(title: "Help", style: .plain, target: self, action: #selector(showInfo))
+        self.navigationItem.rightBarButtonItem = infoButton
+        navigationItem.rightBarButtonItem?.tintColor = UIColor.yellow
         
+        //setup Notification observers
         NotificationCenter.default.addObserver(self, selector: #selector(reloadMapAnn(_:)), name: Notification.Name(rawValue: "reloadMapAnnotations"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(justAddedNewZoner(_:)), name: Notification.Name(rawValue: "justAddedNewZone"), object: nil)
+        
+        //infobox tap recognizer
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissInfo))
+        infoBox.addGestureRecognizer(tapRecognizer)
         }
-    
     
     func viewWillAppear(){
         super.viewWillAppear(true)
@@ -56,13 +63,37 @@ class ViewController: UIViewController {
         zoomIn(self)
     }
     
+    //show help info box
+    @objc func showInfo(){
+       self.view.addSubview(infoBox)
+        infoBox.center = self.view.center
+        infoBox.alpha = 0
+        infoBox.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        UIImageView.animate(withDuration: 0.5){
+            self.infoBox.alpha = 1
+            self.infoBox.transform = CGAffineTransform.identity
+        }
+    }
+    
+    //hide help info box
+    func dismissInfo(recognizer: UITapGestureRecognizer) {
+        UIImageView.animate(withDuration: 0.5, animations: {
+            self.infoBox.alpha = 0
+            self.infoBox.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        }){(success: Bool) in
+            self.infoBox.removeFromSuperview()
+        }
+    }
+    
+    //reload map annotations
     @objc func reloadMapAnn(_ notification: Notification) {
         addAnnotations()
     }
     
+    //reload map annotations and animate map
     @objc func justAddedNewZoner(_ notification: Notification) {
         addAnnotations()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             let span = MKCoordinateSpan(latitudeDelta: (self.mapView?.region.span.latitudeDelta)! * 1.2, longitudeDelta: (self.mapView?.region.span.longitudeDelta)! * 1.2)
             let region = MKCoordinateRegion(center: (self.mapView?.region.center)!, span: span)
             
@@ -77,7 +108,7 @@ class ViewController: UIViewController {
         case .authorizedAlways, .authorizedWhenInUse:
             return
         case .denied, .restricted:
-            print("location access denied, what gives!")
+            print("location access denied")
         default:
             locationManager.requestWhenInUseAuthorization()
         }
@@ -95,8 +126,8 @@ class ViewController: UIViewController {
         mapCenterLatitude = (mapView?.centerCoordinate.latitude)!
     }
     
+    //clear and reload zones annotations
     func addAnnotations(){
-        //clear and reload zones
         self.mapView?.removeAnnotations((self.mapView?.annotations)!)
         let overlays = self.mapView?.overlays
         self.mapView?.removeOverlays(overlays!)
@@ -151,7 +182,7 @@ extension ViewController: MKMapViewDelegate {
         }
     }
     
-    //overlay UI elements
+    //zone overlay UI elements
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKCircleRenderer(overlay: overlay)
         renderer.fillColor = UIColor.black.withAlphaComponent(0.1)
@@ -160,6 +191,7 @@ extension ViewController: MKMapViewDelegate {
         return renderer
     }
     
+    //transition to Spotify search with "Add Song"
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "searchSpotifySegue" {
             let destinationVC : SearchTableViewController = segue.destination as! SearchTableViewController
