@@ -114,18 +114,19 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
                 //play latest-added song in list (fixes collision of zones freakout)
                 if songsInArea.count > 0{
                     currentlyInZone = true
-                    updateZoneStatus(title: songTitlesInArea[songTitlesInArea.count - 1])
+                    updateZoneStatus(title: songTitlesInArea[songTitlesInArea.count - 1], loading: true)
                     let lastSongAdded = songsInArea[songsInArea.count - 1]
                     let nextSong = lastSongAdded
                     if nextSong != currentSong && playButton.titleLabel?.text! == "PAUSE"{
                         currentSong = nextSong
                         //load(trackString: currentSong)
                         MediaPlayer.shared.playTrack(uri: currentSong)
+                        updateZoneStatus(title: songTitlesInArea[songTitlesInArea.count - 1], loading: false)
                         updateCurrentAlbumArt(image: songImagesInArea[songImagesInArea.count - 1])
                     }
                 }else{
                     currentlyInZone = false
-                    updateZoneStatus(title: "")
+                    updateZoneStatus(title: "", loading: true)
                 }
             }
     }
@@ -151,9 +152,17 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         albumDisplay.image = mainImage
     }
     
-    func updateZoneStatus(title: String){
+    func updateZoneStatus(title: String, loading: Bool){
         if currentlyInZone == true{
-            zoneStatus.text = String("Zone: " + title)
+            if playButton.titleLabel?.text! == "PAUSE"{
+                if loading == true{
+                    zoneStatus.text = String("Loading " + title)
+                } else {
+                    zoneStatus.text = String(title)
+                }
+            } else {
+                zoneStatus.text = String("Current Zone: " + title)
+            }
         }else{
              zoneStatus.text = String("You are not currently in a music zone")
         }

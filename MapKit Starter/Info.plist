@@ -42,7 +42,7 @@
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Beatitude needs your location to update music in the background.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Beatitude needs your location to experience the geographic playlists.</string>
+	<string>Beatitude needs your location to experience geographic playlists.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>

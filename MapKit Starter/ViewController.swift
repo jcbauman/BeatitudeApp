@@ -109,7 +109,25 @@ class ViewController: UIViewController {
         case .authorizedAlways, .authorizedWhenInUse:
             return
         case .denied, .restricted:
-            print("location access denied")
+            //if location access is denied
+            let alertController = UIAlertController (title: "Please Allow Location Updates", message: "You are not able to experience location-based music without letting Beatitude access your current location.", preferredStyle: .alert)
+            
+            let settingsAction = UIAlertAction(title: "Go to Settings", style: .default) { (_) -> Void in
+                guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else {
+                    return
+                }
+                
+                if UIApplication.shared.canOpenURL(settingsUrl) {
+                    UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                        print("Settings opened: \(success)") // Prints true
+                    })
+                }
+            }
+            alertController.addAction(settingsAction)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            alertController.addAction(cancelAction)
+            
+            present(alertController, animated: true, completion: nil)
         default:
             locationManager.requestWhenInUseAuthorization()
         }
@@ -143,6 +161,7 @@ class ViewController: UIViewController {
     
     //zoom in on user's location
     func zoomIn(_ sender: Any?){
+        requestLocationAccess()
         let userLocation = mapView?.userLocation
         if userLocation == nil{
             let alert = UIAlertController(title: "Beatitude can't find your location", message: "Make sure location services are enabled and you're in an area where location updates are possible.", preferredStyle: .alert)

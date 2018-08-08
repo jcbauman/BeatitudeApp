@@ -14,7 +14,7 @@ class LoginViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        connectWithSpot.layer.cornerRadius = 32;
+        connectWithSpot.layer.cornerRadius = 30;
         connectWithSpot.clipsToBounds = true;
         
         LoginManager.shared.delegate = self
