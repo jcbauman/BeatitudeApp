@@ -19,6 +19,7 @@
 		3D9625462116094200C5C939 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9625452116094200C5C939 /* LoginViewController.swift */; };
 		3D962548211694F700C5C939 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D962547211694F700C5C939 /* LoginManager.swift */; };
 		3D96254A2117893B00C5C939 /* MediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9625492117893B00C5C939 /* MediaPlayer.swift */; };
+		3D96256F211CAB9F00C5C939 /* MainInfoPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D96256E211CAB9F00C5C939 /* MainInfoPopup.swift */; };
 		3DB48D342113C2F300A0C30C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB48D332113C2F300A0C30C /* MainViewController.swift */; };
 		3DB48D3721140E9300A0C30C /* Pop.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 3DB48D3621140E9300A0C30C /* Pop.aiff */; };
 		AF8BE9861DBF9A4B004A4C0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8BE9851DBF9A4B004A4C0A /* AppDelegate.swift */; };
@@ -44,6 +45,7 @@
 		3D9625452116094200C5C939 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3D962547211694F700C5C939 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		3D9625492117893B00C5C939 /* MediaPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayer.swift; sourceTree = "<group>"; };
+		3D96256E211CAB9F00C5C939 /* MainInfoPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfoPopup.swift; sourceTree = "<group>"; };
 		3DB48D332113C2F300A0C30C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3DB48D3621140E9300A0C30C /* Pop.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Pop.aiff; sourceTree = "<group>"; };
 		6D9D28B2C38C848C0BEEE852 /* Pods-Beatitude.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beatitude.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Beatitude/Pods-Beatitude.debug.xcconfig"; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				3D9625452116094200C5C939 /* LoginViewController.swift */,
 				3D962547211694F700C5C939 /* LoginManager.swift */,
 				3DB48D332113C2F300A0C30C /* MainViewController.swift */,
+				3D96256E211CAB9F00C5C939 /* MainInfoPopup.swift */,
 				AF8BE9871DBF9A4B004A4C0A /* ViewController.swift */,
 				3D9625492117893B00C5C939 /* MediaPlayer.swift */,
 				3D59CBC52110F7BD00AD5D7F /* SearchTableViewController.swift */,
@@ -285,6 +288,7 @@
 				3D96254A2117893B00C5C939 /* MediaPlayer.swift in Sources */,
 				3DB48D342113C2F300A0C30C /* MainViewController.swift in Sources */,
 				3D06A40F2107E42E00A3797E /* MusicZones.xcdatamodeld in Sources */,
+				3D96256F211CAB9F00C5C939 /* MainInfoPopup.swift in Sources */,
 				3D962548211694F700C5C939 /* LoginManager.swift in Sources */,
 				AFC772561DBFA22C0062D617 /* Places.swift in Sources */,
 				3D9625462116094200C5C939 /* LoginViewController.swift in Sources */,

@@ -62,33 +62,17 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         let infoButton = UIBarButtonItem(title: "Help", style: .plain, target: self, action: #selector(showInfo))
         self.navigationItem.rightBarButtonItem = infoButton
         navigationItem.rightBarButtonItem?.tintColor = UIColor.yellow
-        
-        //infobox tap recognizer
-        let tappyRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissInfoBox))
-        infoBox.addGestureRecognizer(tappyRecognizer)
     
     }
     //show help info box
     @objc func showInfo(){
-        self.view.addSubview(infoBox)
-        infoBox.center = self.view.center
-        infoBox.alpha = 0
-        infoBox.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-        UIImageView.animate(withDuration: 0.5){
-            self.infoBox.alpha = 1
-            self.infoBox.transform = CGAffineTransform.identity
-        }
+        let infoBox = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainInfoPopup") as! MainInfoPopup
+        self.addChildViewController(infoBox)
+        infoBox.view.frame = self.view.frame
+        self.view.addSubview(infoBox.view)
+        infoBox.didMove(toParentViewController: self)
     }
-    
-    //hide help info box
-    func dismissInfoBox(recognizer: UITapGestureRecognizer) {
-        UIImageView.animate(withDuration: 0.3, animations: {
-            self.infoBox.alpha = 0
-            self.infoBox.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-        }){(success: Bool) in
-            self.infoBox.removeFromSuperview()
-        }
-    }
+
     
     //location checker to read zone distances and play songs in area
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

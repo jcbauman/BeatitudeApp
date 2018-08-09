@@ -39,8 +39,8 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Beatitude needs your location to update music in the background.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Beatitude requires background location updates to play music in the background.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Beatitude needs your location to experience geographic playlists.</string>
 	<key>UIBackgroundModes</key>

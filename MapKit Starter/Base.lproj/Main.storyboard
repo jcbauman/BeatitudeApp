@@ -207,10 +207,10 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LPS-5s-TC5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="separatorColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="sectionIndexBackgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="106" id="GlJ-JU-5ll" customClass="SongEditorTableViewCell" customModule="Beatitude" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="106"/>
@@ -225,7 +225,7 @@
                                                 <constraint firstAttribute="height" constant="28" id="Mxm-rK-UCg"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                            <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" red="1" green="0.98431372549999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="djR-fU-WYy">
@@ -248,7 +248,7 @@
                                         <constraint firstItem="djR-fU-WYy" firstAttribute="centerY" secondItem="KKS-uk-xtS" secondAttribute="centerY" id="moM-9O-qPa"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="albumLogo" destination="djR-fU-WYy" id="EQD-lt-6k3"/>
@@ -287,19 +287,19 @@
                                 <rect key="frame" x="16" y="84" width="343" height="563"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XT1-54-jTp">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="338.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="338"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="XT1-54-jTp" secondAttribute="height" multiplier="343:338" id="hb1-B4-gyu"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are not currently in a zone" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAD-yg-4pp">
-                                        <rect key="frame" x="0.0" y="360.5" width="343" height="28"/>
+                                        <rect key="frame" x="0.0" y="360" width="343" height="27.5"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                         <color key="textColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lf-oc-z3d">
-                                        <rect key="frame" x="0.0" y="410.5" width="343" height="67.5"/>
+                                        <rect key="frame" x="0.0" y="409.5" width="343" height="68"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                         <state key="normal" title="PLAY">
@@ -311,7 +311,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kv-12-6yY">
-                                        <rect key="frame" x="0.0" y="500" width="343" height="63"/>
+                                        <rect key="frame" x="0.0" y="499.5" width="343" height="63.5"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                         <state key="normal" title="EDIT MAP">
@@ -382,20 +382,6 @@
                                 <color key="textColor" red="1" green="0.98431372549999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TkB-hF-5fC">
-                                <rect key="frame" x="123.5" y="559" width="128" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="128" id="X6L-BF-KS0"/>
-                                    <constraint firstAttribute="height" constant="31" id="pqB-hx-tV8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
-                                <state key="normal" title="Get the Spotify App">
-                                    <color key="titleColor" red="0.01176470588" green="0.73333333329999995" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="openSpotifyApp:" destination="bA7-Qn-8ab" eventType="touchUpInside" id="7mj-VK-gQJ"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create geographic musical experiences" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKU-It-vBp">
                                 <rect key="frame" x="16" y="242" width="343" height="19.5"/>
                                 <constraints>
@@ -406,7 +392,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Link your Spotify Premium account to get started." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6h-90-6If">
-                                <rect key="frame" x="65.5" y="378" width="244.5" height="14.5"/>
+                                <rect key="frame" x="65.5" y="378.5" width="244.5" height="14.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="11"/>
                                 <color key="textColor" red="0.01176470588" green="0.73333333329999995" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -420,6 +406,20 @@
                                 <connections>
                                     <action selector="connectPressed:" destination="bA7-Qn-8ab" eventType="touchUpInside" id="nE5-lG-ZgA"/>
                                     <segue destination="81g-mZ-TuU" kind="show" identifier="loggedIn" id="EMh-bX-kM1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TkB-hF-5fC">
+                                <rect key="frame" x="101" y="560" width="172" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="X6L-BF-KS0"/>
+                                    <constraint firstAttribute="height" constant="31" id="pqB-hx-tV8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                <state key="normal" title="Get the Spotify App">
+                                    <color key="titleColor" red="0.01176470588" green="0.73333333329999995" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="openSpotifyApp:" destination="bA7-Qn-8ab" eventType="touchUpInside" id="7mj-VK-gQJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -466,6 +466,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TH6-l3-KsT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="848.79999999999995" y="-76.011994002998506"/>
+        </scene>
+        <!--mainInfoPopup-->
+        <scene sceneID="As7-Vy-kdn">
+            <objects>
+                <viewController storyboardIdentifier="mainInfoPopup" title="mainInfoPopup" id="1AN-TT-ZzC" customClass="MainInfoPopup" customModule="Beatitude" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w9S-sA-ssP"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Qn-3z-OhI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tNB-ZM-q5z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainInfoView" translatesAutoresizingMaskIntoConstraints="NO" id="zXy-gq-OLZ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="dGs-TX-shN" appends="YES" id="aTi-fd-sqB"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zXy-gq-OLZ" firstAttribute="top" secondItem="w9S-sA-ssP" secondAttribute="bottom" constant="-20" id="6f7-p6-Vpz"/>
+                            <constraint firstItem="zXy-gq-OLZ" firstAttribute="centerY" secondItem="tNB-ZM-q5z" secondAttribute="centerY" id="HOv-Yd-rbb"/>
+                            <constraint firstAttribute="trailing" secondItem="zXy-gq-OLZ" secondAttribute="trailing" id="LEM-4q-hAr"/>
+                            <constraint firstItem="0Qn-3z-OhI" firstAttribute="top" secondItem="zXy-gq-OLZ" secondAttribute="bottom" id="PMY-bo-TBd"/>
+                            <constraint firstItem="zXy-gq-OLZ" firstAttribute="leading" secondItem="tNB-ZM-q5z" secondAttribute="leading" id="cN2-bf-bzg"/>
+                            <constraint firstItem="zXy-gq-OLZ" firstAttribute="centerX" secondItem="tNB-ZM-q5z" secondAttribute="centerX" id="qle-Sv-8ez"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1sf-5v-QMo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="dGs-TX-shN"/>
+            </objects>
+            <point key="canvasLocation" x="1788" y="677.81109445277366"/>
+        </scene>
+        <!--mainInfoPopup-->
+        <scene sceneID="iUz-Qi-h6X">
+            <objects>
+                <viewController storyboardIdentifier="mapInfoPopup" title="mainInfoPopup" id="tFZ-fc-wQX" customClass="MainInfoPopup" customModule="Beatitude" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Be8-pq-91s"/>
+                        <viewControllerLayoutGuide type="bottom" id="sRF-e2-fFf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Z2k-d1-Y5H">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainViewInfo" translatesAutoresizingMaskIntoConstraints="NO" id="ppr-l1-0mf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="MFm-OC-C6T" appends="YES" id="gQB-OP-xOP"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ppr-l1-0mf" firstAttribute="leading" secondItem="Z2k-d1-Y5H" secondAttribute="leading" id="Lvn-zo-yZq"/>
+                            <constraint firstItem="sRF-e2-fFf" firstAttribute="top" secondItem="ppr-l1-0mf" secondAttribute="bottom" id="Y2z-77-icH"/>
+                            <constraint firstItem="ppr-l1-0mf" firstAttribute="centerX" secondItem="Z2k-d1-Y5H" secondAttribute="centerX" id="Yq8-5d-hnw"/>
+                            <constraint firstItem="ppr-l1-0mf" firstAttribute="top" secondItem="Be8-pq-91s" secondAttribute="bottom" constant="-20" id="fQC-io-B8S"/>
+                            <constraint firstAttribute="trailing" secondItem="ppr-l1-0mf" secondAttribute="trailing" id="mIh-Nj-cOL"/>
+                            <constraint firstItem="ppr-l1-0mf" firstAttribute="centerY" secondItem="Z2k-d1-Y5H" secondAttribute="centerY" id="yUG-jO-N1o"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dpq-ig-2Fg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="MFm-OC-C6T"/>
+            </objects>
+            <point key="canvasLocation" x="2614" y="889"/>
         </scene>
     </scenes>
     <resources>

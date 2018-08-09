@@ -55,10 +55,6 @@ class ViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(justAddedNewZoner(_:)), name: Notification.Name(rawValue: "justAddedNewZone"), object: nil)
         
-        //infobox tap recognizer
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissInfo))
-        infoBox.addGestureRecognizer(tapRecognizer)
-        
         //center circle guide recognizer
         let mapTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(showCircleGuide))
             self.mapView?.addGestureRecognizer(mapTapRecognizer)
@@ -72,24 +68,11 @@ class ViewController: UIViewController {
     
     //show help info box
     @objc func showInfo(){
-       self.view.addSubview(infoBox)
-        infoBox.center = self.view.center
-        infoBox.alpha = 0
-        infoBox.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-        UIImageView.animate(withDuration: 0.5){
-            self.infoBox.alpha = 1
-            self.infoBox.transform = CGAffineTransform.identity
-        }
-    }
-    
-    //hide help info box
-    func dismissInfo(recognizer: UITapGestureRecognizer) {
-        UIImageView.animate(withDuration: 0.3, animations: {
-            self.infoBox.alpha = 0
-            self.infoBox.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-        }){(success: Bool) in
-            self.infoBox.removeFromSuperview()
-        }
+        let infoBox = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mapInfoPopup") as! MainInfoPopup
+        self.addChildViewController(infoBox)
+        infoBox.view.frame = self.view.frame
+        self.view.addSubview(infoBox.view)
+        infoBox.didMove(toParentViewController: self)
     }
     
     //show and hide circle guide
